@@ -50,6 +50,8 @@ LINKER=ifort
 LINKFLAGS=-nofor-main -lm -lpthread -lrt -lstdc++
 endif
 
+BINARIES=$(SYS)_arpackformps
+
 all: arpackformps
 obj: object
 mlink: mathlink
@@ -67,8 +69,7 @@ mathlink: mathematicatemplate.tm
 	${MPREP} $? -o $@
 
 arpackformps: mathematicatemplatetm.o arpackformps.o FortranArpackDriver.o
-	${LINKER} ${EXTRA_CFLAGS} -I${INCDIR} mathematicatemplatetm.o arpackformps.o FortranArpackDriver.o ${LINKFLAGS} -L${LIBDIR}  -L${ARPACKDIR} -l${ARPACKlibb} -l${MLINKLIB} -o $@
-	cp arpackformps $(SYS)/.
+	${LINKER} ${EXTRA_CFLAGS} -I${INCDIR} mathematicatemplatetm.o arpackformps.o FortranArpackDriver.o ${LINKFLAGS} -L${LIBDIR}  -L${ARPACKDIR} -l${ARPACKlibb} -l${MLINKLIB} -o $@_$(SYS)
 
 mathematicatemplatetm.c: mathematicatemplate.tm 
 	${MPREP} $? -o $@
