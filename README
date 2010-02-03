@@ -1,0 +1,5 @@
+This is the readme file. 
+
+The structure that I am aiming for is having a MathMPS.m file that is 
+loaded into a Mathematica Notebook, and the arpackformps executable
+that is loaded as long as the file is in the same directory.
