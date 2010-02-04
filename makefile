@@ -50,7 +50,8 @@ LINKER=ifort
 LINKFLAGS=-nofor-main -lm -lpthread -lrt -lstdc++
 endif
 
-BINARIES=$(SYS)_arpackformps
+BINARIES=arpackformps_$(SYS)
+DIR=.
 
 all: arpackformps
 obj: object
@@ -58,7 +59,7 @@ mlink: mathlink
 exec: executable
 test: secondtest
 debug: secondtestdebug
-
+install: installtodir
 
 #--------  HERE START THE USEFUL BITS
 
@@ -83,6 +84,9 @@ arpackformps.o: arpackformps.cpp
 mathematicatemplatetm.o : mathematicatemplatetm.c
 	${CC} -c ${EXTRA_CFLAGS} -I${INCDIR} mathematicatemplatetm.c
 
+install:
+	cp arpackformps_$(SYS) $(DIR)
+	cp MPS.m $(DIR)
 
 clean :
 	@ ${RM} -rf *.o *tm.c $(BINARIES)
