@@ -180,29 +180,32 @@ Chop[norm]==0
 
 ClearAll[MPSSave];
 SetAttributes[MPSSave,HoldFirst];
-MPSSave[MPS_,filename_]:=Module[{numSites,spin,\[Chi]},
+MPSSave[MPS_,filename_]:=Module[{numSites,spin},
 numSites=Length[MPS];
 spin=Length[MPS[[1]]];
-\[Chi]=Length[MPS[[1,1]]];
-Export[filename<>".info",{numSites,spin,\[Chi]},"Table"];
+Export[filename<>".info",{numSites,spin},"Table"];
 Do[
 Do[
 Export[filename<>"."<>ToString[n]<>"."<>ToString[s]<>".dat",MPS[[n,s]],"Table"]
 ,{s,1,spin}];
-,{n,1,numSites}]
+,{n,1,numSites}];
+Run["tar -czf "<>filename<>".MPSz "<>filename<>".*.dat "<>filename<>".info"];
+Run["rm "<>filename<>"*.dat "<>filename<>".info"]
 ]
 
 
 ClearAll[MPSRead];
 MPSRead[filename_]:=Module[{MPS,numSites,spin,\[Chi],info},
+Run["tar -zx "<>filename<>".MPSz"];
 info=Flatten[Import[filename<>".info","Table"]];
-{numSites,spin,\[Chi]}=info;
-MPS=MPSProductState[numSites,Spin->spin,BondDimension->\[Chi]];
+{numSites,spin}=info;
+MPS={};
 Do[
-MPS[[n]]=SparseArray[Table[
+MPS=Append[MPS,SparseArray[Table[
 Import[filename<>"."<>ToString[n]<>"."<>ToString[s]<>".dat","Table"]
-,{s,1,spin}]];
+,{s,1,spin}]]];
 ,{n,1,numSites}];
+Run["rm "<>filename<>"*.dat "<>filename<>".info"];
 MPS
 ]
 
@@ -272,7 +275,7 @@ sweep+=0.5;
 If[Abs[(energy-prevEnergy)/energy]<tol,stillconverging=False,prevEnergy=energy];
 ];
 If[verbose,NotebookDelete[message]];
-If[Total[Abs[#[[2]]]&/@energyList]>0,Print["Arpack error reported:"];Print[#[[2]]&/@energyList]];
+If[Total[Abs[#[[2]]]&/@energyList]>0,Print["Arpack error reported:"];Print[Cases[#[[2]]&/@energyList,Except[0]]];
 #[[1]]&/@energyList
 ]
 
