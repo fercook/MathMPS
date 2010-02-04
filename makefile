@@ -86,7 +86,7 @@ mathematicatemplatetm.o : mathematicatemplatetm.c
 install:
 	cp arpackformps_$(SYS) $(DIR)
 	cp MPS.m $(DIR)
-        cp Loop.m $(DIR)
+	cp Loop.m $(DIR)
 
 clean :
 	@ ${RM} -rf *.o *tm.c $(BINARIES)
