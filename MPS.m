@@ -364,7 +364,7 @@ ForceUseInternalRoutine=False;
 EstablishLink[LINK_]:=(
 ClearLink[LINK];
 ClearAll[FindGroundMPSSite,IsLinkActive];
-If[Length[Links["*arpackformps"]]==0,LINK=Install[NotebookDirectory[]<>"arpackformps_"<>$SystemID]];
+If[Length[Links["*arpackformps"]]==0,LINK=Install["arpackformps_"<>$SystemID]];
 If[LINK==$Failed||ForceUseInternalRoutine,
 SetAttributes[FindGroundMPSSite,HoldAll];
 FindGroundMPSSite[A_,DLeft_,DRight_,hLeft_,hRight_,vLeft_,vRight_,Ham_]:=FindGroundMPSSiteManual[A,DLeft,DRight,hLeft,hRight,vLeft,vRight,Ham]

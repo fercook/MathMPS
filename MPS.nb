@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       145,          7]
-NotebookDataLength[    118786,       2854]
-NotebookOptionsPosition[    114601,       2706]
-NotebookOutlinePosition[    114991,       2723]
-CellTagsIndexPosition[    114948,       2720]
+NotebookDataLength[    118760,       2853]
+NotebookOptionsPosition[    114575,       2705]
+NotebookOutlinePosition[    114965,       2722]
+CellTagsIndexPosition[    114922,       2719]
 WindowFrame->Normal
 ContainsDynamic->False*)
 
@@ -2656,10 +2656,8 @@ Cell[BoxData[
          "0"}], ",", 
         RowBox[{"LINK", "=", 
          RowBox[{"Install", "[", 
-          RowBox[{
-           RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
-           "\"\<arpackformps_\>\"", "<>", "$SystemID"}], "]"}]}]}], "]"}], 
-      ";", "\[IndentingNewLine]", 
+          RowBox[{"\"\<arpackformps_\>\"", "<>", "$SystemID"}], "]"}]}]}], 
+       "]"}], ";", "\[IndentingNewLine]", 
       RowBox[{"If", "[", 
        RowBox[{
         RowBox[{
@@ -2680,7 +2678,8 @@ Cell[BoxData[
              "vLeft", ",", "vRight", ",", "Ham"}], "]"}]}]}]}], 
        "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", ")"}]}], 
    ";"}]}]], "Input",
- InitializationCell->True],
+ InitializationCell->True,
+ CellChangeTimes->{3.4743048932237263`*^9}],
 
 Cell[BoxData[
  RowBox[{
@@ -2844,15 +2843,15 @@ Cell[107297, 2555, 187, 3, 27, "Output"]
 }, Open  ]],
 Cell[107499, 2561, 4662, 72, 103, "Input",
  InitializationCell->True],
-Cell[112164, 2635, 1880, 47, 163, "Input",
+Cell[112164, 2635, 1854, 46, 163, "Input",
  InitializationCell->True],
-Cell[114047, 2684, 180, 4, 27, "Input",
+Cell[114021, 2683, 180, 4, 27, "Input",
  InitializationCell->True]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[114276, 2694, 99, 1, 67, "Section"],
-Cell[114378, 2697, 195, 5, 27, "Input",
+Cell[114250, 2693, 99, 1, 67, "Section"],
+Cell[114352, 2696, 195, 5, 27, "Input",
  InitializationCell->True]
 }, Open  ]]
 }, Open  ]]

@@ -62,14 +62,14 @@ J=nJ*\[Delta]J+Jini;
 HMatrix=Table[Table[Piecewise[{{\[Mu],n==m},{If[\[Alpha]==3,1.0,J]/Abs[n-m]^3,Abs[n-m]<=intrange}}],{n,1,length},{m,1,length}],{\[Alpha],1,3}];
 (* Compute ground state *)
 If[({tim,energ}=AbsoluteTiming[MPSMinimizeEnergy[mymps,HMatrix,Verbose->False,InteractionRange->intrange]])==$Aborted,EstablishLink[link]];
-Pause[0.5];
+Pause[3];
 (* Print out status *)
 Print["(J,mu):"<>ToString[{J,\[Mu]}]<>" -- Last compute time: "<>ToString[tim]<>" -- energy: "<>ToString[Last[energ]]];
 (* Save and continue *)
 MPSSave[mymps,outputfile<>".mu."<>ToString[\[Mu]]<>".J."<>ToString[J]];
 ,{nJ,0,Jpoints,1}];
 ,{n\[Mu],0,\[Mu]points,1}]
-,{\[Mu],J,tim,Last[energ]}];
+,{\[Mu],J,tim,Last[energ],MemoryInUse[]/(1024 1024.)}];
 Print["Finished all"];
 
 
