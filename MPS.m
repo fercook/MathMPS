@@ -173,7 +173,6 @@ Sum[ConjugateTranspose[mps[[site,s]]].mps[[site,s]],{s,1,spin}]-IdentityMatrix[L
 ]
 ],Infinity]
 ,{site,1,checksite-1}];
-
 Chop[norm]==0
 ]
 
@@ -275,7 +274,7 @@ sweep+=0.5;
 If[Abs[(energy-prevEnergy)/energy]<tol,stillconverging=False,prevEnergy=energy];
 ];
 If[verbose,NotebookDelete[message]];
-If[Total[Abs[#[[2]]]&/@energyList]>0,Print["Arpack error reported:"];Print[Cases[#[[2]]&/@energyList,Except[0]]];
+If[Total[Abs[#[[2]]]&/@energyList]>0,Print["Arpack error reported:"];Print[Cases[#[[2]]&/@energyList,Except[0]]]];
 #[[1]]&/@energyList
 ]
 
