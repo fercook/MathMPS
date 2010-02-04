@@ -59,7 +59,6 @@ mlink: mathlink
 exec: executable
 test: secondtest
 debug: secondtestdebug
-install: installtodir
 
 #--------  HERE START THE USEFUL BITS
 
