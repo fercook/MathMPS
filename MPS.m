@@ -68,7 +68,7 @@ condition[i_,j_,n_]:=True;
 {Table[SparseArray[Table[coeffList[[i,j,1,n]],{i,1,1},{j,1,\[Chi]}]],{n,1,spin}]}~Join~Table[
 Table[SparseArray[Table[coeffList[[i,j,k,n]],{i,1,\[Chi]},{j,1,\[Chi]}]],{n,1,spin}],
 {k,2,numTensors-1}]~Join~{Table[SparseArray[Table[coeffList[[i,j,numTensors,n]],{i,1,\[Chi]},{j,1,1}]],{n,1,spin}]}
-]
+];
 
 
 Clear[MPSExpandBond];
@@ -80,7 +80,7 @@ If[old\[Chi]>new\[Chi],Print["WARNING: Trying to expand an MPS to a smaller bond
 Print["Grow \[Chi] to "<>ToString[new\[Chi]]];
 Table[PadRight[#,{new\[Chi],new\[Chi]}]&/@MPS[[M]],{M,1,Length[MPS]}]
 ]
-]
+];
 
 
 ClearAll[MPSOverlap];
@@ -92,7 +92,7 @@ Fold[LProduct[mps1[[#2]],mps2[[#2]],#1]&,LProduct[mps1[[1]],mps2[[1]]],Range[2,L
 L[1]=LProduct[mps1[[1]],mps2[[1]]];
 L[n_]:=LProduct[mps1[[n]],mps2[[n]],L[n-1]];
 Chop[L[Length[mps1]][[1,1]]]
-]
+];
 
 
 ClearAll[MPSNormalize];
@@ -101,7 +101,7 @@ MPSNormalize[mps_]:=Module[{norm},
 norm=Chop[MPSOverlap[mps,mps]];
 mps=Chop[mps/Abs[norm]^(1/(2 Length[mps]))];
 norm
-]
+];
 
 
 ClearAll[MPSCanonizeSite];
@@ -129,7 +129,7 @@ matrix=PadRight[v.ConjugateTranspose[t],{Min[\[Chi],Length[u],\[Chi]R],Min[\[Chi
 (* Form the new tensor with the first column of u *)
 (Partition[u,{\[Chi]L,Min[\[Chi],Length[u],\[Chi]R]}][[All,1]])
 ]
-]
+];
 
 
 ClearAll[MPSCanonize];
@@ -148,7 +148,7 @@ Do[
 mps[[s]]=MPSCanonizeSite[mps[[s]],xM,Direction->"Left"];
 ,{s,1,site-1}];
 site
-]
+];
 
 
 ClearAll[MPSCanonizationCheck];
@@ -174,7 +174,7 @@ Sum[ConjugateTranspose[mps[[site,s]]].mps[[site,s]],{s,1,spin}]-IdentityMatrix[L
 ],Infinity]
 ,{site,1,checksite-1}];
 Chop[norm]==0
-]
+];
 
 
 ClearAll[MPSSave];
@@ -190,7 +190,7 @@ Export[filename<>"."<>ToString[n]<>"."<>ToString[s]<>".dat",MPS[[n,s]],"Table"]
 ,{n,1,numSites}];
 Run["tar -czf "<>filename<>".MPSz "<>filename<>".*.dat "<>filename<>".info"];
 Run["rm "<>filename<>"*.dat "<>filename<>".info"]
-]
+];
 
 
 ClearAll[MPSRead];
@@ -206,7 +206,7 @@ Import[filename<>"."<>ToString[n]<>"."<>ToString[s]<>".dat","Table"]
 ,{n,1,numSites}];
 Run["rm "<>filename<>"*.dat "<>filename<>".info"];
 MPS
-]
+];
 
 
 ClearAll[MPSMinimizeEnergy];
@@ -274,9 +274,12 @@ sweep+=0.5;
 If[Abs[(energy-prevEnergy)/energy]<tol,stillconverging=False,prevEnergy=energy];
 ];
 If[verbose,NotebookDelete[message]];
-If[Total[Abs[#[[2]]]&/@energyList]>0,Print["Arpack error reported:"];Print[Cases[#[[2]]&/@energyList,Except[0]]]];
+If[Total[Abs[#[[2]]]&/@energyList]>0,
+Print["Arpack error reported:"];
+Print[Cases[#[[2]]&/@energyList,Except[0]]]
+];
 #[[1]]&/@energyList
-]
+];
 
 
 Begin["`Private`"]
@@ -291,10 +294,10 @@ MaxBondDimension=100;
 
 
 ClearAll[LProduct,RProduct];
-LProduct[A_,B_]:=Plus@@MapThread[ConjugateTranspose[#2].#1&,{A,B}]
-LProduct[A_,B_,Lm_]:=Plus@@MapThread[ConjugateTranspose[#2].Lm.#1&,{A,B}]
-RProduct[A_,B_]:=Plus@@MapThread[#1.ConjugateTranspose[#2]&,{A,B}]
-RProduct[A_,B_,Rm_]:=Plus@@MapThread[#1.Rm.ConjugateTranspose[#2]&,{A,B}]
+LProduct[A_,B_]:=Plus@@MapThread[ConjugateTranspose[#2].#1&,{A,B}];
+LProduct[A_,B_,Lm_]:=Plus@@MapThread[ConjugateTranspose[#2].Lm.#1&,{A,B}];
+RProduct[A_,B_]:=Plus@@MapThread[#1.ConjugateTranspose[#2]&,{A,B}];
+RProduct[A_,B_,Rm_]:=Plus@@MapThread[#1.Rm.ConjugateTranspose[#2]&,{A,B}];
 
 
 sigma[0]=SparseArray[{{1.0,0.0},{0.0,1.0}}];
@@ -311,47 +314,9 @@ ClearAll[MPSEffectiveSingleHam];
 SetAttributes[MPSEffectiveSingleHam,HoldAll];
 MPSEffectiveSingleHam[L_,R_,op_]:=(*KroneckerProduct[op,SparseArray[Flatten[Transpose[{L},{3,1,2}].{R},{{4,1},{3,2}}]] *)
 KroneckerProduct[op,L,Transpose[R]];
-ClearAll[MPSEffectiveHam];
-SetAttributes[MPSEffectiveHam,HoldAll];
-MPSEffectiveHam[interactionsL_,interactionsR_,fieldL_,fieldR_,operatorsL_,operatorsR_,Hmatrix_]:=Module[{Htemp=0,\[Chi]L,\[Chi]R,intrangeL,intrangeR,L,R},
-(* Preparation of internal matrices and constants *)
-intrangeL=Length[operatorsL[[1]]];
-intrangeR=Length[operatorsR[[1]]];
-\[Chi]L=Length[fieldL[[1]]];
-\[Chi]R=Length[fieldR[[1]]];
-L=SparseArray[IdentityMatrix[\[Chi]L]];
-R=SparseArray[IdentityMatrix[\[Chi]R]];
-(* First compute the contribution from the fields h *)
-Htemp=Sum[MPSEffectiveSingleHam[L,fieldR[[\[Alpha]]],sigma[0]],{\[Alpha],1,3}];
-Htemp+=Sum[MPSEffectiveSingleHam[fieldL[[\[Alpha]]],R,sigma[0]],{\[Alpha],1,3}];
-(* Now compute the contribution from the interactions contained in the right and left blocks *)
-Htemp+=Sum[MPSEffectiveSingleHam[interactionsL[[\[Alpha]]],R,sigma[0]],{\[Alpha],1,3}];
-Htemp+=Sum[MPSEffectiveSingleHam[L,interactionsR[[\[Alpha]]],sigma[0]],{\[Alpha],1,3}];
-(* Now compute the interactions between the left and right blocks that do not involve the spin at the site *)
-Htemp+=Sum[Sum[Sum[MPSEffectiveSingleHam[operatorsL[[\[Alpha],x]],operatorsR[[\[Alpha],y]],If[(x+y-1)<Max[intrangeL,intrangeR],Hmatrix[[\[Alpha],intrangeL+1-x,intrangeL+1+y]],0]sigma[0]],{\[Alpha],1,3}],{y,1,intrangeR}],{x,1,intrangeL}]; 
-(* Now add the term with the field at the site *)
-Htemp+=Sum[MPSEffectiveSingleHam[L,R,Hmatrix[[\[Alpha],intrangeL+1,intrangeL+1]]sigma[\[Alpha]] ],{\[Alpha],1,3}];
-(* Finally, the interactions between the site and the left and right blocks *) Htemp+=Sum[Sum[MPSEffectiveSingleHam[operatorsL[[\[Alpha],x]]Hmatrix[[\[Alpha],intrangeL+1-x,intrangeL+1]],R,sigma[\[Alpha]]],{\[Alpha],1,3}],{x,1,intrangeL}]; 
-Htemp+=Sum[Sum[MPSEffectiveSingleHam[L,operatorsR[[\[Alpha],x]],Hmatrix[[\[Alpha],intrangeL+1,intrangeL+1+x]]sigma[\[Alpha]]],{\[Alpha],1,3}],{x,1,intrangeR}]; 
-Return[Htemp]
-];
-ClearAll[FindGroundMPSSiteManual];
-SetAttributes[FindGroundMPSSiteManual,HoldAll];
-FindGroundMPSSiteManual[A_,DLeft_,DRight_,hLeft_,hRight_,vLeft_,vRight_,Ham_]:=Module[{H,sol,\[Chi]L,\[Chi]R,spin},
-H=MPSEffectiveHam[DLeft,DRight,hLeft,hRight,vLeft,vRight,Ham];
-sol=Eigensystem[-H,1,Method->{"Arnoldi",MaxIterations->10^5,Criteria->RealPart}];
-{spin,\[Chi]L,\[Chi]R}=Dimensions[A];
-{Chop[-sol[[1,1]]],Chop[-Partition[Partition[sol[[2,1]],\[Chi]R],\[Chi]L]],0}
-]
-(* Now try to establish the link *)
-If[Length[Links["*arpackformps"]]==0,link=Install[NotebookDirectory[]<>"arpackformps_"<>$SystemID]];
-If[link==$Failed||ForceUseInternalRoutine,
-SetAttributes[FindGroundMPSSite,HoldAll];
-FindGroundMPSSite[A_,DLeft_,DRight_,hLeft_,hRight_,vLeft_,vRight_,Ham_]:=FindGroundMPSSiteManual[A,DLeft,DRight,hLeft,hRight,vLeft,vRight,Ham]
-];
 
 
-End[]
+End[];
 
 
-EndPackage[]
+EndPackage[];
