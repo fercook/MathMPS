@@ -51,7 +51,7 @@ LINKFLAGS=-nofor-main -lm -lpthread -lrt -lstdc++
 endif
 
 BINARIES=arpackformps_$(SYS)
-DIR=.
+DIR=~/numerics/SpinDipolarChain/MPS
 
 all: arpackformps
 obj: object
@@ -86,6 +86,7 @@ mathematicatemplatetm.o : mathematicatemplatetm.c
 install:
 	cp arpackformps_$(SYS) $(DIR)
 	cp MPS.m $(DIR)
+        cp Loop.m $(DIR)
 
 clean :
 	@ ${RM} -rf *.o *tm.c $(BINARIES)
