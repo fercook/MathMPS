@@ -306,9 +306,6 @@ sigma[2]=SparseArray[{{0.0,-I 1.0},{I 1.0,0.0}}];
 sigma[3]=SparseArray[{{1.0,0.0},{0.0,-1.0}}];
 
 
-Uninstall[link];
-ClearAll[FindGroundMPSSite,MPSEffectiveSingleHam,MPSEffectiveHam,IsLinkActive,FindGroundMPSSiteManual];
-ForceUseInternalRoutine=False;
 (* Define internal versions *)
 ClearAll[MPSEffectiveSingleHam];
 SetAttributes[MPSEffectiveSingleHam,HoldAll];
@@ -316,7 +313,66 @@ MPSEffectiveSingleHam[L_,R_,op_]:=(*KroneckerProduct[op,SparseArray[Flatten[Tran
 KroneckerProduct[op,L,Transpose[R]];
 
 
+ClearAll[MPSEffectiveHam];
+SetAttributes[MPSEffectiveHam,HoldAll];
+MPSEffectiveHam[interactionsL_,interactionsR_,fieldL_,fieldR_,operatorsL_,operatorsR_,Hmatrix_]:=Module[{Htemp=0,\[Chi]L,\[Chi]R,intrangeL,intrangeR,L,R},
+(* Preparation of internal matrices and constants *)
+intrangeL=Length[operatorsL[[1]]];
+intrangeR=Length[operatorsR[[1]]];
+\[Chi]L=Length[fieldL[[1]]];
+\[Chi]R=Length[fieldR[[1]]];
+L=SparseArray[IdentityMatrix[\[Chi]L]];
+R=SparseArray[IdentityMatrix[\[Chi]R]];
+(* First compute the contribution from the fields h *)
+Htemp=Sum[MPSEffectiveSingleHam[L,fieldR[[\[Alpha]]],sigma[0]],{\[Alpha],1,3}];
+Htemp+=Sum[MPSEffectiveSingleHam[fieldL[[\[Alpha]]],R,sigma[0]],{\[Alpha],1,3}];
+(* Now compute the contribution from the interactions contained in the right and left blocks *)
+Htemp+=Sum[MPSEffectiveSingleHam[interactionsL[[\[Alpha]]],R,sigma[0]],{\[Alpha],1,3}];
+Htemp+=Sum[MPSEffectiveSingleHam[L,interactionsR[[\[Alpha]]],sigma[0]],{\[Alpha],1,3}];
+(* Now compute the interactions between the left and right blocks that do not involve the spin at the site *)
+Htemp+=Sum[Sum[Sum[MPSEffectiveSingleHam[operatorsL[[\[Alpha],x]],operatorsR[[\[Alpha],y]],If[(x+y-1)<Max[intrangeL,intrangeR],Hmatrix[[\[Alpha],intrangeL+1-x,intrangeL+1+y]],0]sigma[0]],{\[Alpha],1,3}],{y,1,intrangeR}],{x,1,intrangeL}]; 
+(* Now add the term with the field at the site *)
+Htemp+=Sum[MPSEffectiveSingleHam[L,R,Hmatrix[[\[Alpha],intrangeL+1,intrangeL+1]]sigma[\[Alpha]] ],{\[Alpha],1,3}];
+(* Finally, the interactions between the site and the left and right blocks *) Htemp+=Sum[Sum[MPSEffectiveSingleHam[operatorsL[[\[Alpha],x]]Hmatrix[[\[Alpha],intrangeL+1-x,intrangeL+1]],R,sigma[\[Alpha]]],{\[Alpha],1,3}],{x,1,intrangeL}]; 
+Htemp+=Sum[Sum[MPSEffectiveSingleHam[L,operatorsR[[\[Alpha],x]],Hmatrix[[\[Alpha],intrangeL+1,intrangeL+1+x]]sigma[\[Alpha]]],{\[Alpha],1,3}],{x,1,intrangeR}]; 
+Return[Htemp]
+];
+
+
+ClearAll[FindGroundMPSSiteManual];
+SetAttributes[FindGroundMPSSiteManual,HoldAll];
+FindGroundMPSSiteManual[A_,DLeft_,DRight_,hLeft_,hRight_,vLeft_,vRight_,Ham_]:=Module[{H,sol,\[Chi]L,\[Chi]R,spin},
+H=MPSEffectiveHam[DLeft,DRight,hLeft,hRight,vLeft,vRight,Ham];
+sol=Eigensystem[-H,1,Method->{"Arnoldi",MaxIterations->10^5,Criteria->RealPart}];
+{spin,\[Chi]L,\[Chi]R}=Dimensions[A];
+{Chop[-sol[[1,1]]],Chop[-Partition[Partition[sol[[2,1]],\[Chi]R],\[Chi]L]],0}
+];
+
+
 End[];
+
+
+(*This clears a link and associated variables*)
+ClearLink[LINK_]:=Module[{},
+Uninstall[LINK];
+ClearAll[FindGroundMPSSite,IsLinkActive];
+ForceUseInternalRoutine=False;
+];
+
+
+(* Now try to establish the link *)
+EstablishLink[LINK_]:=(
+ClearLink[LINK];
+ClearAll[FindGroundMPSSite,IsLinkActive];
+If[Length[Links["*arpackformps"]]==0,LINK=Install[NotebookDirectory[]<>"arpackformps_"<>$SystemID]];
+If[LINK==$Failed||ForceUseInternalRoutine,
+SetAttributes[FindGroundMPSSite,HoldAll];
+FindGroundMPSSite[A_,DLeft_,DRight_,hLeft_,hRight_,vLeft_,vRight_,Ham_]:=FindGroundMPSSiteManual[A,DLeft,DRight,hLeft,hRight,vLeft,vRight,Ham]
+]
+);
+
+
+EstablishLink[link];
 
 
 EndPackage[];
