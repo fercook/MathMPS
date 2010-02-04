@@ -63,9 +63,9 @@ HMatrix=Table[Table[Piecewise[{{\[Mu],n==m},{If[\[Alpha]==3,1.0,J]/Abs[n-m]^3,Ab
 If[({tim,energ}=AbsoluteTiming[MPSMinimizeEnergy[mymps,HMatrix,Verbose->False,InteractionRange->intrange]])==$Aborted,EstablishLink[link]];
 Pause[10];
 (* Print out status *)
-Print["(J,mu):"<>ToString[{J,\[Mu]}]<>" -- Last compute time: "<>ToString[tim]<>" -- energy: "<>ToString[Last[energ]]];
+Print["(J,mu):"<>ToString[{J,\[Mu]}]<>" -- Last time: "<>ToString[tim]<>" -- energy: "<>ToString[Last[energ]]<>", "<>ToString[MemoryInUse[]/(1024 1024.)]<>"MB used"];
 (* Save and continue *)
-MPSSave[mymps,outputfile<>".mu."<>ToString[\[Mu]]<>".J."<>ToString[J]<>", "<>ToString[MemoryInUse[]/(1024 1024.)]<>"MB used"];
+MPSSave[mymps,outputfile<>".mu."<>ToString[\[Mu]]<>".J."<>ToString[J]];
 ,{nJ,0,Jpoints,1}];
 ,{n\[Mu],0,\[Mu]points,1}];
 Print["Finished all"];

@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       145,          7]
-NotebookDataLength[     12415,        335]
-NotebookOptionsPosition[     11383,        296]
-NotebookOutlinePosition[     11753,        312]
-CellTagsIndexPosition[     11710,        309]
+NotebookDataLength[     12461,        337]
+NotebookOptionsPosition[     11429,        298]
+NotebookOutlinePosition[     11799,        314]
+CellTagsIndexPosition[     11756,        311]
 WindowFrame->Normal
 ContainsDynamic->False*)
 
@@ -232,12 +232,18 @@ Cell[BoxData[{
           RowBox[{"ToString", "[", 
            RowBox[{"{", 
             RowBox[{"J", ",", "\[Mu]"}], "}"}], "]"}], "<>", 
-          "\"\< -- Last compute time: \>\"", "<>", 
+          "\"\< -- Last time: \>\"", "<>", 
           RowBox[{"ToString", "[", "tim", "]"}], "<>", "\"\< -- energy: \>\"",
            "<>", 
           RowBox[{"ToString", "[", 
-           RowBox[{"Last", "[", "energ", "]"}], "]"}]}], "]"}], ";", 
-        "\[IndentingNewLine]", 
+           RowBox[{"Last", "[", "energ", "]"}], "]"}], "<>", "\"\<, \>\"", "<>",
+           
+          RowBox[{"ToString", "[", 
+           RowBox[{
+            RowBox[{"MemoryInUse", "[", "]"}], "/", 
+            RowBox[{"(", 
+             RowBox[{"1024", " ", "1024."}], ")"}]}], "]"}], "<>", 
+          "\"\<MB used\>\""}], "]"}], ";", "\[IndentingNewLine]", 
         RowBox[{"(*", " ", 
          RowBox[{"Save", " ", "and", " ", "continue"}], " ", "*)"}], 
         "\[IndentingNewLine]", 
@@ -246,13 +252,8 @@ Cell[BoxData[{
           RowBox[{"outputfile", "<>", "\"\<.mu.\>\"", "<>", 
            RowBox[{"ToString", "[", "\[Mu]", "]"}], "<>", "\"\<.J.\>\"", "<>",
             
-           RowBox[{"ToString", "[", "J", "]"}], "<>", "\"\<, \>\"", "<>", 
-           RowBox[{"ToString", "[", 
-            RowBox[{
-             RowBox[{"MemoryInUse", "[", "]"}], "/", 
-             RowBox[{"(", 
-              RowBox[{"1024", " ", "1024."}], ")"}]}], "]"}], "<>", 
-           "\"\<MB used\>\""}]}], "]"}], ";"}], "\[IndentingNewLine]", ",", 
+           RowBox[{"ToString", "[", "J", "]"}]}]}], "]"}], ";"}], 
+       "\[IndentingNewLine]", ",", 
        RowBox[{"{", 
         RowBox[{"nJ", ",", "0", ",", "Jpoints", ",", "1"}], "}"}]}], "]"}], 
      ";"}], "\[IndentingNewLine]", ",", 
@@ -272,7 +273,8 @@ Cell[BoxData[{
    3.474291589986661*^9, 3.474291591640074*^9}, {3.4742919966263857`*^9, 
    3.474292002978644*^9}, {3.474292994541523*^9, 3.474293015814378*^9}, {
    3.474305569375922*^9, 3.474305614615036*^9}, {3.47430566362288*^9, 
-   3.4743056636764393`*^9}, 3.474305704781342*^9}],
+   3.4743056636764393`*^9}, 3.474305704781342*^9, {3.474305984841219*^9, 
+   3.474306003531769*^9}}],
 
 Cell[CellGroupData[{
 
@@ -328,14 +330,14 @@ Cell[4025, 110, 378, 10, 27, "Input",
 Cell[4406, 122, 472, 15, 43, "Input",
  InitializationCell->True],
 Cell[CellGroupData[{
-Cell[4903, 141, 5822, 133, 403, "Input",
+Cell[4903, 141, 5868, 135, 403, "Input",
  InitializationCell->True],
 Cell[CellGroupData[{
-Cell[10750, 278, 166, 2, 20, "Print"],
-Cell[10919, 282, 167, 2, 20, "Print"]
+Cell[10796, 280, 166, 2, 20, "Print"],
+Cell[10965, 284, 167, 2, 20, "Print"]
 }, Open  ]],
-Cell[11101, 287, 153, 3, 27, "Output"],
-Cell[11257, 292, 110, 1, 20, "Print"]
+Cell[11147, 289, 153, 3, 27, "Output"],
+Cell[11303, 294, 110, 1, 20, "Print"]
 }, Open  ]]
 }
 ]
