@@ -342,7 +342,7 @@ sol=Eigensystem[-H,1,Method->{"Arnoldi",MaxIterations->10^5,Criteria->RealPart}]
 {Chop[-sol[[1,1]]],Chop[-Partition[Partition[sol[[2,1]],\[Chi]R],\[Chi]L]],0}
 ]
 (* Now try to establish the link *)
-If[Length[Links["*arpackformps"]]==0,link=Install[NotebookDirectory[]<>"arpackformps"]];
+If[Length[Links["*arpackformps"]]==0,link=Install[NotebookDirectory[]<>"arpackformps_"<>$SystemID]];
 If[link==$Failed||ForceUseInternalRoutine,
 SetAttributes[FindGroundMPSSite,HoldAll];
 FindGroundMPSSite[A_,DLeft_,DRight_,hLeft_,hRight_,vLeft_,vRight_,Ham_]:=FindGroundMPSSiteManual[A,DLeft,DRight,hLeft,hRight,vLeft,vRight,Ham]
