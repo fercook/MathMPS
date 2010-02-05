@@ -75,36 +75,96 @@ void findgroundMPSsite(int spin,int sizeL,int sizeR,int rangeL,int rangeR)
 
   // Start getting data
   // Re[A], Im[A]
-  MLGetReal64Array(stdlink, &Ar, &dimsAr, &headsAr, &depthAr);
-  MLGetReal64Array(stdlink, &Ai, &dimsAi, &headsAi, &depthAi);
-
+	if(! MLGetReal64Array(stdlink, &Ar, &dimsAr, &headsAr, &depthAr) )
+	{
+		MLPutSymbol(stdlink, "$Aborted");
+		return;
+	}
+	if(!  MLGetReal64Array(stdlink, &Ai, &dimsAi, &headsAi, &depthAi) )
+	{
+		MLPutSymbol(stdlink, "$Aborted");
+		return;
+	}
+	
   // Re[DLeft], Im[Dleft], 
-  MLGetReal64Array(stdlink, &DLeftr, &dimsDLeftr, &headsDLeftr, &depthDLeftr);
-  MLGetReal64Array(stdlink, &DLefti, &dimsDLefti, &headsDLefti, &depthDLefti);
-
+	if(!  MLGetReal64Array(stdlink, &DLeftr, &dimsDLeftr, &headsDLeftr, &depthDLeftr) )
+	{
+		MLPutSymbol(stdlink, "$Aborted");
+		return;
+	}
+	if(!	MLGetReal64Array(stdlink, &DLefti, &dimsDLefti, &headsDLefti, &depthDLefti) )
+	{
+		MLPutSymbol(stdlink, "$Aborted");
+		return;
+	}
+	
   // Re[DRight], Im[DRight]
-  MLGetReal64Array(stdlink, &DRightr, &dimsDRightr, &headsDRightr, &depthDRightr);
-  MLGetReal64Array(stdlink, &DRighti, &dimsDRighti, &headsDRighti, &depthDRighti);
-
+	if(!  MLGetReal64Array(stdlink, &DRightr, &dimsDRightr, &headsDRightr, &depthDRightr) )
+	{
+		MLPutSymbol(stdlink, "$Aborted");
+		return;
+	}
+	if(!	MLGetReal64Array(stdlink, &DRighti, &dimsDRighti, &headsDRighti, &depthDRighti) )
+	{
+		MLPutSymbol(stdlink, "$Aborted");
+		return;
+	}
+	
   // Re[hLeft], Im[hleft], 
-  MLGetReal64Array(stdlink, &hLeftr, &dimshLeftr, &headshLeftr, &depthhLeftr);
-  MLGetReal64Array(stdlink, &hLefti, &dimshLefti, &headshLefti, &depthhLefti);
-
+	if(!  MLGetReal64Array(stdlink, &hLeftr, &dimshLeftr, &headshLeftr, &depthhLeftr) )
+	{
+		MLPutSymbol(stdlink, "$Aborted");
+		return;
+	}
+	if(!	MLGetReal64Array(stdlink, &hLefti, &dimshLefti, &headshLefti, &depthhLefti) )
+	{
+		MLPutSymbol(stdlink, "$Aborted");
+		return;
+	}
+	
   // Re[hRight], Im[hRight]
-  MLGetReal64Array(stdlink, &hRightr, &dimshRightr, &headshRightr, &depthhRightr);
-  MLGetReal64Array(stdlink, &hRighti, &dimshRighti, &headshRighti, &depthhRighti);
- 
+	if(!  MLGetReal64Array(stdlink, &hRightr, &dimshRightr, &headshRightr, &depthhRightr) )
+	{
+		MLPutSymbol(stdlink, "$Aborted");
+		return;
+	}
+	if(!	MLGetReal64Array(stdlink, &hRighti, &dimshRighti, &headshRighti, &depthhRighti) )
+	{
+		MLPutSymbol(stdlink, "$Aborted");
+		return;
+	}
+	
   // Re[vLeft], Im[vleft], 
-  MLGetReal64Array(stdlink, &vLeftr, &dimsvLeftr, &headsvLeftr, &depthvLeftr);
-  MLGetReal64Array(stdlink, &vLefti, &dimsvLefti, &headsvLefti, &depthvLefti);
-
+	if(!  MLGetReal64Array(stdlink, &vLeftr, &dimsvLeftr, &headsvLeftr, &depthvLeftr) )
+	{
+		MLPutSymbol(stdlink, "$Aborted");
+		return;
+	}
+	if(!	MLGetReal64Array(stdlink, &vLefti, &dimsvLefti, &headsvLefti, &depthvLefti) )
+	{
+		MLPutSymbol(stdlink, "$Aborted");
+		return;
+	}
+	
   // Re[vRight], Im[vRight]
-  MLGetReal64Array(stdlink, &vRightr, &dimsvRightr, &headsvRightr, &depthvRightr);
-  MLGetReal64Array(stdlink, &vRighti, &dimsvRighti, &headsvRighti, &depthvRighti);
-
+	if(!  MLGetReal64Array(stdlink, &vRightr, &dimsvRightr, &headsvRightr, &depthvRightr) )
+	{
+		MLPutSymbol(stdlink, "$Aborted");
+		return;
+	}
+	if(!	MLGetReal64Array(stdlink, &vRighti, &dimsvRighti, &headsvRighti, &depthvRighti) )
+	{
+		MLPutSymbol(stdlink, "$Aborted");
+		return;
+	}
+	
   // Ham
-  MLGetReal64Array(stdlink, &Ham, &dimsHam, &headsHam, &depthHam);
-
+	if(!  MLGetReal64Array(stdlink, &Ham, &dimsHam, &headsHam, &depthHam) )
+	{
+		MLPutSymbol(stdlink, "$Aborted");
+		return;
+	}
+	
   // With all the data ready, now call the Fortran subroutine to use ARPACK  
 
     arpackdriver_mp_computegroundstate_(Ar,Ai,DLeftr,DLefti,DRightr,DRighti,

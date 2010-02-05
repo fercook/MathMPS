@@ -53,19 +53,21 @@ Export[outputfile<>"."<>timestamp<>".info",parameterList,"Table"];
 Do[
 \[Mu]=n\[Mu]*\[Delta]\[Mu]+\[Mu]ini;
 (* Initialize MPS at product state, good for J=0 *)
-mymps=MPSProductState[length,BondDimension->bond];
-MPSNormalize[mymps];
 Do[
 (* compute parameters and Hamiltonian *)
 J=nJ*\[Delta]J+Jini;
 HMatrix=Table[Table[Piecewise[{{\[Mu],n==m},{If[\[Alpha]==3,1.0,J]/Abs[n-m]^3,Abs[n-m]<=intrange}}],{n,1,length},{m,1,length}],{\[Alpha],1,3}];
 (* Compute ground state *)
-If[({tim,energ}=AbsoluteTiming[MPSMinimizeEnergy[mymps,HMatrix,Verbose->False,InteractionRange->intrange]])==$Aborted,EstablishLink[link]];
-Pause[10];
+mymps=MPSProductState[length,BondDimension->bond];
+MPSNormalize[mymps];
+{tim,energ}=AbsoluteTiming[MPSMinimizeEnergy[mymps,HMatrix,Verbose->False,InteractionRange->intrange]];
+If[!(IsLinkActive[]===1),EstablishLink[link]];
+Pause[0.1];
 (* Print out status *)
 Print["(J,mu):"<>ToString[{J,\[Mu]}]<>" -- Last time: "<>ToString[tim]<>" -- energy: "<>ToString[Last[energ]]<>", "<>ToString[MemoryInUse[]/(1024 1024.)]<>"MB used"];
+ClearAll[mymps,tim,energ];
 (* Save and continue *)
-MPSSave[mymps,outputfile<>".mu."<>ToString[\[Mu]]<>".J."<>ToString[J]];
+(* MPSSave[mymps,outputfile<>".mu."<>ToString[\[Mu]]<>".J."<>ToString[J]]; *)
 ,{nJ,0,Jpoints,1}];
 ,{n\[Mu],0,\[Mu]points,1}];
 Print["Finished all"];

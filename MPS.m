@@ -213,7 +213,7 @@ ClearAll[MPSMinimizeEnergy];
 Options[MPSMinimizeEnergy]={Sweeps->DefaultSweeps,InteractionRange->DefaultInteractionRange,Tolerance->DefaultEnergyTolerance,MonitorEnergy->True,Verbose->False};
 SetAttributes[MPSMinimizeEnergy,HoldFirst];
 MPSMinimizeEnergy[mps_,HMatrix_,OptionsPattern[]]:=
-Module[{energy,prevEnergy=0,energyList={},sweeps=OptionValue[Sweeps],sweep=0,IntRange=OptionValue[InteractionRange],monitorenergy=OptionValue[MonitorEnergy],tol=OptionValue[Tolerance],L,R,fieldL,fieldR,operatorsR,operatorsL,interactionsL,interactionsR,Heff,numTensors,defineRight,defineLeft,\[Chi]R,\[Chi]L,new,canon,stillconverging=True,verbose=OptionValue[Verbose],message,info},
+Module[{energy,prevEnergy=0,energyList={},sweeps=OptionValue[Sweeps],sweep=0,IntRange=OptionValue[InteractionRange],monitorenergy=OptionValue[MonitorEnergy],tol=OptionValue[Tolerance],L,R,fieldL,fieldR,operatorsR,operatorsL,interactionsL,interactionsR,Heff,numTensors,defineRight,defineLeft,\[Chi]R,\[Chi]L,new,canon,stillconverging=True,verbose=OptionValue[Verbose],message,info,success},
 If[verbose,message=PrintTemporary["Preparing matrices"]];
 (*Preparation assignments*)
 (*MPSNormalize[mps];*)
@@ -256,7 +256,12 @@ defineLeft[1];
 canon={{1.}};
 Do[
 If[verbose,NotebookDelete[message];message=PrintTemporary["Right sweep:"<>ToString[sweep]<>", site:"<>ToString[site]<>", Energy:"<>ToString[energy]]];
+success=False;
+While[!success,
 {energy,new,info}=FindGroundMPSSite[canon.#&/@mps[[site]],interactionsL[site-1],interactionsR[site+1],fieldL[site-1],fieldR[site+1],operatorsL[site-1],operatorsR[site+1],HMatrix[[All,Max[1,site-IntRange];;site,Max[1,site-IntRange];;Min[numTensors,site+IntRange]]]];
+success=(IsLinkActive[]===1);
+If[!success,EstablishLink[link]];
+];
 mps[[site]]=MPSCanonizeSite[new,canon,Direction->"Left",UseMatrix->False]; (* This routine changes canon *)
 If[monitorenergy,energyList=energyList~Join~{{energy,info}}];
 ,{site,1,numTensors}];
@@ -266,7 +271,12 @@ defineRight[1];
 canon={{1.}};
 Do[
 If[verbose,NotebookDelete[message];message=PrintTemporary["Left sweep:"<>ToString[sweep]<>", site:"<>ToString[site]<>", Energy:"<>ToString[energy]]];
+success=False;
+While[!success,
 {energy,new,info}=FindGroundMPSSite[mps[[site]].canon,interactionsL[site-1],interactionsR[site+1],fieldL[site-1],fieldR[site+1],operatorsL[site-1],operatorsR[site+1],HMatrix[[All,Max[1,site-IntRange];;site,Max[1,site-IntRange];;Min[numTensors,site+IntRange]]]];
+success=(IsLinkActive[]===1);
+If[!success,EstablishLink[link]];
+];
 mps[[site]]=MPSCanonizeSite[new,canon,UseMatrix->False];
 If[monitorenergy,energyList=energyList~Join~{{energy,info}}];
 ,{site,numTensors,1,-1}];
