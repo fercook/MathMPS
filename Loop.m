@@ -60,14 +60,15 @@ HMatrix=Table[Table[Piecewise[{{\[Mu],n==m},{If[\[Alpha]==3,1.0,J]/Abs[n-m]^3,Ab
 (* Compute ground state *)
 mymps=MPSProductState[length,BondDimension->bond];
 MPSNormalize[mymps];
+Print[ToString[MemoryInUse[]/(1024 1024.)]<>"MB used before link"];
 {tim,energ}=AbsoluteTiming[MPSMinimizeEnergy[mymps,HMatrix,Verbose->False,InteractionRange->intrange]];
-If[!(IsLinkActive[]===1),EstablishLink[link]];
 Pause[0.1];
+Print[ToString[MemoryInUse[]/(1024 1024.)]<>"MB used after link"];
 (* Print out status *)
 Print["(J,mu):"<>ToString[{J,\[Mu]}]<>" -- Last time: "<>ToString[tim]<>" -- energy: "<>ToString[Last[energ]]<>", "<>ToString[MemoryInUse[]/(1024 1024.)]<>"MB used"];
 ClearAll[mymps,tim,energ];
 (* Save and continue *)
-(* MPSSave[mymps,outputfile<>".mu."<>ToString[\[Mu]]<>".J."<>ToString[J]]; *)
+MPSSave[mymps,outputfile<>".mu."<>ToString[\[Mu]]<>".J."<>ToString[J]]; 
 ,{nJ,0,Jpoints,1}];
 ,{n\[Mu],0,\[Mu]points,1}];
 Print["Finished all"];

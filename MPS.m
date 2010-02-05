@@ -260,7 +260,7 @@ success=False;
 While[!success,
 {energy,new,info}=FindGroundMPSSite[canon.#&/@mps[[site]],interactionsL[site-1],interactionsR[site+1],fieldL[site-1],fieldR[site+1],operatorsL[site-1],operatorsR[site+1],HMatrix[[All,Max[1,site-IntRange];;site,Max[1,site-IntRange];;Min[numTensors,site+IntRange]]]];
 success=(IsLinkActive[]===1);
-If[!success,EstablishLink[link]];
+If[!success,Print["Fallen link..."];ClearLink[link];EstablishLink[link];Print["And we're back."]];
 ];
 mps[[site]]=MPSCanonizeSite[new,canon,Direction->"Left",UseMatrix->False]; (* This routine changes canon *)
 If[monitorenergy,energyList=energyList~Join~{{energy,info}}];
@@ -275,7 +275,7 @@ success=False;
 While[!success,
 {energy,new,info}=FindGroundMPSSite[mps[[site]].canon,interactionsL[site-1],interactionsR[site+1],fieldL[site-1],fieldR[site+1],operatorsL[site-1],operatorsR[site+1],HMatrix[[All,Max[1,site-IntRange];;site,Max[1,site-IntRange];;Min[numTensors,site+IntRange]]]];
 success=(IsLinkActive[]===1);
-If[!success,EstablishLink[link]];
+If[!success,Print["Fallen link..."];ClearLink[link];EstablishLink[link];Print["And we're back."]];
 ];
 mps[[site]]=MPSCanonizeSite[new,canon,UseMatrix->False];
 If[monitorenergy,energyList=energyList~Join~{{energy,info}}];
@@ -288,6 +288,7 @@ If[Total[Abs[#[[2]]]&/@energyList]>0,
 Print["Arpack error reported:"];
 Print[Cases[#[[2]]&/@energyList,Except[0]]]
 ];
+ClearAll[energy,prevEnergy,sweeps,sweep,IntRange,monitorenergy,tol,L,R,fieldL,fieldR,operatorsR,operatorsL,interactionsL,interactionsR,Heff,numTensors,defineRight,defineLeft,\[Chi]R,\[Chi]L,new,canon,stillconverging,verbose,message,info,success];
 #[[1]]&/@energyList
 ];
 
@@ -352,14 +353,12 @@ Return[Htemp]
 ClearAll[FindGroundMPSSiteManual];
 SetAttributes[FindGroundMPSSiteManual,HoldAll];
 FindGroundMPSSiteManual[A_,DLeft_,DRight_,hLeft_,hRight_,vLeft_,vRight_,Ham_]:=Module[{H,sol,\[Chi]L,\[Chi]R,spin},
+Print["Link could not be established, reverting to internal routines..."];
 H=MPSEffectiveHam[DLeft,DRight,hLeft,hRight,vLeft,vRight,Ham];
 sol=Eigensystem[-H,1,Method->{"Arnoldi",MaxIterations->10^5,Criteria->RealPart}];
 {spin,\[Chi]L,\[Chi]R}=Dimensions[A];
 {Chop[-sol[[1,1]]],Chop[-Partition[Partition[sol[[2,1]],\[Chi]R],\[Chi]L]],0}
 ];
-
-
-End[];
 
 
 (*This clears a link and associated variables*)
@@ -368,6 +367,9 @@ Uninstall[LINK];
 ClearAll[FindGroundMPSSite,IsLinkActive];
 ForceUseInternalRoutine=False;
 ];
+
+
+End[];
 
 
 (* Now try to establish the link *)
