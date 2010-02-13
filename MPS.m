@@ -53,17 +53,14 @@ MPSRead::usage="MPSRead[filename] reads the files produced by MPSSave and return
 
 Clear[MPSProductState];
 Options[MPSProductState]={Spin->DefaultSpinDimension,BondDimension->DefaultBondDimension,Type->"Random"};
-MPSProductState[numTensors_,OptionsPattern[]]:=Module[{\[CapitalGamma]=Array[0&,{numTensors}],type=OptionValue[Type],coeffList,spin=OptionValue[Spin],\[Chi]=OptionValue[BondDimension],condition},
+MPSProductState[numTensors_,OptionsPattern[]]:=Module[{\[CapitalGamma]=Array[0&,{numTensors}],type=OptionValue[Type],coeffList,spin=OptionValue[Spin],\[Chi]=OptionValue[BondDimension]},
 Switch[type,
 "Identity",
-coeffList=Table[Table[If[i==j==1,{1.0}~Join~Table[0.0,{m,1,spin-1}],0],{k,1,numTensors}],{i,1,\[Chi]},{j,1,\[Chi]}];
-condition[i_,j_,n_]:=(i==j==1);
+coeffList=Table[Table[If[i==j==1,{1.0}~Join~Table[0.0,{m,1,spin-1}],Table[0.0,{m,spin}]],{k,1,numTensors}],{i,1,\[Chi]},{j,1,\[Chi]}];
 "Decaying",
 coeffList=Table[Table[If[i==j==1,Normalize[Table[Exp[-0.5 Log[20](m-1)/spin],{m,1,spin}]],0],{k,1,numTensors}],{i,1,\[Chi]},{j,1,\[Chi]}];
-condition[i_,j_,n_]:=(i==j==1);
 "Random",
 coeffList=Table[Table[Normalize[RandomComplex[{-1-I,1+I},spin]],{k,1,numTensors}],{i,1,\[Chi]},{j,1,\[Chi]}];
-condition[i_,j_,n_]:=True;
 ];
 {Table[SparseArray[Table[coeffList[[i,j,1,n]],{i,1,1},{j,1,\[Chi]}]],{n,1,spin}]}~Join~Table[
 Table[SparseArray[Table[coeffList[[i,j,k,n]],{i,1,\[Chi]},{j,1,\[Chi]}]],{n,1,spin}],
@@ -174,6 +171,61 @@ Sum[ConjugateTranspose[mps[[site,s]]].mps[[site,s]],{s,1,spin}]-IdentityMatrix[L
 ],Infinity]
 ,{site,1,checksite-1}];
 Chop[norm]==0
+];
+
+
+SetAttributes[MPSApproximate,HoldAll];
+Options[MPSApproximate]={UseRandomState->True,Ansatz->{},Tolerance->DefaultApproximationTolerance,Sweeps->DefaultSweeps,Verbose->False};
+MPSApproximate[mps_,new\[Chi]_,OptionsPattern[]]:=Module[{sweeps=OptionValue[Sweeps],sweep=0,tol=OptionValue[Tolerance],L,R,numTensors,defineRight,defineLeft,\[Chi]R,\[Chi]L,new,canon,stillconverging=True,verbose=OptionValue[Verbose],message,info,success,newmps,overlapBIG,overlap,prevoverlap},
+If[verbose,message=PrintTemporary["Preparing matrices"]];
+(*Preparation assignments*)
+(*MPSNormalize[mps];*)
+numTensors=Length[mps];
+overlapBIG=MPSOverlap[mps,mps];
+newmps=MPSProductState[numTensors,BondDimension->new\[Chi]];
+MPSCanonize[newmps];
+prevoverlap=1+overlapBIG-2 Re[MPSOverlap[newmps,mps]];
+(* These will be used to define left and right matrices *)
+defineRight[temp_]:=Module[{fer},
+ClearAll[R];
+R[numTensors+1]={{1}};
+R[n_]:=R[n]=RProduct[mps[[n]],newmps[[n]],R[n+1]];
+];
+defineLeft[temp_]:=Module[{fer},
+ClearAll[L];
+L[0]={{1}};
+L[n_]:=L[n]=LProduct[mps[[n]],newmps[[n]],L[n-1]];
+];
+(* Start from the left, so prepare all right matrices *)
+defineRight[1];
+While[sweep<sweeps&&stillconverging,
+(* Sweep to the right clears all left matrices and defines them one by one *)
+defineLeft[1];
+canon={{1.}};
+Do[
+If[verbose,NotebookDelete[message];message=PrintTemporary["Right sweep:"<>ToString[sweep]<>", site:"<>ToString[site]<>", overlap:"<>ToString[1+overlapBIG-2 Re[MPSOverlap[newmps,mps]]]];Pause[1]];
+success=False;
+newmps[[site]]=canon.#&/@newmps[[site]];
+new=L[site-1].#.R[site+1]&/@mps[[site]];
+newmps[[site]]=MPSCanonizeSite[new,canon,Direction->"Left",UseMatrix->False]; (* This routine changes canon *)
+,{site,1,numTensors}];
+sweep+=0.5;
+(* Sweep to the left clears all right matrices and defines them one by one *)
+defineRight[1];
+canon={{1.}};
+Do[
+If[verbose,NotebookDelete[message];message=PrintTemporary["Left sweep:"<>ToString[sweep]<>", site:"<>ToString[site]<>", overlap:"<>ToString[1+overlapBIG-2 Re[MPSOverlap[newmps,mps]]]];Pause[1]];
+success=False;
+newmps[[site]]=newmps[[site]].canon;
+new=L[site-1].#.R[site+1]&/@mps[[site]];
+newmps[[site]]=MPSCanonizeSite[new,canon,UseMatrix->False];
+,{site,numTensors,1,-1}];
+sweep+=0.5;
+overlap=1+overlapBIG-2 Re[MPSOverlap[newmps,mps]];
+If[Abs[(overlap-prevoverlap)/overlap]<tol,stillconverging=False,prevoverlap=overlap];
+];
+If[verbose,NotebookDelete[message]];
+newmps
 ];
 
 
