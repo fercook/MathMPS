@@ -300,6 +300,7 @@ DefaultSpinDimension=2;
 DefaultBondDimension=10;
 DefaultSweeps=10;
 DefaultEnergyTolerance=10^(-4);
+DefaultApproximationTolerance=10^(-10);
 DefaultInteractionRange=1;
 MaxBondDimension=100;
 
