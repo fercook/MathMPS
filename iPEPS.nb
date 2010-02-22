@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       145,          7]
-NotebookDataLength[     17508,        446]
-NotebookOptionsPosition[     16859,        421]
-NotebookOutlinePosition[     17220,        437]
-CellTagsIndexPosition[     17177,        434]
+NotebookDataLength[     24644,        619]
+NotebookOptionsPosition[     23974,        594]
+NotebookOutlinePosition[     24315,        609]
+CellTagsIndexPosition[     24272,        606]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -26,8 +26,13 @@ Cell[BoxData[
  CellChangeTimes->{{3.475480852320315*^9, 3.475480860471402*^9}}],
 
 Cell[BoxData["\<\"/Users/fcucchietti/Code/MathMPS\"\>"], "Output",
- CellChangeTimes->{3.475480861626017*^9}]
+ CellChangeTimes->{3.475480861626017*^9, 3.475531377964676*^9, 
+  3.475532030959996*^9}]
 }, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"<<", "iTEBD.m"}]], "Input",
+ CellChangeTimes->{{3.4755313644691668`*^9, 3.475531370234796*^9}}],
 
 Cell[BoxData[{
  RowBox[{
@@ -36,12 +41,14 @@ Cell[BoxData[{
     RowBox[{"(", 
      RowBox[{"-", "7"}], ")"}]}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"PEPSEnvMaxIterations", "=", "1000"}], ";"}]}], "Input",
+  RowBox[{"PEPSEnvMaxIterations", "=", "1000"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"PEPSEnvBond", "=", "10"}], ";"}]}], "Input",
  CellChangeTimes->{{3.475478458486883*^9, 3.475478489315939*^9}, {
    3.4754818269560957`*^9, 3.475481846856681*^9}, {3.475481911528551*^9, 
    3.47548191158279*^9}, 3.475524862702821*^9, 3.475525290549307*^9, {
    3.475525608419376*^9, 3.475525608576839*^9}, {3.475525648034815*^9, 
-   3.4755256496869926`*^9}}],
+   3.4755256496869926`*^9}, {3.4755300492573338`*^9, 3.47553005335028*^9}}],
 
 Cell[BoxData[{
  RowBox[{
@@ -416,12 +423,177 @@ Cell[BoxData[{
    3.4755253340848513`*^9, 3.475525615844247*^9, {3.475525663287763*^9, 
    3.4755256980242567`*^9}}],
 
-Cell[BoxData["\[IndentingNewLine]"], "Input",
- CellChangeTimes->{3.4754784364852943`*^9, 3.475478498332828*^9}]
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetAttributes", "[", 
+   RowBox[{"iPEPSTopBottomEnvironment", ",", "HoldAll"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Options", "[", "iPEPSTopBottomEnvironment", "]"}], "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Tolerance", "\[Rule]", "PEPSEnvTolerance"}], ",", 
+     RowBox[{"Verbose", "\[Rule]", "False"}], ",", 
+     RowBox[{"Direction", "\[Rule]", "\"\<Up\>\""}], ",", 
+     RowBox[{"Bond", "\[Rule]", "PEPSEnvBond"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"iPEPSTopBottomEnvironment", "[", 
+    RowBox[{"u1_", ",", "u2_", ",", "d1_", ",", "d2_", ",", 
+     RowBox[{"OptionsPattern", "[", "]"}]}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"tol", "=", 
+        RowBox[{"OptionValue", "[", "Tolerance", "]"}]}], ",", 
+       RowBox[{"\[Chi]", "=", 
+        RowBox[{"OptionValue", "[", "Bond", "]"}]}], ",", "D", ",", "imps", 
+       ",", "newimps", ",", 
+       RowBox[{"step", "=", "0"}], ",", 
+       RowBox[{"verbose", "=", 
+        RowBox[{"OptionValue", "[", "Verbose", "]"}]}], ",", 
+       RowBox[{"direction", "=", 
+        RowBox[{"OptionValue", "[", "Direction", "]"}]}], ",", "mpo", ",", 
+       "mpofrompep"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"(*", " ", 
+      RowBox[{
+      "Start", " ", "finding", " ", "out", " ", "the", " ", "dimensions"}], 
+      " ", "*)"}], "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"D", "=", 
+       RowBox[{"Length", "[", "u1", "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"(*", " ", 
+       RowBox[{"Check", " ", "the", " ", "direction"}], " ", "*)"}], 
+      "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"direction", "\[Equal]", "\"\<Up\>\""}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"mpofrompep", "[", 
+           RowBox[{"u_", ",", "d_"}], "]"}], ":=", 
+          RowBox[{"Flatten", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"Transpose", "[", 
+              RowBox[{"u", ",", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "4", ",", "2", ",", "3"}], "}"}]}], "]"}], 
+             ".", "d"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", "1", "}"}], ",", 
+              RowBox[{"{", "4", "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"2", ",", "5"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"3", ",", "6"}], "}"}]}], "}"}]}], "]"}]}], ";"}], ",",
+         "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"mpofrompep", "[", 
+           RowBox[{"u_", ",", "d_"}], "]"}], ":=", 
+          RowBox[{"Flatten", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"Transpose", "[", 
+              RowBox[{"u", ",", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "4", ",", "2", ",", "3"}], "}"}]}], "]"}], 
+             ".", "d"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", "4", "}"}], ",", 
+              RowBox[{"{", "1", "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"5", ",", "2"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"6", ",", "3"}], "}"}]}], "}"}]}], "]"}]}], ";"}]}], 
+       "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"mpo", "=", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"mpofrompep", "[", 
+          RowBox[{"u1", ",", "d1"}], "]"}], ",", 
+         RowBox[{"mpofrompep", "[", 
+          RowBox[{"u2", ",", "d2"}], "]"}]}], "}"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"(*", " ", 
+       RowBox[{
+       "Define", " ", "a", " ", "random", " ", "initial", " ", "vector"}], 
+       " ", "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"imps", "=", 
+       RowBox[{"iTEBDProductState", "[", 
+        RowBox[{"2", ",", 
+         RowBox[{"Bond", "\[Rule]", "\[Chi]"}], ",", 
+         RowBox[{"Spin", "\[Rule]", "D"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"(*", " ", 
+       RowBox[{"Start", " ", "the", " ", "power", " ", "iteration"}], "*)"}], 
+      "\[IndentingNewLine]", 
+      RowBox[{"newimps", "=", "imps"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"iTEBDWithMPO", "[", 
+       RowBox[{"newimps", ",", "mpo"}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"While", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"step", "<", "PEPSEnvMaxIterations"}], "&&", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"1", "-", 
+            RowBox[{"iTEBDFidelity", "[", 
+             RowBox[{"imps", ",", "newimps"}], "]"}]}], ")"}], ">", "tol"}]}],
+         ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"If", "[", 
+          RowBox[{"verbose", ",", 
+           RowBox[{"Print", "[", 
+            RowBox[{
+            "\"\<Converging to \>\"", "<>", "direction", "<>", 
+             "\"\< environment, \>\"", "<>", 
+             RowBox[{"ToString", "[", "step", "]"}], "<>", "\"\<, \>\"", "<>", 
+             RowBox[{"ToString", "[", 
+              RowBox[{"(", 
+               RowBox[{"1.", "-", 
+                RowBox[{"iTEBDFidelity", "[", 
+                 RowBox[{"imps", ",", "newimps"}], "]"}]}], ")"}], "]"}]}], 
+            "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"imps", "=", "newimps"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"step", "++"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"iTEBD2QMPO", "[", 
+          RowBox[{"newimps", ",", "mpo"}], "]"}], ";"}]}], 
+       "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"step", "==", "PEPSEnvMaxIterations"}], ",", 
+        RowBox[{"Print", "[", 
+         RowBox[{
+         "direction", "<>", 
+          "\"\< environment reached MAX iterations, precision/tol: \>\"", "<>", 
+          RowBox[{"ToString", "[", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"1", "-", 
+              RowBox[{"iTEBDFidelity", "[", 
+               RowBox[{"imps", ",", "newimps"}], "]"}]}], ")"}], "/", "tol"}],
+            "]"}]}], "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+      "newimps"}]}], "\[IndentingNewLine]", "]"}]}], 
+  ";"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.475529907023284*^9, 3.475529950401454*^9}, {
+  3.475530029276431*^9, 3.47553008284207*^9}, {3.475530113802012*^9, 
+  3.475530118918891*^9}, {3.475530222903977*^9, 3.475530239451818*^9}, {
+  3.4755306540430813`*^9, 3.475530817195284*^9}, {3.475530897485126*^9, 
+  3.4755309648889837`*^9}, {3.4755310046653643`*^9, 3.4755310670036707`*^9}, {
+  3.475531159417693*^9, 3.475531183392312*^9}, {3.4755312576873426`*^9, 
+  3.475531354861672*^9}, {3.475531850107252*^9, 3.475531852569696*^9}, {
+  3.475564515449586*^9, 3.475564523903469*^9}}]
 },
-Evaluator->"Local2",
-WindowSize->{732, 656},
-WindowMargins->{{Automatic, 67}, {49, Automatic}},
+WindowSize->{761, 656},
+WindowMargins->{{214, Automatic}, {Automatic, 38}},
 FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (February 18, 2009)",
 StyleDefinitions->"Default.nb"
 ]
@@ -438,16 +610,17 @@ CellTagsIndex->{}
 Notebook[{
 Cell[CellGroupData[{
 Cell[567, 22, 170, 3, 27, "Input"],
-Cell[740, 27, 108, 1, 27, "Output"]
+Cell[740, 27, 155, 2, 27, "Output"]
 }, Open  ]],
-Cell[863, 31, 558, 12, 43, "Input"],
-Cell[1424, 45, 833, 22, 43, "Input"],
-Cell[2260, 69, 187, 4, 26, "Text"],
-Cell[2450, 75, 3132, 77, 178, "Input"],
-Cell[5585, 154, 186, 4, 26, "Text"],
-Cell[5774, 160, 3280, 81, 178, "Input"],
-Cell[9057, 243, 7684, 173, 583, "Input"],
-Cell[16744, 418, 111, 1, 43, "Input"]
+Cell[910, 32, 119, 2, 27, "Input"],
+Cell[1032, 36, 684, 14, 58, "Input"],
+Cell[1719, 52, 833, 22, 43, "Input"],
+Cell[2555, 76, 187, 4, 26, "Text"],
+Cell[2745, 82, 3132, 77, 178, "Input"],
+Cell[5880, 161, 186, 4, 26, "Text"],
+Cell[6069, 167, 3280, 81, 178, "Input"],
+Cell[9352, 250, 7684, 173, 583, "Input"],
+Cell[17039, 425, 6931, 167, 508, "Input"]
 }
 ]
 *)

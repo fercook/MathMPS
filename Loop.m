@@ -58,7 +58,7 @@ Do[
 J=nJ*\[Delta]J+Jini;
 HMatrix=Table[Table[Piecewise[{{\[Mu],n==m},{If[\[Alpha]==3,1.0,J]/Abs[n-m]^3,Abs[n-m]<=intrange}}],{n,1,length},{m,1,length}],{\[Alpha],1,3}];
 (* Compute ground state *)
-mymps=MPSProductState[length,BondDimension->bond];
+mymps=MPSProductState[length,Bond->bond];
 MPSNormalize[mymps];
 Print[ToString[MemoryInUse[]/(1024 1024.)]<>"MB used before link"];
 {tim,energ}=AbsoluteTiming[MPSMinimizeEnergy[mymps,HMatrix,Verbose->False,InteractionRange->intrange]];

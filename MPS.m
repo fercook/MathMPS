@@ -19,13 +19,10 @@
 
 
 
-BeginPackage["MPS`"]
-
-
 MPSProductState::usage="MPSProductState[numTensors] creates a Matrix Product State of length numTensors. 
 Options:
    Spin->s (default = 2)
-   BondDimension->\[Chi] (default = 10)
+   Bond->\[Chi] (default = 10)
    Type-> \"Random\" (default), \"Identity\", \"Decaying\". 
 As of now the Random option produces an warning but the state is correct." 
 
@@ -51,9 +48,31 @@ MPSSave::usage="MPSSave[MPS,filename] saves MPS into ASCII files for later retri
 MPSRead::usage="MPSRead[filename] reads the files produced by MPSSave and returns a new MPS object"
 
 
+DefaultSpinDimension=2;
+MPSDefaultBond=10;
+DefaultSweeps=10;
+DefaultEnergyTolerance=10^(-4);
+DefaultApproximationTolerance=10^(-10);
+DefaultInteractionRange=1;
+MPSMaxBond=100;
+
+
+ClearAll[LProduct,RProduct];
+LProduct[A_,B_]:=Plus@@MapThread[ConjugateTranspose[#2].#1&,{A,B}];
+LProduct[A_,B_,Lm_]:=Plus@@MapThread[ConjugateTranspose[#2].Lm.#1&,{A,B}];
+RProduct[A_,B_]:=Plus@@MapThread[#1.ConjugateTranspose[#2]&,{A,B}];
+RProduct[A_,B_,Rm_]:=Plus@@MapThread[#1.Rm.ConjugateTranspose[#2]&,{A,B}];
+
+
+sigma[0]=SparseArray[{{1.0,0.0},{0.0,1.0}}];
+sigma[1]=SparseArray[{{0.0,1.0},{1.0,0.0}}];
+sigma[2]=SparseArray[{{0.0,-I 1.0},{I 1.0,0.0}}];
+sigma[3]=SparseArray[{{1.0,0.0},{0.0,-1.0}}];
+
+
 Clear[MPSProductState];
-Options[MPSProductState]={Spin->DefaultSpinDimension,BondDimension->DefaultBondDimension,Type->"Random"};
-MPSProductState[numTensors_,OptionsPattern[]]:=Module[{\[CapitalGamma]=Array[0&,{numTensors}],type=OptionValue[Type],coeffList,spin=OptionValue[Spin],\[Chi]=OptionValue[BondDimension]},
+Options[MPSProductState]={Spin->DefaultSpinDimension,Bond->MPSDefaultBond,Type->"Random"};
+MPSProductState[numTensors_,OptionsPattern[]]:=Module[{\[CapitalGamma]=Array[0&,{numTensors}],type=OptionValue[Type],coeffList,spin=OptionValue[Spin],\[Chi]=OptionValue[Bond]},
 Switch[type,
 "Identity",
 coeffList=Table[Table[If[i==j==1,{1.0}~Join~Table[0.0,{m,1,spin-1}],Table[0.0,{m,spin}]],{k,1,numTensors}],{i,1,\[Chi]},{j,1,\[Chi]}];
@@ -182,7 +201,7 @@ If[verbose,message=PrintTemporary["Preparing matrices"]];
 (*MPSNormalize[mps];*)
 numTensors=Length[mps];
 overlapBIG=MPSOverlap[mps,mps];
-newmps=MPSProductState[numTensors,BondDimension->new\[Chi]];
+newmps=MPSProductState[numTensors,Bond->new\[Chi]];
 MPSCanonize[newmps];
 prevoverlap=1+overlapBIG-2 Re[MPSOverlap[newmps,mps]];
 (* These will be used to define left and right matrices *)
@@ -345,31 +364,6 @@ ClearAll[energy,prevEnergy,sweeps,sweep,IntRange,monitorenergy,tol,L,R,fieldL,fi
 ];
 
 
-Begin["`Private`"]
-
-
-DefaultSpinDimension=2;
-DefaultBondDimension=10;
-DefaultSweeps=10;
-DefaultEnergyTolerance=10^(-4);
-DefaultApproximationTolerance=10^(-10);
-DefaultInteractionRange=1;
-MaxBondDimension=100;
-
-
-ClearAll[LProduct,RProduct];
-LProduct[A_,B_]:=Plus@@MapThread[ConjugateTranspose[#2].#1&,{A,B}];
-LProduct[A_,B_,Lm_]:=Plus@@MapThread[ConjugateTranspose[#2].Lm.#1&,{A,B}];
-RProduct[A_,B_]:=Plus@@MapThread[#1.ConjugateTranspose[#2]&,{A,B}];
-RProduct[A_,B_,Rm_]:=Plus@@MapThread[#1.Rm.ConjugateTranspose[#2]&,{A,B}];
-
-
-sigma[0]=SparseArray[{{1.0,0.0},{0.0,1.0}}];
-sigma[1]=SparseArray[{{0.0,1.0},{1.0,0.0}}];
-sigma[2]=SparseArray[{{0.0,-I 1.0},{I 1.0,0.0}}];
-sigma[3]=SparseArray[{{1.0,0.0},{0.0,-1.0}}];
-
-
 (* Define internal versions *)
 ClearAll[MPSEffectiveSingleHam];
 SetAttributes[MPSEffectiveSingleHam,HoldAll];
@@ -422,9 +416,6 @@ ForceUseInternalRoutine=False;
 ];
 
 
-End[];
-
-
 (* Now try to establish the link *)
 EstablishLink[LINK_]:=(
 ClearLink[LINK];
@@ -438,6 +429,3 @@ FindGroundMPSSite[A_,DLeft_,DRight_,hLeft_,hRight_,vLeft_,vRight_,Ham_]:=FindGro
 
 
 EstablishLink[link];
-
-
-EndPackage[];
