@@ -193,6 +193,61 @@ Chop[norm]==0
 ];
 
 
+MPSSiteOperator[tensor_,operator_]:=Module[{},
+Flatten[Transpose[tensor,{3,1,2}].operator.Conjugate[tensor],{{3,1},{2,4}}]
+];
+
+
+MPSExpectation[mps_,operator_,site_Integer]:=Module[{L,R,numTensors},
+numTensors=Length[mps];
+R[numTensors+1]={{1}};
+R[n_]:=R[n]=RProduct[mps[[n]],mps[[n]],R[n+1]];
+L[0]={{1}};
+L[n_]:=L[n]=LProduct[mps[[n]],mps[[n]],L[n-1]];
+Chop[
+Flatten[L[site-1]].MPSSiteOperator[mps[[site]],operator].Flatten[ R[site+1]]
+]
+];
+
+
+MPSExpectation[mps_,operator_,site1_Integer,site2_Integer]:=Module[{L,R,numTensors},
+MPSExpectation[mps,operator,site1,operator,site2]
+];
+
+
+
+MPSExpectation[mps_,operator1_,site1_Integer,operator2_,site2_Integer]:=Module[{L,R,numTensors},
+Last[MPSCorrelation[mps,operator1,site1,operator2,site2]]
+];
+
+
+MPSCorrelation[mps_,operator1_,site1_Integer,operator2_,site2_Integer]:=Module[{L,R,Lo,numTensors,siteL,siteR,opL,opR,NormalOrder,corr},
+numTensors=Length[mps];
+Which[
+0<site1<site2<numTensors+1,
+{siteL,siteR}={site1,site2};
+{opL,opR}={operator1,operator2};
+NormalOrder=True;
+,0<site2<site1<numTensors+1,
+{siteL,siteR}={site2,site1};
+{opL,opR}={operator2,operator1};
+NormalOrder=False;
+,True,
+Print["MPSCorrelation called with wrong sites"];Abort[];
+];
+R[numTensors+1]={{1}};
+R[n_]:=R[n]=RProduct[mps[[n]],mps[[n]],R[n+1]];
+L[0]={{1}};
+L[n_]:=L[n]=LProduct[mps[[n]],mps[[n]],L[n-1]];
+Lo[siteL]=LProduct[opL.mps[[siteL]],mps[[siteL]],L[siteL-1]];
+Lo[n_]:=Lo[n]=LProduct[opL.mps[[n]],mps[[n]],Lo[n-1]];
+corr=Table[
+Chop[Flatten[Lo[site-1]].MPSSiteOperator[mps[[site]],opR].Flatten[ R[site+1]]]
+,{site,siteL+1,siteR}];
+If[NormalOrder,corr,Reverse[corr]]
+];
+
+
 SetAttributes[MPSApproximate,HoldAll];
 Options[MPSApproximate]={UseRandomState->True,Ansatz->{},Tolerance->DefaultApproximationTolerance,Sweeps->DefaultSweeps,Verbose->False};
 MPSApproximate[mps_,new\[Chi]_,OptionsPattern[]]:=Module[{sweeps=OptionValue[Sweeps],sweep=0,tol=OptionValue[Tolerance],L,R,numTensors,defineRight,defineLeft,\[Chi]R,\[Chi]L,new,canon,stillconverging=True,verbose=OptionValue[Verbose],message,info,success,newmps,overlapBIG,overlap,prevoverlap},
@@ -266,13 +321,15 @@ Run["rm "<>filename<>"*.dat "<>filename<>".info"]
 
 ClearAll[MPSRead];
 MPSRead[filename_]:=Module[{MPS,numSites,spin,\[Chi],info},
-Run["tar -zx "<>filename<>".MPSz"];
+Run["tar -zxf "<>filename<>".MPSz"];
 info=Flatten[Import[filename<>".info","Table"]];
 {numSites,spin}=info;
 MPS={};
 Do[
 MPS=Append[MPS,SparseArray[Table[
+ToExpression[
 Import[filename<>"."<>ToString[n]<>"."<>ToString[s]<>".dat","Table"]
+]
 ,{s,1,spin}]]];
 ,{n,1,numSites}];
 Run["rm "<>filename<>"*.dat "<>filename<>".info"];
