@@ -240,7 +240,7 @@ R[n_]:=R[n]=RProduct[mps[[n]],mps[[n]],R[n+1]];
 L[0]={{1}};
 L[n_]:=L[n]=LProduct[mps[[n]],mps[[n]],L[n-1]];
 Lo[siteL]=LProduct[opL.mps[[siteL]],mps[[siteL]],L[siteL-1]];
-Lo[n_]:=Lo[n]=LProduct[opL.mps[[n]],mps[[n]],Lo[n-1]];
+Lo[n_]:=Lo[n]=LProduct[mps[[n]],mps[[n]],Lo[n-1]];
 corr=Table[
 Chop[Flatten[Lo[site-1]].MPSSiteOperator[mps[[site]],opR].Flatten[ R[site+1]]]
 ,{site,siteL+1,siteR}];
@@ -486,3 +486,6 @@ FindGroundMPSSite[A_,DLeft_,DRight_,hLeft_,hRight_,vLeft_,vRight_,Ham_]:=FindGro
 
 
 EstablishLink[link];
+
+
+
