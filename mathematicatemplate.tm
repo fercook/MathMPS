@@ -3,7 +3,7 @@ void findgroundMPSsite (int ,int ,int ,int ,int );
 :Begin: 
 :Function:          findgroundMPSsite
 :Pattern:           FindGroundMPSSite[cA_List,cDLeft_List,cDRight_List,chLeft_List,chRight_List,cvLeft_List,cvRight_List,cHam_List]
-:Arguments:         {Length[cA], Length[chLeft[[1]]], Length[chRight[[1]]], Length[cvLeft[[1]]], Length[cvRight[[1]]], Normal[Re[cA]],Normal[Im[cA]], Normal[Re[cDLeft]], Normal[Im[cDLeft]], Normal[Re[cDRight]], Normal[Im[cDRight]], Normal[Re[chLeft]], Normal[Im[chLeft]], Normal[Re[chRight]], Normal[Im[chRight]], Normal[Re[cvLeft]], Normal[Im[cvLeft]], Normal[Re[cvRight]], Normal[Im[cvRight]], Normal[cHam]}
+:Arguments:         {Length[cA], Length[chLeft[[1]]], Length[chRight[[1]]], Length[cvLeft[[1]]], Length[cvRight[[1]]],Normal[Re[cA]],Normal[Im[cA]], Normal[Re[cDLeft]], Normal[Im[cDLeft]], Normal[Re[cDRight]], Normal[Im[cDRight]], Normal[Re[chLeft]], Normal[Im[chLeft]], Normal[Re[chRight]], Normal[Im[chRight]], Normal[Re[cvLeft]], Normal[Im[cvLeft]], Normal[Re[cvRight]], Normal[Im[cvRight]], Normal[cHam]}
 :ArgumentTypes:     {Integer,Integer,Integer,Integer,Integer,Manual}
 :ReturnType:        Manual
 :End:

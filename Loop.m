@@ -66,9 +66,9 @@ Pause[0.1];
 Print[ToString[MemoryInUse[]/(1024 1024.)]<>"MB used after link"];
 (* Print out status *)
 Print["(J,mu):"<>ToString[{J,\[Mu]}]<>" -- Last time: "<>ToString[tim]<>" -- energy: "<>ToString[Last[energ]]<>", "<>ToString[MemoryInUse[]/(1024 1024.)]<>"MB used"];
-ClearAll[mymps,tim,energ];
 (* Save and continue *)
 MPSSave[mymps,outputfile<>".mu."<>ToString[\[Mu]]<>".J."<>ToString[J]]; 
+ClearAll[mymps,tim,energ];
 ,{nJ,0,Jpoints,1}];
 ,{n\[Mu],0,\[Mu]points,1}];
 Print["Finished all"];

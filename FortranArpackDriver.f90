@@ -290,7 +290,7 @@ module ArpackDriver
                     !First do vRight' *  A' and store in temp
                     call ZGEMM(normal,normal,sizeR,sizeL,sizeR,one,vRight(:,:,y,axis),sizeR,A(:,:,s),sizeR,zero,temp,sizeR)
                     !Now add to out computing out=temp*vL'+out
-					temp=temp*Ham(rLeft+1+y,rLeft+1-x,axis)
+		    temp=temp*Ham(rLeft+1+y,rLeft+1-x,axis)
                     call ZGEMM(normal,normal,sizeR,sizeL,sizeL,one,temp,sizeR,vLeft(:,:,x,axis),sizeL,one,out(:,:,s),sizeR)
                   endif
                enddo
@@ -325,19 +325,19 @@ module ArpackDriver
             
             do x=1,rLeft
                !Multiply vLeft[axis,rL+1-x] * (Sigma[axis]*A) * Right * Ham(rL+1,rL+1-x)
-!				This is how this function should be, but it does not work and I don't know why
-!               call ZGEMM(normal,normal,sizeR,sizeL,sizeL,Ham(rLeft+1,rLeft+1-x,axis),Aop(:,:,s),sizeR,vLeft(:,:,x,axis),sizeL,one,out(:,:,s),sizeR)
-				!But this is how it works
-				call ZGEMM(normal,normal,sizeR,sizeL,sizeL,one,Aop(:,:,s),sizeR,vLeft(:,:,x,axis),sizeL,zero,temp,sizeR)
-				out(:,:,s)=out(:,:,s)+temp*Ham(rLeft+1,rLeft+1-x,axis)
+!		This is how this function should be, but it does not work and I don't know why
+!               call ZGEMM(normal,normal,sizeR,sizeL,sizeL,one*Ham(rLeft+1,rLeft+1-x,axis),Aop(:,:,s),sizeR,vLeft(:,:,x,axis),sizeL,one,out(:,:,s),sizeR)
+		!But this is how it works
+		call ZGEMM(normal,normal,sizeR,sizeL,sizeL,one,Aop(:,:,s),sizeR,vLeft(:,:,x,axis),sizeL,zero,temp,sizeR)
+		out(:,:,s)=out(:,:,s)+temp*Ham(rLeft+1,rLeft+1-x,axis)
             enddo
 
             do x=1,rRight   
                !Multiply vLeft[axis,0-x] * (Sigma[axis]*A) * Right 
-         		call ZGEMM(normal,normal,sizeR,sizeL,sizeR,one,vRight(:,:,x,axis),sizeR,Aop(:,:,s),sizeR,zero,temp,sizeR)
+		call ZGEMM(normal,normal,sizeR,sizeL,sizeR,one,vRight(:,:,x,axis),sizeR,Aop(:,:,s),sizeR,zero,temp,sizeR)
                 out(:,:,s)=out(:,:,s)+temp*Ham(rLeft+1+x,rLeft+1,axis)
-!				This is how this function should be, but it does not work and I don't know why
-!         		call ZGEMM(normal,normal,sizeR,sizeL,sizeR,Ham(rLeft+1+x,rLeft+1,axis),vRight(:,:,x,axis),sizeR,Aop(:,:,s),sizeR,one,out(:,:,s),sizeR)
+!		This is how this function should be, but it does not work and I don't know why
+!               call ZGEMM(normal,normal,sizeR,sizeL,sizeR,Ham(rLeft+1+x,rLeft+1,axis),vRight(:,:,x,axis),sizeR,Aop(:,:,s),sizeR,one,out(:,:,s),sizeR)
             enddo
 
           enddo
