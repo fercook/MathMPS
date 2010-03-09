@@ -94,7 +94,7 @@ MPSExpandBond[MPS_,new\[Chi]_]:=Module[
 old\[Chi]=Max[Dimensions[#]&/@MPS];
 If[old\[Chi]>new\[Chi],Print["WARNING: Trying to expand an MPS to a smaller bond dimension"];MPS,
 Print["Grow \[Chi] to "<>ToString[new\[Chi]]];
-Table[PadRight[#,{new\[Chi],new\[Chi]}]&/@MPS[[M]],{M,1,Length[MPS]}]
+{SparseArray[PadRight[#,{1,new\[Chi]}]&/@MPS[[1]]]}~Join~Table[SparseArray[PadRight[#,{new\[Chi],new\[Chi]}]&/@MPS[[M]]],{M,2,Length[MPS]-1}]~Join~{SparseArray[PadRight[#,{new\[Chi],1}]&/@MPS[[Length[MPS]]]]}
 ]
 ];
 
@@ -156,12 +156,12 @@ numTensors=Length[mps];
 (* First: Right normalization up to site *)
 xM={{1.}};
 Do[
-mps[[s]]=MPSCanonizeSite[mps[[s]],xM];
+mps[[s]]=SparseArray[MPSCanonizeSite[mps[[s]],xM]];
 ,{s,numTensors,site+1,-1}];
 (* Now do LEFT normalization *)
 xM={{1.}};
 Do[
-mps[[s]]=MPSCanonizeSite[mps[[s]],xM,Direction->"Left"];
+mps[[s]]=SparseArray[MPSCanonizeSite[mps[[s]],xM,Direction->"Left"]];
 ,{s,1,site-1}];
 site
 ];
