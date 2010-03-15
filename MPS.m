@@ -321,12 +321,15 @@ Run["rm "<>filename<>"*.dat "<>filename<>".info"]
 
 ClearAll[MPSRead];
 MPSRead[filename_]:=Module[{MPS,numSites,spin,\[Chi],info},
+If[Length[FileNames[filename<>".MPSz"]]=!=1,Return[]];
 Run["tar -zxf "<>filename<>".MPSz"];
+If[Length[FileNames[filename<>".info"]]=!=1,Return[]];
 info=Flatten[Import[filename<>".info","Table"]];
 {numSites,spin}=info;
 MPS={};
 Do[
 MPS=Append[MPS,SparseArray[Table[
+If[Length[FileNames[filename<>"."<>ToString[n]<>"."<>ToString[s]<>".dat"]]=!=1,Print["Missing File "<>filename<>"."<>ToString[n]<>"."<>ToString[s]<>".dat"];Break[]];
 ToExpression[
 Import[filename<>"."<>ToString[n]<>"."<>ToString[s]<>".dat","Table"]
 ]

@@ -60,12 +60,12 @@ Do[
 J=nJ*\[Delta]J+Jini;
 HMatrix=Table[Table[Piecewise[{{If[\[Alpha]==3,\[Mu],0.0],n==m},{If[\[Alpha]==3,1.0,J]/Abs[n-m]^3,Abs[n-m]<=intrange}}],{n,1,length},{m,1,length}],{\[Alpha],1,3}];
 (* Check if previous file exists *)
-If[Length[FileNames[inputfile<>".mu."<>ToString[\[Mu]]<>".J."<>ToString[J]<>".MPSz"]]!=0,tempmps=MPSRead[inputfile<>".mu."<>ToString[\[Mu]]<>".J."<>ToString[J]<>".MPSz"];
+If[Length[FileNames[inputfile<>".mu."<>ToString[\[Mu]]<>".J."<>ToString[J]<>".MPSz"]]!=0,tempmps=MPSRead[inputfile<>".mu."<>ToString[\[Mu]]<>".J."<>ToString[J]];
 mymps=MPSExpandBond[tempmps,bond];
 ];
 (* Compute ground state *)
 Print[ToString[MemoryInUse[]/(1024 1024.)]<>"MB used before link"];
-{tim,energ}=AbsoluteTiming[MPSMinimizeEnergy[mymps,HMatrix,Verbose->False,InteractionRange->intrange]];
+{tim,energ}=AbsoluteTiming[MPSMinimizeEnergy[mymps,HMatrix,Verbose->False,InteractionRange->intrange,Tolerance->10^(-5)]];
 Pause[0.1];
 Print[ToString[MemoryInUse[]/(1024 1024.)]<>"MB used after link"];
 (* Print out status *)
