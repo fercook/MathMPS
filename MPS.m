@@ -100,6 +100,7 @@ MPSProductState[numTensors_,OptionsPattern[]] :=
 
 Clear[MPSExpandBond];
 SetAttributes[MPSExpandBond,HoldFirst];
+<<<<<<< HEAD
 MPSExpandBond[MPS_,new\[Chi]_] :=
     Module[ {old\[Chi]},
         old\[Chi] = Max[Dimensions[#]&/@MPS];
@@ -110,6 +111,16 @@ MPSExpandBond[MPS_,new\[Chi]_] :=
             Table[PadRight[#,{new\[Chi],new\[Chi]}]&/@MPS[[M]],{M,1,Length[MPS]}]
         ]
     ];
+=======
+MPSExpandBond[MPS_,new\[Chi]_]:=Module[
+{old\[Chi]},
+old\[Chi]=Max[Dimensions[#]&/@MPS];
+If[old\[Chi]>new\[Chi],Print["WARNING: Trying to expand an MPS to a smaller bond dimension"];MPS,
+Print["Grow \[Chi] to "<>ToString[new\[Chi]]];
+{SparseArray[PadRight[#,{1,new\[Chi]}]&/@MPS[[1]]]}~Join~Table[SparseArray[PadRight[#,{new\[Chi],new\[Chi]}]&/@MPS[[M]]],{M,2,Length[MPS]-1}]~Join~{SparseArray[PadRight[#,{new\[Chi],1}]&/@MPS[[Length[MPS]]]]}
+]
+];
+>>>>>>> 9bac313669f88c9414623dcc292b973e01ca9e86
 
 
 ClearAll[MPSOverlap];
@@ -173,6 +184,7 @@ MPSCanonizeSite[tensor_,matrix_,OptionsPattern[]] :=
 ClearAll[MPSCanonize];
 Options[MPSCanonize] = {Site->0};
 SetAttributes[MPSCanonize,HoldAll];
+<<<<<<< HEAD
 MPSCanonize[mps_,OptionsPattern[]] :=
     Module[ {site = OptionValue[Site],numTensors,xM},
         numTensors = Length[mps];
@@ -185,6 +197,19 @@ MPSCanonize[mps_,OptionsPattern[]] :=
         xM = {{1.}};
         Do[
         mps[[s]] = MPSCanonizeSite[mps[[s]],xM,Direction->"Left"];
+=======
+MPSCanonize[mps_,OptionsPattern[]]:=Module[{site=OptionValue[Site],numTensors,xM},
+numTensors=Length[mps];
+(* First: Right normalization up to site *)
+xM={{1.}};
+Do[
+mps[[s]]=SparseArray[MPSCanonizeSite[mps[[s]],xM]];
+,{s,numTensors,site+1,-1}];
+(* Now do LEFT normalization *)
+xM={{1.}};
+Do[
+mps[[s]]=SparseArray[MPSCanonizeSite[mps[[s]],xM,Direction->"Left"]];
+>>>>>>> 9bac313669f88c9414623dcc292b973e01ca9e86
 ,{s,1,site-1}];
         site
     ];
@@ -379,6 +404,7 @@ MPSSave[MPS_,filename_] :=
 
 
 ClearAll[MPSRead];
+<<<<<<< HEAD
 MPSRead[filename_] :=
     Module[ {MPS,numSites,spin,info},
         Run["tar -zxf "<>filename<>".MPSz"];
@@ -391,6 +417,22 @@ MPSRead[filename_] :=
         Import[filename<>"."<>ToString[n]<>"."<>ToString[s]<>".dat","Table"]
         ]
         ,{s,1,spin}]]];
+=======
+MPSRead[filename_]:=Module[{MPS,numSites,spin,\[Chi],info},
+If[Length[FileNames[filename<>".MPSz"]]=!=1,Return[]];
+Run["tar -zxf "<>filename<>".MPSz"];
+If[Length[FileNames[filename<>".info"]]=!=1,Return[]];
+info=Flatten[Import[filename<>".info","Table"]];
+{numSites,spin}=info;
+MPS={};
+Do[
+MPS=Append[MPS,SparseArray[Table[
+If[Length[FileNames[filename<>"."<>ToString[n]<>"."<>ToString[s]<>".dat"]]=!=1,Print["Missing File "<>filename<>"."<>ToString[n]<>"."<>ToString[s]<>".dat"];Break[]];
+ToExpression[
+Import[filename<>"."<>ToString[n]<>"."<>ToString[s]<>".dat","Table"]
+]
+,{s,1,spin}]]];
+>>>>>>> 9bac313669f88c9414623dcc292b973e01ca9e86
 ,{n,1,numSites}];
         Run["rm "<>filename<>"*.dat "<>filename<>".info"];
         MPS
