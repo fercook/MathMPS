@@ -19,9 +19,6 @@
 
 
 
-BeginPackage["MathMPS`"]
-
-
 Print["MPS manipulation from Mathematica.
 MPS Manipulation and creation:
 	MPSProductState
@@ -205,9 +202,6 @@ NOTICE this function is still being optimized. As of now, it only creates the li
 
 
 TEBDEntropyList::usage="TEBDEntropyList[tebd]   Gives a list of all possible bipartite entropies of the TEBD state"
-
-
-Begin["`Private`"]
 
 
 DefaultSpinDimension=2;
@@ -596,8 +590,8 @@ If[Total[Abs[#[[2]]]&/@energyList]>0,
 Print["Arpack error reported:"];
 Print[Cases[#[[2]]&/@energyList,Except[0]]]
 ];
-ClearAll[energy,prevEnergy,sweeps,sweep,IntRange,monitorenergy,tol,L,R,fieldL,fieldR,operatorsR,operatorsL,interactionsL,interactionsR,Heff,numTensors,defineRight,defineLeft,\[Chi]R,\[Chi]L,new,canon,stillconverging,verbose,message,info,success];
-If[debug,{#[[1]]&/@energyList,debuglist},Last[#[[1]]&/@energyList]]
+ClearAll[energy,prevEnergy,sweeps,sweep,IntRange,tol,L,R,fieldL,fieldR,operatorsR,operatorsL,interactionsL,interactionsR,Heff,numTensors,defineRight,defineLeft,\[Chi]R,\[Chi]L,new,canon,stillconverging,verbose,message,info,success];
+If[debug,{#[[1]]&/@energyList,debuglist},If[monitorenergy,Chop[energyList],Chop[Last[#[[1]]&/@energyList] ] ] ]
 ];
 
 
@@ -1224,6 +1218,4 @@ TEBDEvolutionAddGate[U_,operator_,site1_,site2_]:=(U=(U~Join~{{operator,site1,si
 TEBDEvolutionAddGate[U_,operator_,site_]:=(U=(U~Join~{{operator,site,site}}))
 
 
-End[ ]
 
-EndPackage[ ]

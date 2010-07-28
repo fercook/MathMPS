@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       145,          7]
-NotebookDataLength[     41528,       1140]
-NotebookOptionsPosition[     36728,        983]
-NotebookOutlinePosition[     37580,       1014]
-CellTagsIndexPosition[     37412,       1007]
+NotebookDataLength[     56022,       1464]
+NotebookOptionsPosition[     49597,       1264]
+NotebookOutlinePosition[     50451,       1295]
+CellTagsIndexPosition[     50281,       1288]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -54,7 +54,7 @@ Cell[BoxData["\<\"/Users/fcucchietti/Code/MathMPS\"\>"], "Output",
    3.4892361947511463`*^9, 3.489236574298616*^9, 3.489236826405078*^9, 
    3.4892374111952953`*^9, 3.4892375557086782`*^9, 3.489294204443529*^9, 
    3.4892953240856857`*^9, 3.4892961744909363`*^9, 3.4893006961774607`*^9, {
-   3.4893012132077303`*^9, 3.489301214363079*^9}}]
+   3.4893012132077303`*^9, 3.489301214363079*^9}, 3.489306964260322*^9}]
 }, Open  ]],
 
 Cell["Load the library", "Text",
@@ -92,7 +92,9 @@ tTEBDEvolutionAddGate\\n\"\>"], "Print",
    3.489297398965304*^9, 3.489300126529524*^9, {3.489300193562796*^9, 
    3.4893002285150557`*^9}, 3.4893006321721497`*^9, 3.4893006963381453`*^9, 
    3.489300772297621*^9, 3.48930112848275*^9, 3.489301182447118*^9, 
-   3.489301214494012*^9, 3.48930171595041*^9}]
+   3.489301214494012*^9, 3.48930171595041*^9, 3.489305181587626*^9, 
+   3.489305331842105*^9, 3.4893054241466093`*^9, {3.489306965912939*^9, 
+   3.489306988462085*^9}}]
 }, Open  ]],
 
 Cell["Set some simulation parameters", "Text",
@@ -167,53 +169,53 @@ Cell[BoxData[
    RowBox[{"{", 
     RowBox[{"{", 
      RowBox[{
-      RowBox[{"0.13230189813249887`", "\[InvisibleSpace]", "+", 
-       RowBox[{"0.26242329473453213`", " ", "\[ImaginaryI]"}]}], ",", 
-      RowBox[{"0.18887301831249664`", "\[InvisibleSpace]", "-", 
-       RowBox[{"0.08950924845768338`", " ", "\[ImaginaryI]"}]}], ",", 
       RowBox[{
-       RowBox[{"-", "0.27150941938226414`"}], "+", 
-       RowBox[{"0.0502496335977213`", " ", "\[ImaginaryI]"}]}], ",", 
-      RowBox[{"0.067942274127447`", "\[InvisibleSpace]", "-", 
-       RowBox[{"0.3288154489307584`", " ", "\[ImaginaryI]"}]}], ",", 
+       RowBox[{"-", "0.21272893993024297`"}], "-", 
+       RowBox[{"0.17620501004948994`", " ", "\[ImaginaryI]"}]}], ",", 
       RowBox[{
-       RowBox[{"-", "0.09520301042351724`"}], "+", 
-       RowBox[{"0.27076689302918316`", " ", "\[ImaginaryI]"}]}], ",", 
-      RowBox[{"0.3143567125802074`", "\[InvisibleSpace]", "+", 
-       RowBox[{"0.24029769603456116`", " ", "\[ImaginaryI]"}]}], ",", 
-      RowBox[{"0.2685879825903833`", "\[InvisibleSpace]", "-", 
-       RowBox[{"0.052978183107650366`", " ", "\[ImaginaryI]"}]}], ",", 
-      RowBox[{"0.09252755647666891`", "\[InvisibleSpace]", "-", 
-       RowBox[{"0.19034782286224086`", " ", "\[ImaginaryI]"}]}]}], "}"}], 
+       RowBox[{"-", "0.102540463561758`"}], "+", 
+       RowBox[{"0.22427796574478004`", " ", "\[ImaginaryI]"}]}], ",", 
+      RowBox[{"0.048322720347164`", "\[InvisibleSpace]", "+", 
+       RowBox[{"0.2601178001952004`", " ", "\[ImaginaryI]"}]}], ",", 
+      RowBox[{
+       RowBox[{"-", "0.09403715866231306`"}], "-", 
+       RowBox[{"0.19377791818935736`", " ", "\[ImaginaryI]"}]}], ",", 
+      RowBox[{"0.3333633636421698`", "\[InvisibleSpace]", "+", 
+       RowBox[{"0.18757021154031425`", " ", "\[ImaginaryI]"}]}], ",", 
+      RowBox[{"0.1805105897979548`", "\[InvisibleSpace]", "+", 
+       RowBox[{"0.27160568421303355`", " ", "\[ImaginaryI]"}]}], ",", 
+      RowBox[{"0.21116109134909788`", "\[InvisibleSpace]", "+", 
+       RowBox[{"0.11356768731540894`", " ", "\[ImaginaryI]"}]}], ",", 
+      RowBox[{
+       RowBox[{"-", "0.2510131543231555`"}], "+", 
+       RowBox[{"0.050215564221329986`", " ", "\[ImaginaryI]"}]}]}], "}"}], 
     "}"}], ",", 
    RowBox[{"{", 
     RowBox[{"{", 
      RowBox[{
+      RowBox[{"0.28525251641419674`", "\[InvisibleSpace]", "+", 
+       RowBox[{"0.005034313356966591`", " ", "\[ImaginaryI]"}]}], ",", 
+      RowBox[{"0.09932966001956926`", "\[InvisibleSpace]", "+", 
+       RowBox[{"0.2949823993670018`", " ", "\[ImaginaryI]"}]}], ",", 
       RowBox[{
-       RowBox[{"-", "0.26154235157599126`"}], "-", 
-       RowBox[{"0.05295082489272864`", " ", "\[ImaginaryI]"}]}], ",", 
+       RowBox[{"-", "0.2901896350149127`"}], "-", 
+       RowBox[{"0.059074278089239894`", " ", "\[ImaginaryI]"}]}], ",", 
       RowBox[{
-       RowBox[{"-", "0.25828898624093805`"}], "-", 
-       RowBox[{"0.21720922258091518`", " ", "\[ImaginaryI]"}]}], ",", 
-      RowBox[{"0.17256939621350328`", "\[InvisibleSpace]", "+", 
-       RowBox[{"0.22705810356385986`", " ", "\[ImaginaryI]"}]}], ",", 
+       RowBox[{"-", "0.24051734763028895`"}], "+", 
+       RowBox[{"0.2312026958835081`", " ", "\[ImaginaryI]"}]}], ",", 
+      RowBox[{"0.09365009829659182`", "\[InvisibleSpace]", "+", 
+       RowBox[{"0.05110863425031449`", " ", "\[ImaginaryI]"}]}], ",", 
       RowBox[{
-       RowBox[{"-", "0.1668653662179482`"}], "+", 
-       RowBox[{"0.1303770182252753`", " ", "\[ImaginaryI]"}]}], ",", 
-      RowBox[{
-       RowBox[{"-", "0.2528628510129897`"}], "+", 
-       RowBox[{"0.10611326220936833`", " ", "\[ImaginaryI]"}]}], ",", 
-      RowBox[{"0.0019397270058144772`", "\[InvisibleSpace]", "+", 
-       RowBox[{"0.031797506016957064`", " ", "\[ImaginaryI]"}]}], ",", 
-      RowBox[{
-       RowBox[{"-", "0.06748176874089072`"}], "+", 
-       RowBox[{"0.279424386916658`", " ", "\[ImaginaryI]"}]}], ",", 
-      RowBox[{
-       RowBox[{"-", "0.29797041666598384`"}], "+", 
-       RowBox[{"0.15491274256648763`", " ", "\[ImaginaryI]"}]}]}], "}"}], 
+       RowBox[{"-", "0.19796125411547794`"}], "+", 
+       RowBox[{"0.11024414281486819`", " ", "\[ImaginaryI]"}]}], ",", 
+      RowBox[{"0.31119745446304065`", "\[InvisibleSpace]", "+", 
+       RowBox[{"0.05801437852640171`", " ", "\[ImaginaryI]"}]}], ",", 
+      RowBox[{"0.13946668517850802`", "\[InvisibleSpace]", "+", 
+       RowBox[{"0.2696590200122844`", " ", "\[ImaginaryI]"}]}]}], "}"}], 
     "}"}]}], "}"}]], "Output",
  CellChangeTimes->{{3.489294240357108*^9, 3.489294252296864*^9}, 
-   3.4892953333443336`*^9, 3.489301214611249*^9}]
+   3.4892953333443336`*^9, 3.489301214611249*^9, 3.489305187407249*^9, 
+   3.489305435356701*^9}]
 }, Open  ]],
 
 Cell["\<\
@@ -276,23 +278,293 @@ Cell[BoxData[
     RowBox[{"Tolerance", "\[Rule]", 
      RowBox[{"10", "^", 
       RowBox[{"(", 
-       RowBox[{"-", "3"}], ")"}]}]}], ",", 
-    RowBox[{"Sweeps", "\[Rule]", "2"}]}], "]"}]}]], "Input",
+       RowBox[{"-", "7"}], ")"}]}]}], ",", 
+    RowBox[{"Sweeps", "\[Rule]", "6"}], ",", 
+    RowBox[{"MonitorEnergy", "\[Rule]", "True"}]}], "]"}]}]], "Input",
  CellChangeTimes->{{3.489236455774604*^9, 3.489236459796526*^9}, {
   3.4892365900807858`*^9, 3.4892365995418043`*^9}, {3.489236849546856*^9, 
   3.4892368575343924`*^9}, {3.4892368964642467`*^9, 3.48923689659702*^9}, {
-  3.489237510546959*^9, 3.4892375111441803`*^9}}],
+  3.489237510546959*^9, 3.4892375111441803`*^9}, {3.4893051941262493`*^9, 
+  3.48930520588696*^9}}],
 
 Cell[BoxData[
  RowBox[{
-  RowBox[{"-", "2.528917466536779`"}], "+", 
-  RowBox[{"0.`", " ", "\[ImaginaryI]"}]}]], "Output",
+  RowBox[{"Set", "::", "\<\"shape\"\>"}], 
+  RowBox[{
+  ":", " "}], "\<\"\\!\\(\\*StyleBox[\\\"\\\\\\\"Lists \\\\\\\"\\\", \\\"MT\\\
+\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\!\\({MathMPS`Private`energy$86122, \
+MathMPS`Private`new$86122, MathMPS`Private`info$86122}\\), \\\"MT\\\"]\\)\
+\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\" and \\\\\\\"\\\", \\\"MT\\\"]\\)\
+\[NoBreak]\\!\\(\\*StyleBox[\\!\\(MathMPS`Private`FindGroundMPSSite[\\(\\(\
+\[LeftSkeleton] 1 \[RightSkeleton]\\)\\)]\\), \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\" are not the same \
+shape.\\\\\\\"\\\", \\\"MT\\\"]\\) \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/Set/shape\\\", \
+ButtonNote -> \\\"Set::shape\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.4893054378826437`*^9}],
+
+Cell[BoxData["\<\"Fallen link...\"\>"], "Print",
+ CellChangeTimes->{3.489305437908866*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"LinkObject", "::", "\<\"linkn\"\>"}], 
+  RowBox[{
+  ":", " "}], "\<\"\\!\\(\\*StyleBox[\\\"\\\\\\\"Argument \\\\\\\"\\\", \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\!\\(LinkObject[\\(\\(\\\"/Users/\
+fcucchietti/Code/MathMPS/arpackformps_MacOSX-x86-64\\\", 8, 8\\)\\)]\\), \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\" in \\\\\\\"\\\", \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\!\\(LinkClose[\\(\\(LinkObject[\\(\
+\\(\\\"/Users/fcucchietti/Code/MathMPS/arpackformps_MacOSX-x86-64\\\", 8, \
+8\\)\\)]\\)\\)]\\), \\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\" \
+has an invalid LinkObject number; the link may be closed.\\\\\\\"\\\", \\\"MT\
+\\\"]\\) \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\
+\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/LinkObject/linkn\\\", ButtonNote -> \
+\\\"LinkObject::linkn\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.48930543797519*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"LinkObject", "::", "\<\"linkn\"\>"}], 
+  RowBox[{
+  ":", " "}], "\<\"\\!\\(\\*StyleBox[\\\"\\\\\\\"Argument \\\\\\\"\\\", \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\!\\(LinkObject[\\(\\(\\\"/Users/\
+fcucchietti/Code/MathMPS/arpackformps_MacOSX-x86-64\\\", 8, 8\\)\\)]\\), \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\" in \\\\\\\"\\\", \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\!\\(LinkPatterns[\\(\\(LinkObject[\
+\\(\\(\\\"/Users/fcucchietti/Code/MathMPS/arpackformps_MacOSX-x86-64\\\", 8, \
+8\\)\\)]\\)\\)]\\), \\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\" \
+has an invalid LinkObject number; the link may be closed.\\\\\\\"\\\", \\\"MT\
+\\\"]\\) \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\
+\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/LinkObject/linkn\\\", ButtonNote -> \
+\\\"LinkObject::linkn\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.4893054379993773`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Unset", "::", "\<\"norep\"\>"}], 
+  RowBox[{
+  ":", " "}], "\<\"\\!\\(\\*StyleBox[\\\"\\\\\\\"Assignment on \\\\\\\"\\\", \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\!\\(LinkPatterns\\), \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\" for \\\\\\\"\\\", \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\!\\(LinkPatterns[\\(\\(LinkObject[\
+\\(\\(\\\"/Users/fcucchietti/Code/MathMPS/arpackformps_MacOSX-x86-64\\\", 8, \
+8\\)\\)]\\)\\)]\\), \\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\" \
+not found.\\\\\\\"\\\", \\\"MT\\\"]\\) \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/Unset/norep\\\", \
+ButtonNote -> \\\"Unset::norep\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.4893054380366783`*^9}],
+
+Cell[BoxData["\<\"And we're back.\"\>"], "Print",
+ CellChangeTimes->{3.489305439040423*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Set", "::", "\<\"shape\"\>"}], 
+  RowBox[{
+  ":", " "}], "\<\"\\!\\(\\*StyleBox[\\\"\\\\\\\"Lists \\\\\\\"\\\", \\\"MT\\\
+\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\!\\({MathMPS`Private`energy$86122, \
+MathMPS`Private`new$86122, MathMPS`Private`info$86122}\\), \\\"MT\\\"]\\)\
+\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\" and \\\\\\\"\\\", \\\"MT\\\"]\\)\
+\[NoBreak]\\!\\(\\*StyleBox[\\!\\(MathMPS`Private`FindGroundMPSSite[\\(\\(\
+\[LeftSkeleton] 1 \[RightSkeleton]\\)\\)]\\), \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\" are not the same \
+shape.\\\\\\\"\\\", \\\"MT\\\"]\\) \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/Set/shape\\\", \
+ButtonNote -> \\\"Set::shape\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.489305439065819*^9}],
+
+Cell[BoxData["\<\"Fallen link...\"\>"], "Print",
+ CellChangeTimes->{3.489305439096981*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"LinkObject", "::", "\<\"linkn\"\>"}], 
+  RowBox[{
+  ":", " "}], "\<\"\\!\\(\\*StyleBox[\\\"\\\\\\\"Argument \\\\\\\"\\\", \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\!\\(LinkObject[\\(\\(\\\"/Users/\
+fcucchietti/Code/MathMPS/arpackformps_MacOSX-x86-64\\\", 9, 8\\)\\)]\\), \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\" in \\\\\\\"\\\", \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\!\\(LinkClose[\\(\\(LinkObject[\\(\
+\\(\\\"/Users/fcucchietti/Code/MathMPS/arpackformps_MacOSX-x86-64\\\", 9, \
+8\\)\\)]\\)\\)]\\), \\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\" \
+has an invalid LinkObject number; the link may be closed.\\\\\\\"\\\", \\\"MT\
+\\\"]\\) \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\
+\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/LinkObject/linkn\\\", ButtonNote -> \
+\\\"LinkObject::linkn\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.489305439130891*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"General", "::", "\<\"stop\"\>"}], 
+  RowBox[{
+  ":", " "}], "\<\"\\!\\(\\*StyleBox[\\\"\\\\\\\"Further output of \\\\\\\"\\\
+\", \\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\!\\(LinkObject :: \\\"linkn\\\
+\"\\), \\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\" will be \
+suppressed during this calculation.\\\\\\\"\\\", \\\"MT\\\"]\\) \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/stop\\\", \
+ButtonNote -> \\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.489305439162785*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Unset", "::", "\<\"norep\"\>"}], 
+  RowBox[{
+  ":", " "}], "\<\"\\!\\(\\*StyleBox[\\\"\\\\\\\"Assignment on \\\\\\\"\\\", \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\!\\(LinkPatterns\\), \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\" for \\\\\\\"\\\", \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\!\\(LinkPatterns[\\(\\(LinkObject[\
+\\(\\(\\\"/Users/fcucchietti/Code/MathMPS/arpackformps_MacOSX-x86-64\\\", 9, \
+8\\)\\)]\\)\\)]\\), \\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\" \
+not found.\\\\\\\"\\\", \\\"MT\\\"]\\) \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/Unset/norep\\\", \
+ButtonNote -> \\\"Unset::norep\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.489305439196879*^9}],
+
+Cell[BoxData["\<\"And we're back.\"\>"], "Print",
+ CellChangeTimes->{3.489305440100996*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Set", "::", "\<\"shape\"\>"}], 
+  RowBox[{
+  ":", " "}], "\<\"\\!\\(\\*StyleBox[\\\"\\\\\\\"Lists \\\\\\\"\\\", \\\"MT\\\
+\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\!\\({MathMPS`Private`energy$86122, \
+MathMPS`Private`new$86122, MathMPS`Private`info$86122}\\), \\\"MT\\\"]\\)\
+\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\" and \\\\\\\"\\\", \\\"MT\\\"]\\)\
+\[NoBreak]\\!\\(\\*StyleBox[\\!\\(MathMPS`Private`FindGroundMPSSite[\\(\\(\
+\[LeftSkeleton] 1 \[RightSkeleton]\\)\\)]\\), \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\" are not the same \
+shape.\\\\\\\"\\\", \\\"MT\\\"]\\) \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/Set/shape\\\", \
+ButtonNote -> \\\"Set::shape\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.489305440126828*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"General", "::", "\<\"stop\"\>"}], 
+  RowBox[{
+  ":", " "}], "\<\"\\!\\(\\*StyleBox[\\\"\\\\\\\"Further output of \\\\\\\"\\\
+\", \\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\!\\(Set :: \\\"shape\\\"\\), \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\" will be suppressed \
+during this calculation.\\\\\\\"\\\", \\\"MT\\\"]\\) \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.489305440160499*^9}],
+
+Cell[BoxData["\<\"Fallen link...\"\>"], "Print",
+ CellChangeTimes->{3.489305440192484*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Unset", "::", "\<\"norep\"\>"}], 
+  RowBox[{
+  ":", " "}], "\<\"\\!\\(\\*StyleBox[\\\"\\\\\\\"Assignment on \\\\\\\"\\\", \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\!\\(LinkPatterns\\), \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\" for \\\\\\\"\\\", \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\!\\(LinkPatterns[\\(\\(LinkObject[\
+\\(\\(\\\"/Users/fcucchietti/Code/MathMPS/arpackformps_MacOSX-x86-64\\\", 10, \
+8\\)\\)]\\)\\)]\\), \\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\" \
+not found.\\\\\\\"\\\", \\\"MT\\\"]\\) \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/Unset/norep\\\", \
+ButtonNote -> \\\"Unset::norep\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.4893054402273808`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"General", "::", "\<\"stop\"\>"}], 
+  RowBox[{
+  ":", " "}], "\<\"\\!\\(\\*StyleBox[\\\"\\\\\\\"Further output of \\\\\\\"\\\
+\", \\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\!\\(Unset :: \
+\\\"norep\\\"\\), \\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\" will \
+be suppressed during this calculation.\\\\\\\"\\\", \\\"MT\\\"]\\) \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/stop\\\", \
+ButtonNote -> \\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.489305440259379*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"And we're back.\"\>"], "Print",
+ CellChangeTimes->{3.489305441154726*^9}],
+
+Cell[BoxData["\<\"Fallen link...\"\>"], "Print",
+ CellChangeTimes->{3.489305441178856*^9}],
+
+Cell[BoxData["\<\"And we're back.\"\>"], "Print",
+ CellChangeTimes->{3.489305442190054*^9}],
+
+Cell[BoxData["\<\"Fallen link...\"\>"], "Print",
+ CellChangeTimes->{3.489305442217683*^9}],
+
+Cell[BoxData["\<\"And we're back.\"\>"], "Print",
+ CellChangeTimes->{3.4893054432272377`*^9}],
+
+Cell[BoxData["\<\"Fallen link...\"\>"], "Print",
+ CellChangeTimes->{3.489305443255315*^9}],
+
+Cell[BoxData["\<\"And we're back.\"\>"], "Print",
+ CellChangeTimes->{3.489305444264998*^9}],
+
+Cell[BoxData["\<\"Fallen link...\"\>"], "Print",
+ CellChangeTimes->{3.489305444293641*^9}],
+
+Cell[BoxData["\<\"And we're back.\"\>"], "Print",
+ CellChangeTimes->{3.4893054453026047`*^9}],
+
+Cell[BoxData["\<\"Fallen link...\"\>"], "Print",
+ CellChangeTimes->{3.489305445331169*^9}],
+
+Cell[BoxData["\<\"And we're back.\"\>"], "Print",
+ CellChangeTimes->{3.489305446339191*^9}],
+
+Cell[BoxData["\<\"Fallen link...\"\>"], "Print",
+ CellChangeTimes->{3.489305446367263*^9}],
+
+Cell[BoxData["\<\"And we're back.\"\>"], "Print",
+ CellChangeTimes->{3.489305447376046*^9}],
+
+Cell[BoxData["\<\"Fallen link...\"\>"], "Print",
+ CellChangeTimes->{3.4893054474038*^9}],
+
+Cell[BoxData["\<\"And we're back.\"\>"], "Print",
+ CellChangeTimes->{3.489305448414647*^9}],
+
+Cell[BoxData["\<\"Fallen link...\"\>"], "Print",
+ CellChangeTimes->{3.4893054484429703`*^9}],
+
+Cell[BoxData["\<\"And we're back.\"\>"], "Print",
+ CellChangeTimes->{3.48930544945444*^9}],
+
+Cell[BoxData["\<\"Fallen link...\"\>"], "Print",
+ CellChangeTimes->{3.489305449482382*^9}],
+
+Cell[BoxData["\<\"And we're back.\"\>"], "Print",
+ CellChangeTimes->{3.4893054504860992`*^9}],
+
+Cell[BoxData["\<\"Fallen link...\"\>"], "Print",
+ CellChangeTimes->{3.489305450516438*^9}]
+}, Open  ]],
+
+Cell[BoxData["$Aborted"], "Output",
  CellChangeTimes->{
   3.489236613331408*^9, 3.4892368461353083`*^9, {3.489236891659401*^9, 
    3.4892369008576517`*^9}, 3.489236982668428*^9, 3.48923713496948*^9, 
    3.4892374417669783`*^9, {3.4892375050135193`*^9, 3.489237515613399*^9}, 
    3.489237566015382*^9, 3.4892942600120907`*^9, 3.489295336663473*^9, 
-   3.489301214906769*^9}]
+   3.489301214906769*^9, 3.4893052079162827`*^9, 3.489305335669949*^9, 
+   3.489305367137938*^9, 3.489305451522265*^9}]
 }, Open  ]],
 
 Cell["The state has changed.", "Text",
@@ -982,6 +1254,15 @@ Cell[BoxData[
 
 Cell[BoxData["1.0000000000000004`"], "Output",
  CellChangeTimes->{3.4893017850754337`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["IsLinkActive"], "Input",
+ CellChangeTimes->{{3.489305725019937*^9, 3.489305747012034*^9}}],
+
+Cell[BoxData["IsLinkActive"], "Output",
+ CellChangeTimes->{{3.48930574431565*^9, 3.489305747456971*^9}}]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
@@ -999,21 +1280,21 @@ StyleDefinitions->"Default.nb"
 (*CellTagsOutline
 CellTagsIndex->{
  "Info3489308414-8469528"->{
-  Cell[13162, 342, 277, 5, 60, "Print",
+  Cell[25783, 614, 277, 5, 60, "Print",
    CellTags->"Info3489308414-8469528"]},
  "Info3489308415-5731344"->{
-  Cell[14862, 395, 382, 6, 130, "Print",
+  Cell[27483, 667, 382, 6, 130, "Print",
    CellTags->"Info3489308415-5731344"]},
  "Info3489308416-9597017"->{
-  Cell[21346, 571, 605, 9, 168, "Print",
+  Cell[33967, 843, 605, 9, 168, "Print",
    CellTags->"Info3489308416-9597017"]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"Info3489308414-8469528", 37086, 995},
- {"Info3489308415-5731344", 37196, 998},
- {"Info3489308416-9597017", 37307, 1001}
+ {"Info3489308414-8469528", 49955, 1276},
+ {"Info3489308415-5731344", 50065, 1279},
+ {"Info3489308416-9597017", 50176, 1282}
  }
 *)
 (*NotebookFileOutline
@@ -1025,125 +1306,168 @@ Cell[691, 27, 119, 1, 67, "Section"],
 Cell[813, 30, 143, 1, 26, "Text"],
 Cell[CellGroupData[{
 Cell[981, 35, 174, 3, 27, "Input"],
-Cell[1158, 40, 790, 11, 27, "Output"]
+Cell[1158, 40, 812, 11, 27, "Output"]
 }, Open  ]],
-Cell[1963, 54, 97, 1, 26, "Text"],
+Cell[1985, 54, 97, 1, 26, "Text"],
 Cell[CellGroupData[{
-Cell[2085, 59, 216, 4, 27, "Input"],
-Cell[2304, 65, 1555, 24, 591, "Print"]
+Cell[2107, 59, 216, 4, 27, "Input"],
+Cell[2326, 65, 1677, 26, 591, "Print"]
 }, Open  ]],
-Cell[3874, 92, 114, 1, 26, "Text"],
-Cell[3991, 95, 1148, 31, 103, "Input"],
-Cell[5142, 128, 114, 1, 26, "Text"],
-Cell[5259, 131, 250, 6, 27, "Input"],
-Cell[5512, 139, 140, 1, 26, "Text"],
-Cell[5655, 142, 128, 3, 27, "Input"],
-Cell[5786, 147, 123, 1, 26, "Text"],
+Cell[4018, 94, 114, 1, 26, "Text"],
+Cell[4135, 97, 1148, 31, 103, "Input"],
+Cell[5286, 130, 114, 1, 26, "Text"],
+Cell[5403, 133, 250, 6, 27, "Input"],
+Cell[5656, 141, 140, 1, 26, "Text"],
+Cell[5799, 144, 128, 3, 27, "Input"],
+Cell[5930, 149, 123, 1, 26, "Text"],
 Cell[CellGroupData[{
-Cell[5934, 152, 177, 4, 27, "Input"],
-Cell[6114, 158, 2494, 52, 103, "Output"]
+Cell[6078, 154, 177, 4, 27, "Input"],
+Cell[6258, 160, 2538, 52, 103, "Output"]
 }, Open  ]],
-Cell[8623, 213, 222, 5, 26, "Text"],
-Cell[8848, 220, 1503, 38, 133, "Input"],
-Cell[10354, 260, 114, 1, 26, "Text"],
+Cell[8811, 215, 222, 5, 26, "Text"],
+Cell[9036, 222, 1503, 38, 133, "Input"],
+Cell[10542, 262, 114, 1, 26, "Text"],
 Cell[CellGroupData[{
-Cell[10493, 265, 629, 13, 43, "Input"],
-Cell[11125, 280, 460, 9, 27, "Output"]
+Cell[10681, 267, 735, 15, 43, "Input"],
+Cell[11419, 284, 867, 15, 59, "Message"],
+Cell[12289, 301, 90, 1, 20, "Print"],
+Cell[12382, 304, 972, 16, 77, "Message"],
+Cell[13357, 322, 978, 16, 77, "Message"],
+Cell[14338, 340, 834, 14, 41, "Message"],
+Cell[15175, 356, 91, 1, 20, "Print"],
+Cell[15269, 359, 865, 15, 59, "Message"],
+Cell[16137, 376, 90, 1, 20, "Print"],
+Cell[16230, 379, 973, 16, 77, "Message"],
+Cell[17206, 397, 633, 11, 23, "Message"],
+Cell[17842, 410, 832, 14, 41, "Message"],
+Cell[18677, 426, 91, 1, 20, "Print"],
+Cell[18771, 429, 865, 15, 59, "Message"],
+Cell[19639, 446, 626, 11, 23, "Message"],
+Cell[20268, 459, 90, 1, 20, "Print"],
+Cell[20361, 462, 835, 14, 41, "Message"],
+Cell[21199, 478, 628, 11, 23, "Message"],
+Cell[CellGroupData[{
+Cell[21852, 493, 91, 1, 20, "Print"],
+Cell[21946, 496, 90, 1, 20, "Print"],
+Cell[22039, 499, 91, 1, 20, "Print"],
+Cell[22133, 502, 90, 1, 20, "Print"],
+Cell[22226, 505, 93, 1, 20, "Print"],
+Cell[22322, 508, 90, 1, 20, "Print"],
+Cell[22415, 511, 91, 1, 20, "Print"],
+Cell[22509, 514, 90, 1, 20, "Print"],
+Cell[22602, 517, 93, 1, 20, "Print"],
+Cell[22698, 520, 90, 1, 20, "Print"],
+Cell[22791, 523, 91, 1, 20, "Print"],
+Cell[22885, 526, 90, 1, 20, "Print"],
+Cell[22978, 529, 91, 1, 20, "Print"],
+Cell[23072, 532, 88, 1, 20, "Print"],
+Cell[23163, 535, 91, 1, 20, "Print"],
+Cell[23257, 538, 92, 1, 20, "Print"],
+Cell[23352, 541, 90, 1, 20, "Print"],
+Cell[23445, 544, 90, 1, 20, "Print"],
+Cell[23538, 547, 93, 1, 20, "Print"],
+Cell[23634, 550, 90, 1, 20, "Print"]
 }, Open  ]],
-Cell[11600, 292, 104, 1, 26, "Text"],
-Cell[CellGroupData[{
-Cell[11729, 297, 177, 4, 27, "Input"],
-Cell[11909, 303, 832, 23, 43, "Output"]
+Cell[23739, 554, 467, 7, 27, "Output"]
 }, Open  ]],
-Cell[12756, 329, 256, 5, 26, "Text"],
+Cell[24221, 564, 104, 1, 26, "Text"],
 Cell[CellGroupData[{
-Cell[13037, 338, 122, 2, 27, "Input"],
-Cell[13162, 342, 277, 5, 60, "Print",
+Cell[24350, 569, 177, 4, 27, "Input"],
+Cell[24530, 575, 832, 23, 43, "Output"]
+}, Open  ]],
+Cell[25377, 601, 256, 5, 26, "Text"],
+Cell[CellGroupData[{
+Cell[25658, 610, 122, 2, 27, "Input"],
+Cell[25783, 614, 277, 5, 60, "Print",
  CellTags->"Info3489308414-8469528"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[13476, 352, 181, 4, 27, "Input"],
-Cell[13660, 358, 186, 2, 20, "Print"]
+Cell[26097, 624, 181, 4, 27, "Input"],
+Cell[26281, 630, 186, 2, 20, "Print"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[13883, 365, 430, 10, 43, "Input"],
-Cell[14316, 377, 232, 5, 27, "Output"]
+Cell[26504, 637, 430, 10, 43, "Input"],
+Cell[26937, 649, 232, 5, 27, "Output"]
 }, Open  ]],
-Cell[14563, 385, 98, 1, 26, "Text"],
+Cell[27184, 657, 98, 1, 26, "Text"],
 Cell[CellGroupData[{
-Cell[14686, 390, 173, 3, 27, "Input"],
-Cell[14862, 395, 382, 6, 130, "Print",
+Cell[27307, 662, 173, 3, 27, "Input"],
+Cell[27483, 667, 382, 6, 130, "Print",
  CellTags->"Info3489308415-5731344"]
 }, Open  ]],
-Cell[15259, 404, 129, 1, 26, "Text"],
-Cell[15391, 407, 1150, 40, 73, "Input"],
+Cell[27880, 676, 129, 1, 26, "Text"],
+Cell[28012, 679, 1150, 40, 73, "Input"],
 Cell[CellGroupData[{
-Cell[16566, 451, 266, 5, 27, "Input"],
-Cell[16835, 458, 199, 3, 27, "Output"]
+Cell[29187, 723, 266, 5, 27, "Input"],
+Cell[29456, 730, 199, 3, 27, "Output"]
 }, Open  ]],
-Cell[17049, 464, 171, 2, 26, "Text"],
+Cell[29670, 736, 171, 2, 26, "Text"],
 Cell[CellGroupData[{
-Cell[17245, 470, 278, 6, 27, "Input"],
-Cell[17526, 478, 2238, 42, 229, 490, 12, "CachedBoxData", "BoxData", \
+Cell[29866, 742, 278, 6, 27, "Input"],
+Cell[30147, 750, 2238, 42, 229, 490, 12, "CachedBoxData", "BoxData", \
 "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[19813, 526, 101, 1, 67, "Section"],
-Cell[19917, 529, 123, 1, 26, "Text"],
-Cell[20043, 532, 1148, 31, 103, "Input"],
+Cell[32434, 798, 101, 1, 67, "Section"],
+Cell[32538, 801, 123, 1, 26, "Text"],
+Cell[32664, 804, 1148, 31, 103, "Input"],
 Cell[CellGroupData[{
-Cell[21216, 567, 127, 2, 27, "Input"],
-Cell[21346, 571, 605, 9, 168, "Print",
+Cell[33837, 839, 127, 2, 27, "Input"],
+Cell[33967, 843, 605, 9, 168, "Print",
  CellTags->"Info3489308416-9597017"]
 }, Open  ]],
-Cell[21966, 583, 326, 7, 27, "Input"],
-Cell[22295, 592, 611, 9, 71, "Text"],
-Cell[22909, 603, 311, 6, 41, "Text"],
-Cell[23223, 611, 174, 4, 27, "Input"],
-Cell[23400, 617, 385, 10, 43, "Input"],
-Cell[23788, 629, 275, 5, 26, "Text"],
-Cell[24066, 636, 581, 13, 58, "Input"],
-Cell[24650, 651, 100, 1, 26, "Text"],
-Cell[24753, 654, 534, 12, 58, "Input"],
-Cell[25290, 668, 248, 4, 41, "Text"],
+Cell[34587, 855, 326, 7, 27, "Input"],
+Cell[34916, 864, 611, 9, 71, "Text"],
+Cell[35530, 875, 311, 6, 41, "Text"],
+Cell[35844, 883, 174, 4, 27, "Input"],
+Cell[36021, 889, 385, 10, 43, "Input"],
+Cell[36409, 901, 275, 5, 26, "Text"],
+Cell[36687, 908, 581, 13, 58, "Input"],
+Cell[37271, 923, 100, 1, 26, "Text"],
+Cell[37374, 926, 534, 12, 58, "Input"],
+Cell[37911, 940, 248, 4, 41, "Text"],
 Cell[CellGroupData[{
-Cell[25563, 676, 582, 15, 43, "Input"],
-Cell[26148, 693, 804, 21, 89, "Output"]
+Cell[38184, 948, 582, 15, 43, "Input"],
+Cell[38769, 965, 804, 21, 89, "Output"]
 }, Open  ]],
-Cell[26967, 717, 371, 8, 58, "Input"],
-Cell[27341, 727, 106, 1, 26, "Text"],
-Cell[27450, 730, 355, 9, 27, "Input"],
-Cell[27808, 741, 117, 1, 26, "Text"],
-Cell[27928, 744, 450, 10, 58, "Input"],
-Cell[28381, 756, 229, 3, 26, "Text"],
-Cell[28613, 761, 573, 13, 58, "Input"],
-Cell[29189, 776, 245, 5, 26, "Text"],
-Cell[29437, 783, 2072, 53, 223, "Input"],
-Cell[31512, 838, 1020, 26, 118, "Input"],
-Cell[32535, 866, 100, 1, 26, "Text"],
+Cell[39588, 989, 371, 8, 58, "Input"],
+Cell[39962, 999, 106, 1, 26, "Text"],
+Cell[40071, 1002, 355, 9, 27, "Input"],
+Cell[40429, 1013, 117, 1, 26, "Text"],
+Cell[40549, 1016, 450, 10, 58, "Input"],
+Cell[41002, 1028, 229, 3, 26, "Text"],
+Cell[41234, 1033, 573, 13, 58, "Input"],
+Cell[41810, 1048, 245, 5, 26, "Text"],
+Cell[42058, 1055, 2072, 53, 223, "Input"],
+Cell[44133, 1110, 1020, 26, 118, "Input"],
+Cell[45156, 1138, 100, 1, 26, "Text"],
 Cell[CellGroupData[{
-Cell[32660, 871, 127, 2, 27, "Input"],
-Cell[32790, 875, 209, 3, 27, "Output"]
+Cell[45281, 1143, 127, 2, 27, "Input"],
+Cell[45411, 1147, 209, 3, 27, "Output"]
 }, Open  ]],
-Cell[33014, 881, 137, 1, 26, "Text"],
-Cell[33154, 884, 237, 3, 26, "Text"],
+Cell[45635, 1153, 137, 1, 26, "Text"],
+Cell[45775, 1156, 237, 3, 26, "Text"],
 Cell[CellGroupData[{
-Cell[33416, 891, 500, 9, 27, "Input"],
-Cell[33919, 902, 330, 6, 27, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[34286, 913, 366, 7, 27, "Input"],
-Cell[34655, 922, 705, 15, 247, "Output"]
+Cell[46037, 1163, 500, 9, 27, "Input"],
+Cell[46540, 1174, 330, 6, 27, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[35397, 942, 223, 4, 27, "Input"],
-Cell[35623, 948, 569, 13, 238, "Output"]
+Cell[46907, 1185, 366, 7, 27, "Input"],
+Cell[47276, 1194, 705, 15, 247, "Output"]
 }, Open  ]],
-Cell[36207, 964, 190, 4, 26, "Text"],
 Cell[CellGroupData[{
-Cell[36422, 972, 173, 3, 27, "Input"],
-Cell[36598, 977, 90, 1, 27, "Output"]
+Cell[48018, 1214, 223, 4, 27, "Input"],
+Cell[48244, 1220, 569, 13, 238, "Output"]
+}, Open  ]],
+Cell[48828, 1236, 190, 4, 26, "Text"],
+Cell[CellGroupData[{
+Cell[49043, 1244, 173, 3, 27, "Input"],
+Cell[49219, 1249, 90, 1, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[49346, 1255, 104, 1, 27, "Input"],
+Cell[49453, 1258, 104, 1, 27, "Output"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
