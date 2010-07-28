@@ -57,7 +57,9 @@ Expectation values:
 Hamiltonians and evolution operators:
 	TEBDInitHamiltonian
 	TEBDHamiltonianAdd
-	TEBDEvolutionOperator
+	TEBDEvolutionFromHamiltonian
+	TEBDInitEvolution
+	TEBDEvolutionAddGate
 "]
 
 
@@ -137,7 +139,7 @@ MonitorEnergy\[Rule]bool  (Default True, it prints out not only the final energy
 Verbose\[Rule]bool   (make the routine more talkative)"
 
 
-TEBDProductState::usage"TEBDProductState[numSites,Options]
+TEBDProductState::usage="TEBDProductState[numSites,Options]
 Creates a TEBD representation state. 
 Options:
 	Spin\[Rule]integer (Default is 2)
@@ -155,12 +157,17 @@ TEBDRead::usage="TEBDRead[filename] reads the files produced by TEBDSave and ret
 
 TEBDEvolve::usage="
 TEBDEvolve[TEBD,OperatorList,repeatTimes]
-Evolves the TEBD object with the given OperatorList (see example). It applies this list repeatTimes number of times, but this argument is optional and the default is one"
+Evolves the TEBD object with the given OperatorList (see example). It applies this list repeatTimes number of times, but this argument is optional and the default is one. It can take Verbose->True option to print out the steps."
 
 
 TEBDExpectation::usage="
 TEBDExpectation[TEBD,site,Operator]
 TEBDExpectation[TEBD,site1,site2,Operator1,Operator2]
+
+Computes the expectation value of one or two operators acting in one or two sites."
+
+
+TEBDExpectationList::usage="
 TEBDExpectationList[TEBD,site1,site2,Operator1,Operator2]
 
 Computes the expectation value of one or two operators acting in one or two sites. The List version returns all the possible correlations between site1 and site2"
@@ -168,6 +175,17 @@ Computes the expectation value of one or two operators acting in one or two site
 
 TEBDInitHamiltonian::usage="
 Ham=TEBDInitHamiltonian[]   Initializes a Hamiltonian object Ham to an empty Hamiltonian"
+
+
+TEBDInitEvolution::usage="
+U=TEBDInitEvolution[]   Initializes an evolution operator object U."
+
+
+TEBDEvolutionAddGate::usage="
+TEBDEvolutionAddGate[U,operator,site]
+TEBDEvolutionAddGate[U,operator12,site1,site2]
+
+Adds an operator the the evolution operator U that acts either on a single site, or on two sites. Notice that operator must be a spin x spin matrix, or an arbitrary 2 spin operator (spin^2 x spin^2)."
 
 
 TEBDHamiltonianAdd::usage="
@@ -180,13 +198,13 @@ An arbitrary 2 spin operator (spin^2 x spin^2) can also be passed as
 TEBDHamiltonianAdd[Ham,operator,site1,site2]"
 
 
-TEBDHamiltonianAdd[Ham_,operator_,site_]:=(Ham=(Ham~Join~{{operator,site,site}}))
-
-
-TEBDEvolutionOperator::usage="TEBDEvolutionOperator[Ham,time]
+TEBDEvolutionFromHamiltonian::usage="TEBDEvolutionFromHamiltonian[Ham,time]
 Creates an evolution operator List that is ready to be passed to TEBDEvolve. 
 NOTICE this function is still being optimized. As of now, it only creates the list with the operators in the same order as given by the Hamiltonian. This means that the evolution list created will very likely create many errors. In the meantime, see examples on how to create a good list by hand."
 
+
+
+TEBDEntropyList::usage="TEBDEntropyList[tebd]   Gives a list of all possible bipartite entropies of the TEBD state"
 
 
 Begin["`Private`"]
@@ -930,16 +948,17 @@ TEBD[[site,1]]=SparseArray[H.TEBD[[site,1]]];
 
 
 SetAttributes[TEBDEvolve,HoldFirst];
-TEBDEvolve[TEBD_,OperatorList_,steps_:1]:=Module[{error},
+Options[TEBDEvolve]={Verbose->False};
+TEBDEvolve[TEBD_,OperatorList_,steps_:1,OptionsPattern[]]:=Module[{error,verbose=OptionValue[Verbose],message},
 error=0;
+If[verbose,message=PrintTemporary["Starting up."]];
 Do[
+If[verbose,NotebookDelete[message];message=PrintTemporary["Evolving step "<>ToString[m]<>" of "<>ToString[steps]]];
 Do[
 error+=TEBDGate[TEBD,OperatorList[[n]]];
 ,{n,1,Length[OperatorList],1}];
-Do[
-error+=TEBDGate[TEBD,OperatorList[[n]]];
-,{n,Length[OperatorList],1,-1}];
-,{steps}];
+,{m,1,steps}];
+If[verbose,NotebookDelete[message]];
 error
 ]
 
@@ -1105,10 +1124,7 @@ Chop[Mdown.Mup]
 ]
 
 
-SetAttributes[TEBDExpectationList,HoldFirst];
-SetAttributes[TEBDExpectation,HoldAll];
-TEBDExpectation[TEBD_,siteL_,siteR_,OperatorL_,OperatorR_]:=Last[TEBDExpectation2OList[TEBD,siteL,siteR,OperatorL,OperatorR]][[2]]
-TEBDExpectationList[TEBD_,site1_,site2_,OperatorL_,OperatorR_]:=Module[{numSites,M,temp,spin,\[Lambda]L,siteL,siteR},
+SetAttributes[TEBDExpectationList,HoldAll];TEBDExpectationList[TEBD_,site1_,site2_,OperatorL_,OperatorR_]:=Module[{numSites,M,temp,spin,\[Lambda]L,siteL,siteR},
 numSites=Length[TEBD];
 {siteL,siteR}=Sort[{site1,site2}];
 If[(1<=siteL<siteR<=numSites)!=True,Print["TEBDExpectation2OList called with wrong site parameter."];Abort[]];
@@ -1131,6 +1147,10 @@ M=SparseArray[DiagonalMatrix[TEBD[[siteL+dist,2]]]].Sum[ConjugateTranspose[TEBD[
 Chop[temp]
 },{dist,1,siteR-siteL}]
 ]
+
+
+SetAttributes[TEBDExpectation,HoldFirst];
+TEBDExpectation[TEBD_,siteL_,siteR_,OperatorL_,OperatorR_]:=Last[TEBDExpectationList[TEBD,siteL,siteR,OperatorL,OperatorR]][[2]]
 
 
 SetAttributes[TEBDExpectation3O,HoldAll];
@@ -1172,8 +1192,8 @@ Chop[Tr[M]]
 ]
 
 
-TEBDentropy[\[Lambda]_]:=-Sum[If[\[Lambda][[n]]>0,\[Lambda][[n]]^2Log[2,\[Lambda][[n]]^2],0],{n,1,Length[\[Lambda]]}];
-TEBDentropyList[TEBD_]:=Table[{n,TEBDentropy[TEBD[[n,2]]]},{n,1,Length[TEBD]-1}]
+TEBDEntropy[\[Lambda]_]:=-Sum[If[\[Lambda][[n]]>0,\[Lambda][[n]]^2Log[2,\[Lambda][[n]]^2],0],{n,1,Length[\[Lambda]]}];
+TEBDEntropyList[TEBD_]:=Table[{n,TEBDEntropy[TEBD[[n,2]]]},{n,1,Length[TEBD]-1}]
 
 
 SetAttributes[TEBDInitHamiltonian,HoldFirst];
@@ -1190,7 +1210,18 @@ TEBDHamiltonianAdd[Ham_,operator1_,site1_,operator2_,site2_]:=(Ham=(Ham~Join~{{K
 TEBDHamiltonianAdd[Ham_,operator_,site_]:=(Ham=(Ham~Join~{{operator,site,site}}))
 
 
-TEBDEvolutionOperator[Ham_,time_]:=Table[{MatrixExp[-I time Ham[[n,1]]],Ham[[n,2]],Ham[[n,3]]},{n,1,Length[Ham]}]
+TEBDEvolutionFromHamiltonian[Ham_,time_]:=Table[{MatrixExp[-I time Ham[[n,1]]],Ham[[n,2]],Ham[[n,3]]},{n,1,Length[Ham]}]
+
+
+SetAttributes[TEBDInitEvolution,HoldFirst];
+TEBDInitEvolution[]:=({})
+
+
+SetAttributes[TEBDEvolutionAddGate,HoldFirst];
+TEBDEvolutionAddGate[U_,operator_,site1_,site2_]:=(U=(U~Join~{{operator,site1,site2}}))
+
+
+TEBDEvolutionAddGate[U_,operator_,site_]:=(U=(U~Join~{{operator,site,site}}))
 
 
 End[ ]

@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       145,          7]
-NotebookDataLength[    369580,       8965]
-NotebookOptionsPosition[    359603,       8634]
-NotebookOutlinePosition[    360153,       8657]
-CellTagsIndexPosition[    360066,       8652]
+NotebookDataLength[    383786,       9317]
+NotebookOptionsPosition[    371956,       8917]
+NotebookOutlinePosition[    372509,       8940]
+CellTagsIndexPosition[    372422,       8935]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -41,10 +41,18 @@ Cell[BoxData["\<\"/Users/fcucchietti/Code/MathMPS\"\>"], "Output",
   3.489232063288458*^9}]
 }, Open  ]],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
  RowBox[{"BeginPackage", "[", "\"\<MathMPS`\>\"", "]"}]], "Input",
  InitializationCell->True,
  CellChangeTimes->{{3.489232496976416*^9, 3.489232499189662*^9}}],
+
+Cell[BoxData["\<\"MathMPS`\"\>"], "Output",
+ CellChangeTimes->{3.489295375219118*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"Print", "[", 
@@ -57,11 +65,29 @@ available are TEBD algorithms:\n\nCreation and disk interaction:\n\t\
 TEBDProductState\n\tTEBDRead\n\tTEBDSave\nReal and imaginary time evolution:\n\
 \tTEBDEvolve\nExpectation values:\n\tTEBDExpectation\n\tTEBDExpectationList\n\
 \tTEBDentropy\n\tTEBDentropyList\nHamiltonians and evolution operators:\n\t\
-TEBDInitHamiltonian\n\tTEBDHamiltonianAdd\n\tTEBDEvolutionOperator\n\>\"", 
-  "]"}]], "Input",
+TEBDInitHamiltonian\n\tTEBDHamiltonianAdd\n\tTEBDEvolutionFromHamiltonian\n\t\
+TEBDInitEvolution\n\tTEBDEvolutionAddGate\n\>\"", "]"}]], "Input",
  InitializationCell->True,
  CellChangeTimes->{{3.489232079666792*^9, 3.489232226449568*^9}, {
-  3.4892358823535633`*^9, 3.489236128076064*^9}}],
+  3.4892358823535633`*^9, 3.489236128076064*^9}, {3.489295947660524*^9, 
+  3.4892959668158484`*^9}}],
+
+Cell[BoxData["\<\"MPS manipulation from Mathematica.\\nMPS Manipulation and \
+creation:\\n\\tMPSProductState\\n\\tMPSExpandBond\\n\\tMPSNormalize\\n\\\
+tMPSCanonize\\nReading and saving to \
+disk:\\n\\tMPSRead\\n\\tMPSSave\\nExpectation \
+values:\\n\\tMPSExpectation\\n\\tMPSCorrelation\\nAlgorithms:\\n\\\
+tMPSApproximate\\n\\tMPSMinimizeEnergy\\nHamiltonian \
+Creation:\\n\\tMPSInitHamiltonian\\n\\tMPSHamiltonianAdd\\n\\nAlso available \
+are TEBD algorithms:\\n\\nCreation and disk \
+interaction:\\n\\tTEBDProductState\\n\\tTEBDRead\\n\\tTEBDSave\\nReal and \
+imaginary time evolution:\\n\\tTEBDEvolve\\nExpectation \
+values:\\n\\tTEBDExpectation\\n\\tTEBDExpectationList\\n\\tTEBDentropy\\n\\\
+tTEBDentropyList\\nHamiltonians and evolution \
+operators:\\n\\tTEBDInitHamiltonian\\n\\tTEBDHamiltonianAdd\\n\\\
+tTEBDEvolutionOperator\\n\"\>"], "Print",
+ CellChangeTimes->{3.489295375389413*^9}]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -87,7 +113,7 @@ an warning but the state is correct.\"\>"], "Output",
    3.4779921004976788`*^9, 3.477992255350124*^9, 3.477992865015355*^9, 
    3.478258924492141*^9, {3.478372034070176*^9, 3.478372035869156*^9}, {
    3.47896983903573*^9, 3.478969840305112*^9}, {3.479011842882967*^9, 
-   3.479011844518919*^9}}]
+   3.479011844518919*^9}, 3.4892953755082073`*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -111,7 +137,8 @@ Cell[BoxData["\<\"MPSExpandBond[mps,new\[Chi]] expands the bond dimension \
    3.477909793409425*^9, 3.47791007228125*^9, 3.477992100702075*^9, 
    3.477992255389326*^9, 3.477992865063949*^9, 3.478258924545237*^9, {
    3.4783720342140703`*^9, 3.478372035938608*^9}, {3.478969839151812*^9, 
-   3.47896984035958*^9}, {3.479011843035811*^9, 3.4790118445690727`*^9}}]
+   3.47896984035958*^9}, {3.479011843035811*^9, 3.4790118445690727`*^9}, 
+   3.489295375553746*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -134,7 +161,8 @@ MPSOverlap[mps,mps]=1. It changes the state.\"\>"], "Output",
    3.47790979351261*^9, 3.477910072375697*^9, 3.4779921008035107`*^9, 
    3.477992255486075*^9, 3.477992865194251*^9, 3.478258924652635*^9, {
    3.478372034324134*^9, 3.478372036071741*^9}, {3.4789698392610207`*^9, 
-   3.478969840475753*^9}, {3.479011843133298*^9, 3.479011844663624*^9}}]
+   3.478969840475753*^9}, {3.479011843133298*^9, 3.479011844663624*^9}, 
+   3.4892953756070538`*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -158,7 +186,8 @@ Cell[BoxData["\<\"MPSCanonize[mps] transforms mps into its canonical form. \
    3.477909793565834*^9, 3.477910072429537*^9, 3.477992100853304*^9, 
    3.4779922555402727`*^9, 3.477992865250997*^9, 3.478258924696765*^9, {
    3.478372034384799*^9, 3.478372036138421*^9}, {3.478969839306451*^9, 
-   3.478969840538148*^9}, {3.479011843187439*^9, 3.479011844717572*^9}}]
+   3.478969840538148*^9}, {3.479011843187439*^9, 3.479011844717572*^9}, 
+   3.489295375652631*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -183,7 +212,8 @@ filename needs to be a string\"\>"], "Output",
    3.477909793611898*^9, 3.477910072475933*^9, 3.4779921008972273`*^9, 
    3.477992255616393*^9, 3.477992865300399*^9, 3.4782589247586107`*^9, {
    3.478372034440207*^9, 3.47837203624994*^9}, {3.4789698393609867`*^9, 
-   3.47896984059221*^9}, {3.479011843237144*^9, 3.4790118447637672`*^9}}]
+   3.47896984059221*^9}, {3.479011843237144*^9, 3.4790118447637672`*^9}, 
+   3.489295375706987*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -207,7 +237,8 @@ returns a new MPS object\"\>"], "Output",
    3.4779097936747007`*^9, 3.477910072543797*^9, 3.4779921009548903`*^9, 
    3.477992255672943*^9, 3.4779928653454523`*^9, 3.478258924837296*^9, {
    3.478372034510367*^9, 3.478372036351787*^9}, {3.478969839430902*^9, 
-   3.478969840637129*^9}, {3.4790118432970057`*^9, 3.479011844817726*^9}}]
+   3.478969840637129*^9}, {3.4790118432970057`*^9, 3.479011844817726*^9}, 
+   3.4892953757520247`*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -230,8 +261,11 @@ where psi_i is the state represented by mpsi\"\>"], "Output",
    3.477909793466248*^9, 3.4779100723299093`*^9, 3.477992100748746*^9, 
    3.4779922554404507`*^9, 3.477992865113512*^9, 3.478258924596344*^9, {
    3.478372034272539*^9, 3.478372035989582*^9}, {3.478969839218141*^9, 
-   3.478969840421192*^9}, {3.4790118430894213`*^9, 3.479011844618539*^9}}]
+   3.478969840421192*^9}, {3.4790118430894213`*^9, 3.479011844618539*^9}, 
+   3.489295375810026*^9}]
 }, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -252,6 +286,15 @@ sites\>\""}]], "Input",
   3.475837889617421*^9, 3.475837893552219*^9}, {3.489231198052435*^9, 
   3.489231320294649*^9}}],
 
+Cell[BoxData["\<\"\\nMPSExpectation[mps,operator,site]\\nMPSExpectation[mps,\
+operator,site1,site2]\\nMPSExpectation[mps,operator1,site1,operator2,site2]\\\
+n\\nComputes the expectation value of one or two Hermitian operators acting \
+on one or two sites\"\>"], "Output",
+ CellChangeTimes->{3.4892953758693733`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
 Cell[BoxData[
  RowBox[{
   RowBox[{"MPSCorrelation", "::", "usage"}], "=", 
@@ -268,6 +311,14 @@ site1 and site2\>\""}]], "Input",
    3.47583802329186*^9, 3.475838031465795*^9}, {3.475860280935561*^9, 
    3.475860281686852*^9}, {3.489231334864101*^9, 3.489231396751731*^9}}],
 
+Cell[BoxData["\<\"MPSCorrelation[mps,operator1,site1,operator2,site2]  \
+Computes all the expectation values of operator1 and operator2 acting on all \
+sites between site1 and site2\"\>"], "Output",
+ CellChangeTimes->{3.4892953759272842`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
 Cell[BoxData[
  RowBox[{
   RowBox[{"MPSApproximate", "::", "usage"}], "=", 
@@ -283,6 +334,20 @@ being debugged\>\""}]], "Input",
  InitializationCell->True,
  CellChangeTimes->{{3.489231436509369*^9, 3.4892317323175573`*^9}}],
 
+Cell[BoxData["\<\"MPSApproximate[Bigmps,newBond,Options]  Computes a new MPS \
+that approximates Bigmps but with a smaller bond dimension, specified by \
+newBond. \\nOptions are:\\n     UseRandomState\[Rule]bool  (Default is True. \
+It starts the approximation using a random state)\\n     Ansatz\[Rule]anMPS   \
+   (Default Empty List. If UseRandomState->True, it must contain a valid MPS \
+to use as a starting Ansatz)\\n     Tolerance\[Rule]someNumber  (Default is \
+some small quantity)\\n     Sweeps\[Rule]someNumber   (Default is 10)\\n     \
+Verbose\[Rule]bool   (Default is False)\\n\\n#### WARNING ####\\nThis \
+function is still being debugged\"\>"], "Output",
+ CellChangeTimes->{3.4892953759684067`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
 Cell[BoxData[
  RowBox[{
   RowBox[{"MPSInitHamiltonian", "::", "usage"}], "=", 
@@ -293,6 +358,13 @@ Hamiltonian matrix for MPS algorithms\>\""}]], "Input",
    3.489234685071151*^9, 3.489234697592998*^9}, {3.4892348699158907`*^9, 
    3.489234898833209*^9}, 3.4892349570378723`*^9, {3.489235622097735*^9, 
    3.489235650509316*^9}, {3.489236499466034*^9, 3.489236502873431*^9}}],
+
+Cell[BoxData["\<\"Ham=MPSInitHamiltonian[length] Initializes the object Ham \
+to be the Hamiltonian matrix for MPS algorithms\"\>"], "Output",
+ CellChangeTimes->{3.489295376021487*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -314,6 +386,18 @@ future.\>\""}], "\n"}]], "Input",
   3.489235414790785*^9, 3.489235445387767*^9}, {3.4892354822852163`*^9, 
   3.489235530043385*^9}, {3.489235658743906*^9, 3.489235818290647*^9}}],
 
+Cell[BoxData["\<\"\\nMPSHamiltonianAdd[Ham,axis,strength,site]  Adds a field \
+term to the Hamiltonian\\nMPSHamiltonianAdd[Ham,axis,strength,site1,site2]  \
+Adds an interaction term to the Hamiltonian\\nAxis is either 1, 2, or 3 \
+(which means X, Y, and Z Pauli matrices)\\nHam must be initialized \
+first.\\nAs of now, MPS algorithms can only compute interactions that are of \
+the type XX, YY, or ZZ with an arbitrary strength. This limitation will be \
+lifted in the near future.\"\>"], "Output",
+ CellChangeTimes->{3.489295376067562*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
 Cell[BoxData[
  RowBox[{
   RowBox[{"MPSMinimizeEnergy", "::", "usage"}], "=", 
@@ -329,9 +413,23 @@ more talkative)\>\""}]], "Input",
  InitializationCell->True,
  CellChangeTimes->{{3.48923177517767*^9, 3.489231991091792*^9}}],
 
+Cell[BoxData["\<\"MPSMinimizeEnergy[mps,aHamiltonian,Options]\\n\\nComputes \
+the ground state of aHamiltonian using a DMRG sweeping technique. It returns \
+the energy of the final state.\\nOptions:\\n\\nSweeps\[Rule]MaxNumberOfSweeps\
+\\nInteractionRange->integer   (The interaction range of aHamiltonian. This \
+will be deprecated in future versions)\\nTolerance\[Rule]tol    (Precision \
+tolerance for stopping the algorithm)\\nMonitorEnergy\[Rule]bool  (Default \
+True, it prints out not only the final energy of the state, but the dynamics \
+of energy as a function of steps)\\nVerbose\[Rule]bool   (make the routine \
+more talkative)\"\>"], "Output",
+ CellChangeTimes->{3.489295376121586*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
 Cell[BoxData[
  RowBox[{
-  RowBox[{"TEBDProductState", "::", "usage"}], 
+  RowBox[{"TEBDProductState", "::", "usage"}], "=", 
   "\"\<TEBDProductState[numSites,Options]\nCreates a TEBD representation \
 state. \nOptions:\n\tSpin\[Rule]integer (Default is 2)\n\t\
 BondDimension\[Rule]integer   (default is 20)\n\tType\[Rule]{type,list}     \
@@ -340,7 +438,22 @@ BondDimension\[Rule]integer   (default is 20)\n\tType\[Rule]{type,list}     \
 Table of dimensions {numSites,2}, containing in each element a pair \
 {probAmplitude,phase}\>\""}]], "Input",
  InitializationCell->True,
- CellChangeTimes->{{3.4892326934112053`*^9, 3.489232917188689*^9}}],
+ CellChangeTimes->{{3.4892326934112053`*^9, 3.489232917188689*^9}, 
+   3.489295477617836*^9}],
+
+Cell[BoxData["\<\"TEBDProductState[numSites,Options]\\nCreates a TEBD \
+representation state. \\nOptions:\\n\\tSpin\[Rule]integer (Default is \
+2)\\n\\tBondDimension\[Rule]integer   (default is \
+20)\\n\\tType\[Rule]{type,list}     (Creates several types of TEBDs: \
+type=\\\"Random\\\" , \\\"Identity\\\", or \
+\\\"Specified\\\".\\n\\t\\t\\t\\t\\t\\tIf Specified is chosen, then list must \
+be a Table of dimensions {numSites,2}, containing in each element a pair \
+{probAmplitude,phase}\"\>"], "Output",
+ CellChangeTimes->{{3.4892953761676903`*^9, 3.489295378164054*^9}, 
+   3.48929547951367*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -352,6 +465,14 @@ filename needs to be a string\>\""}]], "Input",
  CellChangeTimes->{{3.470382532451457*^9, 3.470382587288331*^9}, {
   3.489232949736994*^9, 3.4892329631356916`*^9}}],
 
+Cell[BoxData["\<\"TEBDSave[MPS,filename] saves TEBD into ASCII files for \
+later retrieval. Right now it produces a lot of files, to be changed in the \
+future. filename needs to be a string\"\>"], "Output",
+ CellChangeTimes->{3.489295376220809*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
   RowBox[{
@@ -362,28 +483,65 @@ new TEBD object\>\""}]}]], "Input",
  CellChangeTimes->{{3.470382603180705*^9, 3.470382638514471*^9}, {
   3.489232953560121*^9, 3.489232973271994*^9}}],
 
+Cell[BoxData["\<\"TEBDRead[filename] reads the files produced by TEBDSave and \
+returns a new TEBD object\"\>"], "Output",
+ CellChangeTimes->{3.489295376267487*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
 Cell[BoxData[
  RowBox[{
   RowBox[{"TEBDEvolve", "::", "usage"}], "=", 
   "\"\<\[IndentingNewLine]TEBDEvolve[TEBD,OperatorList,repeatTimes]\nEvolves \
 the TEBD object with the given OperatorList (see example). It applies this \
 list repeatTimes number of times, but this argument is optional and the \
-default is one\>\""}]], "Input",
+default is one. It can take Verbose->True option to print out the \
+steps.\>\""}]], "Input",
  InitializationCell->True,
  CellChangeTimes->{{3.489233311877048*^9, 3.4892334035488987`*^9}, 
-   3.4892368086681623`*^9}],
+   3.4892368086681623`*^9, {3.489300441146426*^9, 3.489300460079199*^9}}],
+
+Cell[BoxData["\<\"\[IndentingNewLine]TEBDEvolve[TEBD,OperatorList,repeatTimes]\
+\\nEvolves the TEBD object with the given OperatorList (see example). It \
+applies this list repeatTimes number of times, but this argument is optional \
+and the default is one\"\>"], "Output",
+ CellChangeTimes->{3.4892953764808693`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
   RowBox[{"TEBDExpectation", "::", "usage"}], "=", 
   "\"\<\nTEBDExpectation[TEBD,site,Operator]\n\
-TEBDExpectation[TEBD,site1,site2,Operator1,Operator2]\n\
-TEBDExpectationList[TEBD,site1,site2,Operator1,Operator2]\n\nComputes the \
-expectation value of one or two operators acting in one or two sites. The \
-List version returns all the possible correlations between site1 and \
-site2\>\""}]], "Input",
+TEBDExpectation[TEBD,site1,site2,Operator1,Operator2]\n\nComputes the \
+expectation value of one or two operators acting in one or two \
+sites.\>\""}]], "Input",
  InitializationCell->True,
- CellChangeTimes->{{3.489233411346633*^9, 3.489233484848325*^9}}],
+ CellChangeTimes->{{3.489233411346633*^9, 3.489233484848325*^9}, {
+  3.489297224607312*^9, 3.4892972305187674`*^9}}],
+
+Cell[BoxData["\<\"\\nTEBDExpectation[TEBD,site,Operator]\\nTEBDExpectation[\
+TEBD,site1,site2,Operator1,Operator2]\\nTEBDExpectationList[TEBD,site1,site2,\
+Operator1,Operator2]\\n\\nComputes the expectation value of one or two \
+operators acting in one or two sites. The List version returns all the \
+possible correlations between site1 and site2\"\>"], "Output",
+ CellChangeTimes->{3.4892953765532827`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TEBDExpectationList", "::", "usage"}], "=", 
+  "\"\<\nTEBDExpectationList[TEBD,site1,site2,Operator1,Operator2]\n\n\
+Computes the expectation value of one or two operators acting in one or two \
+sites. The List version returns all the possible correlations between site1 \
+and site2\>\""}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.489297204661977*^9, 3.489297218685503*^9}, {
+  3.489297391379095*^9, 3.489297392826477*^9}}],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -394,6 +552,47 @@ Hamiltonian object Ham to an empty Hamiltonian\>\""}]], "Input",
  CellChangeTimes->{{3.487504963291223*^9, 3.487504983583084*^9}, {
   3.489233495302539*^9, 3.489233531740378*^9}, {3.489236480701313*^9, 
   3.489236488705927*^9}}],
+
+Cell[BoxData["\<\"\[IndentingNewLine]Ham=TEBDInitHamiltonian[]   Initializes \
+a Hamiltonian object Ham to an empty Hamiltonian\"\>"], "Output",
+ CellChangeTimes->{3.489295376603636*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TEBDInitEvolution", "::", "usage"}], "=", 
+  "\"\<\[IndentingNewLine]U=TEBDInitEvolution[]   Initializes an evolution \
+operator object U.\>\""}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.489295784067923*^9, 3.489295825751916*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TEBDEvolutionAddGate", "::", "usage"}], "=", 
+  "\"\<\nTEBDEvolutionAddGate[U,operator,site]\n\
+TEBDEvolutionAddGate[U,operator12,site1,site2]\n\nAdds an operator the the \
+evolution operator U that acts either on a single site, or on two sites. \
+Notice that operator must be a spin x spin matrix, or an arbitrary 2 spin \
+operator (spin^2 x spin^2).\>\""}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.487498409725955*^9, 3.487498520916314*^9}, {
+  3.487498551262932*^9, 3.4874985758748426`*^9}, {3.4874986667194357`*^9, 
+  3.4874986722635403`*^9}, {3.4892335368686743`*^9, 3.489233615194723*^9}, {
+  3.489233725135577*^9, 3.489233795286592*^9}, {3.48929585018738*^9, 
+  3.489295925025134*^9}, {3.489295975647637*^9, 3.489295980142877*^9}}],
+
+Cell[BoxData["\<\"\\nTEBDHamiltonianAdd[Ham,operator,site]\\\
+nTEBDHamiltonianAdd[Ham,operator1,site1,,operator2,site2]\\n\\nAdds an \
+operator the the Hamiltonian Ham that acts either on a single site, or on two \
+sites. Notice that operator must be a spin x spin matrix.\\nAn arbitrary 2 \
+spin operator (spin^2 x spin^2) can also be passed \
+as\\n\\nTEBDHamiltonianAdd[Ham,operator,site1,site2]\"\>"], "Output",
+ CellChangeTimes->{3.489295376650276*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -410,57 +609,86 @@ TEBDHamiltonianAdd[Ham,operator,site1,site2]\>\""}]], "Input",
   3.4874986722635403`*^9}, {3.4892335368686743`*^9, 3.489233615194723*^9}, {
   3.489233725135577*^9, 3.489233795286592*^9}}],
 
-Cell[BoxData[
- RowBox[{
-  RowBox[{"TEBDHamiltonianAdd", "[", 
-   RowBox[{"Ham_", ",", "operator_", ",", "site_"}], "]"}], ":=", 
-  RowBox[{"(", 
-   RowBox[{"Ham", "=", 
-    RowBox[{"(", 
-     RowBox[{"Ham", "~", "Join", "~", 
-      RowBox[{"{", 
-       RowBox[{"{", 
-        RowBox[{"operator", ",", "site", ",", "site"}], "}"}], "}"}]}], 
-     ")"}]}], ")"}]}]], "Input",
- InitializationCell->True,
- CellChangeTimes->{{3.4874990993614807`*^9, 3.487499106344589*^9}}],
+Cell[BoxData["\<\"\\nTEBDHamiltonianAdd[Ham,operator,site]\\\
+nTEBDHamiltonianAdd[Ham,operator1,site1,,operator2,site2]\\n\\nAdds an \
+operator the the Hamiltonian Ham that acts either on a single site, or on two \
+sites. Notice that operator must be a spin x spin matrix.\\nAn arbitrary 2 \
+spin operator (spin^2 x spin^2) can also be passed \
+as\\n\\nTEBDHamiltonianAdd[Ham,operator,site1,site2]\"\>"], "Output",
+ CellChangeTimes->{3.489295376650276*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
   RowBox[{
-   RowBox[{"TEBDEvolutionOperator", "::", "usage"}], "=", 
-   "\"\<TEBDEvolutionOperator[Ham,time]\nCreates an evolution operator List \
-that is ready to be passed to TEBDEvolve. \nNOTICE this function is still \
-being optimized. As of now, it only creates the list with the operators in \
-the same order as given by the Hamiltonian. This means that the evolution \
+   RowBox[{"TEBDEvolutionFromHamiltonian", "::", "usage"}], "=", 
+   "\"\<TEBDEvolutionFromHamiltonian[Ham,time]\nCreates an evolution operator \
+List that is ready to be passed to TEBDEvolve. \nNOTICE this function is \
+still being optimized. As of now, it only creates the list with the operators \
+in the same order as given by the Hamiltonian. This means that the evolution \
 list created will very likely create many errors. In the meantime, see \
 examples on how to create a good list by hand.\>\""}], "\n"}]], "Input",
  InitializationCell->True,
  CellChangeTimes->{{3.487498585484786*^9, 3.48749865769564*^9}, {
-  3.489233804102551*^9, 3.489233937961594*^9}}],
+   3.489233804102551*^9, 3.489233937961594*^9}, {3.489295857145932*^9, 
+   3.489295860823896*^9}, 3.489296161191127*^9}],
+
+Cell[BoxData["\<\"TEBDEvolutionOperator[Ham,time]\\nCreates an evolution \
+operator List that is ready to be passed to TEBDEvolve. \\nNOTICE this \
+function is still being optimized. As of now, it only creates the list with \
+the operators in the same order as given by the Hamiltonian. This means that \
+the evolution list created will very likely create many errors. In the \
+meantime, see examples on how to create a good list by hand.\"\>"], "Output",
+ CellChangeTimes->{3.48929537672983*^9, 3.4892958648223543`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TEBDEntropyList", "::", "usage"}], "=", 
+  "\"\<TEBDEntropyList[tebd]   Gives a list of all possible bipartite \
+entropies of the TEBD state\>\""}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.489301083835376*^9, 3.4893011110723743`*^9}}],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"Begin", "[", "\"\<`Private`\>\"", "]"}]], "Input",
  InitializationCell->True],
 
-Cell[CellGroupData[{
-
-Cell["Core of package", "Subtitle",
- CellChangeTimes->{{3.473752418602105*^9, 3.473752421387471*^9}}],
-
-Cell[CellGroupData[{
-
-Cell["MPS Algorithms", "Section",
- CellChangeTimes->{{3.489231113034313*^9, 3.489231116337653*^9}}],
+Cell[BoxData["\<\"MathMPS`Private`\"\>"], "Output",
+ CellChangeTimes->{3.489295376800344*^9}]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell["General constants", "Subsection",
- CellChangeTimes->{{3.472454778269011*^9, 3.472454781129575*^9}}],
+", "Subsection",
+ CellChangeTimes->{{3.4703880265556507`*^9, 3.470388029856028*^9}}],
 
-Cell["These are just definitions of basic constants ", "Text",
- CellChangeTimes->{{3.443331673547653*^9, 3.443331701219919*^9}, 
-   3.443439520965644*^9}],
+Cell[BoxData[{,
+
+Cell[CellGroupData[{
+
+ar", "[", "MPSProductState", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBo,
+
+Cell[CellGroupData[{
+
+oductState", "]"}], "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Spin", "->", "DefaultSpinDimension",
+
+ ",", 
+     RowBox[{"Bond", "->", "MPSDefaultBond"}], ",", 
+     RowBox[{"Type", "->", "\"\<Random\>\""}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ R,
 
 Cell[BoxData[{
  RowBox[{
@@ -519,12 +747,15 @@ Cell[BoxData[{
    3.470386264982111*^9}, {3.475071519052841*^9, 3.47507152434727*^9}, {
    3.4755646835292664`*^9, 3.4755647228941803`*^9}, {3.489232284775084*^9, 
    3.48923228948447*^9}}]
-}, Open  ]],
+}, Closed]],
 
 Cell[CellGroupData[{
 
-Cell["Auxiliary functions", "Subsection",
- CellChangeTimes->{{3.4703788256569433`*^9, 3.470378829371736*^9}}],
+\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"coeffList", "=", 
+          RowBox[{"Table", "[", 
+,
 
 Cell[BoxData[{
  RowBox[{
@@ -645,8 +876,9 @@ Cell[BoxData[{
 
 Cell[CellGroupData[{
 
-Cell["Creation of MPS", "Subsection",
- CellChangeTimes->{{3.4703880265556507`*^9, 3.470388029856028*^9}}],
+275376667*^9, 
+   3.449178334557598*^9}, {3.4491785474157887`*^9, 3.4491785654408903`*^9}, {
+   3.4492363,
 
 Cell[BoxData[{
  RowBox[{
@@ -889,8 +1121,10 @@ Cell[BoxData[{
 
 Cell[CellGroupData[{
 
-Cell["Expansion of bond dimension", "Subsection",
- CellChangeTimes->{{3.4516517619073668`*^9, 3.451651766595477*^9}}],
+op", "[", 
+        RowBox[{"MPSOverlap", "[", 
+         RowBox[{"mps", ",", "mps"}], "]"}], "]"}]}], ";", 
+      "\[I,
 
 Cell[BoxData[{
  RowBox[{
@@ -982,10 +1216,11 @@ Cell[BoxData[{
 
 Cell[CellGroupData[{
 
-Cell["Normalizations and Overlap", "Subsection",
- CellChangeTimes->{{3.456479374571746*^9, 3.456479380807178*^9}, {
-  3.4701194858916187`*^9, 3.470119487519328*^9}, {3.470380943773466*^9, 
-  3.4703809450680227`*^9}}],
+ RowBox[{"1", ",", "3"}], "}"}]}], "}"}]}], "]"}], "]"}]}], ";",
+         "\[IndentingNewLine]", 
+        RowBox[{"(*", " ", 
+         RowBox[{"Prepare", " ", "new", " ", "right", " ", "matrix"}], " ", 
+         "*)",
 
 Cell[BoxData[{
  RowBox[{
@@ -1838,8 +2073,10 @@ Cell[BoxData[
 
 Cell[CellGroupData[{
 
-Cell["Approximation of an MPS with a smaller one", "Subsection",
- CellChangeTimes->{{3.47506920085606*^9, 3.475069212339808*^9}}],
+       RowBox[{
+               RowBox[{"canon", ".", "#"}], "&"}], "/@", 
+              RowBox[{"newmps", "[", 
+               Ro,
 
 Cell[BoxData[{
  RowBox[{
@@ -2251,13 +2488,12 @@ Cell[BoxData[{
    3.4750735163472767`*^9, 3.475073521840919*^9}, {3.475073553720043*^9, 
    3.475073581975562*^9}, {3.47507365260858*^9, 3.4750736835831537`*^9}, 
    3.47556466173713*^9}]
-}, Open  ]],
+}, Closed]],
 
 Cell[CellGroupData[{
 
-Cell["Saving and reading", "Subsection",
- CellChangeTimes->{{3.469860365534006*^9, 3.4698603702925177`*^9}, 
-   3.470385949646833*^9}],
+7605616*^9}, {3.465275893836484*^9, 3.4652759156339073`*^9}, {
+   3.4652759744600067`*^9, 3.465275992702661*^9}, {3.465276042057399*^9,
 
 Cell[BoxData[{
  RowBox[{
@@ -2449,16 +2685,17 @@ Cell[BoxData[{
 
 Cell[CellGroupData[{
 
-Cell["Energy minimization (with sweeps).", "Subsection",
- CellChangeTimes->{{3.4703858189737387`*^9, 3.470385835646715*^9}}],
+               RowBox[{
+                  RowBox[{"RProduct", "[", 
+                   RowBox[{
+                    RowBox[{,
 
 Cell[CellGroupData[{
 
-Cell["\<\
-Driver routine that minimizes the whole chain in left-right and right-left \
-sweeps\
-\>", "Subsubsection",
- CellChangeTimes->{{3.472908759928849*^9, 3.472908785604031*^9}}],
+        RowBox[{"[", "n", "]"}], "]"}], ",", 
+                    RowBox[{"mps", "[", 
+                    RowBox[{"[", "n", "]"}], "]"}], ",", "#"}], "]"}], "&"}], 
+                ,
 
 Cell[BoxData[{
  RowBox[{
@@ -3468,21 +3705,23 @@ Cell[BoxData[{
    3.489236942192624*^9, 3.489236969429068*^9}, {3.489237048867465*^9, 
    3.489237115819777*^9}, {3.489237544417131*^9, 3.4892375472515697`*^9}}]
 }, Open  ]]
-}, Open  ]],
+}, Closed]],
 
 Cell[CellGroupData[{
 
-Cell["Site energy minimization", "Subsection",
- CellChangeTimes->{{3.470385841671874*^9, 3.470385848926193*^9}, {
-  3.4718568024743013`*^9, 3.471856803158327*^9}, {3.472908746133456*^9, 
-  3.47290875011621*^9}, {3.473752535170722*^9, 3.473752542792688*^9}}],
+RowBox[{"[", 
+                    RowBox[{"\[Alpha]", ",", 
+                    RowBox[{"intrangeL", "+", "1", "-", "x"}], ",", 
+                    RowBox[{"intrangeL", "+", "1", "+", "y"}]}], "]"}], "]"}],
+                   ",", "0"}], "]"}], 
+          ,
 
-Cell["\<\
-The code will first check if the Fortran 90 external version is available, \
-otherwise it will define the internal (less efficient) version\
-\>", "Text",
- CellChangeTimes->{{3.470565372309888*^9, 3.470565380127178*^9}, {
-  3.4722765638024406`*^9, 3.472276601624354*^9}}],
+   RowBox[{"sigma", "[", "0", "]"}]}]}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"\[Alpha]", ",", "1", ",", "3"}], "}"}]}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"y", ",", "1", ",", "intrangeR"}], "}"}]}], "]"}], ",", 
+         RowBox[{"{,
 
 Cell[BoxData[
  RowBox[{
@@ -3952,8 +4191,6 @@ Cell[BoxData[
  CellChangeTimes->{
   3.4743048932237263`*^9, {3.477910156136441*^9, 3.477910159383781*^9}}],
 
-Cell[CellGroupData[{
-
 Cell[BoxData[
  RowBox[{
   RowBox[{"If", "[", 
@@ -3983,70 +4220,60 @@ Cell[BoxData[
   3.489237262199449*^9, 3.489237282103612*^9}, {3.489237373102049*^9, 
   3.4892373858168*^9}}],
 
-Cell[BoxData[
- RowBox[{"If", "[", 
-  RowBox[{
-   RowBox[{"!", "ForceUseInternalRoutine"}], ",", 
-   RowBox[{
-    RowBox[{"EstablishLink", "[", "link", "]"}], ";"}], ",", 
-   RowBox[{
-    RowBox[{"ClearAll", "[", "FindGroundMPSSite", "]"}], ";", 
-    RowBox[{"SetAttributes", "[", 
-     RowBox[{"FindGroundMPSSite", ",", "HoldAll"}], "]"}], ";", 
-    RowBox[{
-     RowBox[{"FindGroundMPSSite", "[", 
-      RowBox[{
-      "A_", ",", "DLeft_", ",", "DRight_", ",", "hLeft_", ",", "hRight_", ",",
-        "vLeft_", ",", "vRight_", ",", "Ham_"}], "]"}], ":=", 
-     RowBox[{"FindGroundMPSSiteManual", "[", 
-      RowBox[{
-      "A", ",", "DLeft", ",", "DRight", ",", "hLeft", ",", "hRight", ",", 
-       "vLeft", ",", "vRight", ",", "Ham"}], "]"}]}]}]}], "]"}]], "Output",
- CellChangeTimes->{3.4892373885698023`*^9}]
+Cell[CellGroupData[{
+
+otEqual]", "dims2"}]}], ",", 
+        RowBox[{
+         RowBox[{
+         "Print", "[", 
+          "\"\<Hamiltonian seems to be ,
+
+formed. Please restart it\>\"", 
+          "]"}], ";", 
+         RowBox[{"Return", "[", "]"}], ";"}]}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"length", "=", "dims1"}], ";", "\[IndentingNewLine]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell[BoxData[
- RowBox[{"IsLinkActive", "[", "]"}]], "Input",
- CellChangeTimes->{{3.4779102381839733`*^9, 3.477910240790007*^9}}],
+RowBox[{
+        RowBox[{
+         RowBox[{"1", ">", "site1"}], "||", 
+         RowBox[{"site1", ">", "length"}], "||", 
+    ,
 
-Cell[BoxData["1"], "Output",
- CellChangeTimes->{3.477910241165628*^9, 3.4779922575843697`*^9, 
-  3.4779928673613873`*^9, 3.478258929727545*^9, 3.478372038425796*^9, 
-  3.478969842321067*^9, 3.479011846977262*^9}]
+  RowBox[{"1", ">", "site2"}], "||", 
+         RowBox[{"site2", ">", "length"}]}], ",", 
+        RowBox[{
+         RowBox[{
+         "Print", "[", "\"\<Site needs to be between 1 and Length.\>\"", 
+          "]"}], ";", 
+    
 }, Open  ]],
 
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"?", "FindGroundMPSSite"}]], "Input",
- CellChangeTimes->{{3.477910274214368*^9, 3.47791029271636*^9}}],
-
-Cell[BoxData[
- StyleBox["\<\"FindGroundMPSSite[MPSsite,DLeft,DRight,hLeft,hRight,vLeft,\
-vRight,Hamiltonian] \"\>", "MSG"]], "Print", "PrintUsage",
- CellChangeTimes->{3.47901184797056*^9},
- CellTags->"Info3479019047-6062902"]
-}, Open  ]],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{"FindGroundMPSSite", "[", 
-   RowBox[{
-   "A_", ",", "DLeft_", ",", "DRight_", ",", "hLeft_", ",", "hRight_", ",", 
-    "vLeft_", ",", "vRight_", ",", "Ham_"}], "]"}], ":=", 
-  RowBox[{"FindGroundMPSSiteManual", "[", 
-   RowBox[{
-   "A", ",", "DLeft", ",", "DRight", ",", "hLeft", ",", "hRight", ",", 
-    "vLeft", ",", "vRight", ",", "Ham"}], "]"}]}]], "Input"]
+eturn", "[", "]"}], ";"}]}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Abs", "[", 
+          RowBox[{"site1", "-", "site2"}], "]"}], ">", "intRange"}], ",", 
+        RowBox[{
+         RowBox[{"Ham", "[", 
+          RowBox[{"[", "1", "]"}], "]"}], "=", 
+         RowBox[{"Abs", "[", 
+          RowBox[{"site1", "-", "si
 }, Closed]],
 
 Cell[CellGroupData[{
 
-Cell["Hamiltonians for MPSs", "Subsection",
- CellChangeTimes->{{3.487498395551654*^9, 3.487498401453321*^9}, {
-  3.4892346810297956`*^9, 3.489234682204154*^9}}],
+ "\[IndentingNewLine]", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"Ham", "[", 
+         RowBox[{"[", 
+          RowBox[{"2", ",", "axis", ",", "site1,
 
 Cell[BoxData[{
  RowBox[{
@@ -4247,13 +4474,14 @@ Cell[BoxData[
 
 Cell[CellGroupData[{
 
-Cell["TEBD Algorithms", "Section",
- CellChangeTimes->{{3.489232335458858*^9, 3.489232337881277*^9}}],
+`*^9, 
+  3.464932648839385*^9}, {3.4649327048784857`*^9, 3.464932737660335*^9}, {
+  3.46494713030661,
 
 Cell[CellGroupData[{
 
-Cell["Constants", "Subsection",
- CellChangeTimes->{{3.465216910376581*^9, 3.465216912961873*^9}}],
+9}, {3.4649536582215843`*^9, 
+  3.46495365853689*^9}, {3.46511648052164*^9, 3.465116504740196*^9},
 
 Cell[BoxData[
  RowBox[{
@@ -4270,18 +4498,22 @@ Cell[BoxData[
  CellChangeTimes->{{3.465216915963977*^9, 3.465216923954493*^9}, {
   3.465217628312253*^9, 3.465217628440948*^9}, {3.4652176924388733`*^9, 
   3.465217692719139*^9}, {3.465217817356654*^9, 3.465217830146367*^9}}]
-}, Closed]],
+}, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell["Creation and manipulation of TEBDs", "Subsection",
- CellChangeTimes->{{3.4874983201944237`*^9, 3.487498326743778*^9}}],
+ RowBox[{"Length", "[", "TEBD", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"spin", "=", 
+      RowBox[{"Length", "[",
 
 Cell[CellGroupData[{
 
-Cell["Creation, reading, and writing.", "Subsubsection",
- CellChangeTimes->{{3.464929809732098*^9, 3.464929817760511*^9}, {
-  3.4874983301197977`*^9, 3.487498351159338*^9}}],
+ "[", 
+        RowBox[{"[", 
+         RowBox[{"1", ",", "1"}], "]"}], "]"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\[Chi]", "=", 
+      RowBox[{"Length",,
 
 Cell[BoxData[{
  RowBox[{
@@ -4581,8 +4813,9 @@ Cell[BoxData[{
 
 Cell[CellGroupData[{
 
-Cell["Evolution routines", "Subsection",
- CellChangeTimes->{{3.46493405229565*^9, 3.464934055092594*^9}}],
+ox[{"{", "4", "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"2", ",", "3"}], "}"}]}], "}",
 
 Cell[BoxData[
  RowBox[{
@@ -4602,8 +4835,12 @@ Cell[BoxData[
 
 Cell[CellGroupData[{
 
-Cell["Two qubit gate", "Subsubsection",
- CellChangeTimes->{{3.4649465260229597`*^9, 3.46494652851029*^9}}],
+ine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{"*", "O", " ", 
+        RowBox[{"Print", "[", 
+ ,
 
 Cell[BoxData[{
  RowBox[{
@@ -5101,14 +5338,17 @@ Cell[BoxData[{
  CellChangeTimes->{{3.487498909043089*^9, 3.487498909192683*^9}, {
   3.487498942009706*^9, 3.4874989423222513`*^9}, {3.4874991400553493`*^9, 
   3.487499247290147*^9}, {3.487499314581312*^9, 3.4874993938968573`*^9}, {
-  3.487526594145541*^9, 3.487526693657701*^9}}]
+  3.487526594145541*^9, 3.487526693657701*^9}, {3.489300044950975*^9, 
+  3.489300072470018*^9}, {3.489300260345621*^9, 3.489300267502264*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell["Three qubit gate acting on a bulk site", "Subsubsection",
- CellChangeTimes->{{3.464946508476753*^9, 3.4649465209429703`*^9}, {
-  3.465149701954793*^9, 3.465149705537652*^9}}],
+Box[{"{", "1", "}"}], ",", 
+             RowBox[{"{", "5", "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"2", ",", "3", ",", "4"}], "}"}]}], "}"}]}], "]"}], ".",
+  ,
 
 Cell[BoxData[{
  RowBox[{
@@ -5584,10 +5824,13 @@ Cell[BoxData[{
 
 Cell[CellGroupData[{
 
-Cell["Four qubit gate acting on a bulk site", "Subsubsection",
- CellChangeTimes->{{3.464946508476753*^9, 3.4649465209429703`*^9}, {
-  3.465149701954793*^9, 3.465149705537652*^9}, {3.466057492918396*^9, 
-  3.466057493507428*^9}}],
+       RowBox[{"{", 
+               RowBox[{"2", ",", "1", ",", "3"}], "}"}]}], "]"}], ".", 
+            "\[Lambda]2D", ".", 
+            RowBox[{"Transpose", "[", 
+             RowBox[{
+              RowBox[{"TEBD", "[", 
+     ,
 
 Cell[BoxData[{
  RowBox[{
@@ -6231,8 +6474,9 @@ Cell[BoxData[{
 
 Cell[CellGroupData[{
 
-Cell["Single qubit gate", "Subsubsection",
- CellChangeTimes->{{3.449949223884014*^9, 3.4499492284435167`*^9}}],
+ "+=", 
+         RowBox[{"TEBD3QGate", "[", 
+          RowBox[{"TEBD", ",", "n", ",", "U"}], "]"}]}], ";"}], ",
 
 Cell[BoxData[{
  RowBox[{"SetAttributes", "[", 
@@ -6299,13 +6543,18 @@ Cell[BoxData[{
 
 Cell[CellGroupData[{
 
-Cell["Evolution Wrappers", "Subsection",
- CellChangeTimes->{{3.465100742644702*^9, 3.465100745536964*^9}}],
+ingNewLine]", 
+     RowBox[{"error", "+=", 
+      RowBox[{"TEBD3QGate", "[", 
+       RowBox[{"TEBD", ",", ,
 
 Cell[CellGroupData[{
 
-Cell["Full wrapper (public access)", "Subsubsection",
- CellChangeTimes->{{3.487498761650969*^9, 3.487498773304657*^9}}],
+s", "-", "2"}], ",", "U"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", " ", 
+      RowBox[{
+      ",
 
 Cell[BoxData[{
  RowBox[{
@@ -6313,17 +6562,43 @@ Cell[BoxData[{
    RowBox[{"TEBDEvolve", ",", "HoldFirst"}], "]"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
+  RowBox[{
+   RowBox[{"Options", "[", "TEBDEvolve", "]"}], "=", 
+   RowBox[{"{", 
+    RowBox[{"Verbose", "\[Rule]", "False"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
   RowBox[{"TEBDEvolve", "[", 
    RowBox[{"TEBD_", ",", "OperatorList_", ",", 
-    RowBox[{"steps_:", "1"}]}], "]"}], ":=", 
+    RowBox[{"steps_:", "1"}], ",", 
+    RowBox[{"OptionsPattern", "[", "]"}]}], "]"}], ":=", 
   RowBox[{"Module", "[", 
    RowBox[{
-    RowBox[{"{", "error", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{"error", ",", 
+      RowBox[{"verbose", "=", 
+       RowBox[{"OptionValue", "[", "Verbose", "]"}]}], ",", "message"}], 
+     "}"}], ",", "\[IndentingNewLine]", 
     RowBox[{
      RowBox[{"error", "=", "0"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{"verbose", ",", 
+       RowBox[{"message", "=", 
+        RowBox[{"PrintTemporary", "[", "\"\<Starting up.\>\"", "]"}]}]}], 
+      "]"}], ";", "\[IndentingNewLine]", 
      RowBox[{"Do", "[", "\[IndentingNewLine]", 
       RowBox[{
        RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{"verbose", ",", 
+          RowBox[{
+           RowBox[{"NotebookDelete", "[", "message", "]"}], ";", 
+           RowBox[{"message", "=", 
+            RowBox[{"PrintTemporary", "[", 
+             RowBox[{"\"\<Evolving step \>\"", "<>", 
+              RowBox[{"ToString", "[", "m", "]"}], "<>", "\"\< of \>\"", "<>", 
+              RowBox[{"ToString", "[", "steps", "]"}]}], "]"}]}]}]}], "]"}], 
+        ";", "\[IndentingNewLine]", 
         RowBox[{"Do", "[", "\[IndentingNewLine]", 
          RowBox[{
           RowBox[{
@@ -6336,34 +6611,32 @@ Cell[BoxData[{
           RowBox[{"{", 
            RowBox[{"n", ",", "1", ",", 
             RowBox[{"Length", "[", "OperatorList", "]"}], ",", "1"}], "}"}]}],
-          "]"}], ";", "\[IndentingNewLine]", 
-        RowBox[{"Do", "[", "\[IndentingNewLine]", 
-         RowBox[{
-          RowBox[{
-           RowBox[{"error", "+=", 
-            RowBox[{"TEBDGate", "[", 
-             RowBox[{"TEBD", ",", 
-              RowBox[{"OperatorList", "[", 
-               RowBox[{"[", "n", "]"}], "]"}]}], "]"}]}], ";"}], 
-          "\[IndentingNewLine]", ",", 
-          RowBox[{"{", 
-           RowBox[{"n", ",", 
-            RowBox[{"Length", "[", "OperatorList", "]"}], ",", "1", ",", 
-            RowBox[{"-", "1"}]}], "}"}]}], "]"}], ";"}], 
-       "\[IndentingNewLine]", ",", 
-       RowBox[{"{", "steps", "}"}]}], "]"}], ";", "\[IndentingNewLine]", 
-     "error"}]}], "\[IndentingNewLine]", 
+          "]"}], ";"}], "\[IndentingNewLine]", ",", 
+       RowBox[{"{", 
+        RowBox[{"m", ",", "1", ",", "steps"}], "}"}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{"verbose", ",", 
+       RowBox[{"NotebookDelete", "[", "message", "]"}]}], "]"}], ";", 
+     "\[IndentingNewLine]", "error"}]}], "\[IndentingNewLine]", 
    "]"}]}], "\[IndentingNewLine]"}], "Input",
  InitializationCell->True,
  CellChangeTimes->{{3.487498774776301*^9, 3.4874988614251003`*^9}, {
-  3.4874994409681253`*^9, 3.487499559764955*^9}, {3.487499648226359*^9, 
-  3.487499653002314*^9}}]
-}, Open  ]],
+   3.4874994409681253`*^9, 3.487499559764955*^9}, {3.487499648226359*^9, 
+   3.487499653002314*^9}, {3.489297135293562*^9, 3.4892971437139587`*^9}, {
+   3.4893001734853067`*^9, 3.489300221489045*^9}, 3.489300298671566*^9, {
+   3.489300344264732*^9, 3.4893004214462337`*^9}, {3.4893005361181297`*^9, 
+   3.48930062502568*^9}, {3.489300753207473*^9, 3.489300765217803*^9}}]
+}, Closed]],
 
 Cell[CellGroupData[{
 
-Cell["Three body gates", "Subsubsection",
- CellChangeTimes->{{3.465203641088624*^9, 3.4652036440150747`*^9}}],
+, "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Do", "[", 
+      RowBox[{
+       RowBox[{
+        R,
 
 Cell[BoxData[{
  RowBox[{"SetAttributes", "[", 
@@ -7037,12 +7310,13 @@ Cell[BoxData[{
      "\[IndentingNewLine]", "error"}]}], "\[IndentingNewLine]", 
    "]"}]}]}], "Input",
  InitializationCell->True]
-}, Open  ]],
+}, Closed]],
 
 Cell[CellGroupData[{
 
-Cell["2 body gates", "Subsubsection",
- CellChangeTimes->{{3.465203623656171*^9, 3.465203632799899*^9}}],
+, "[", 
+         "\"\<TEBDEvol3BodyPBC called with wrong operator dimensions.\>\"", 
+         "]"}], ";,
 
 Cell[BoxData[{
  RowBox[{"SetAttributes", "[", 
@@ -7284,20 +7558,25 @@ Cell[BoxData[{
    "]"}]}]}], "Input",
  InitializationCell->True,
  CellChangeTimes->{{3.465186213634976*^9, 3.465186275295484*^9}}]
-}, Open  ]]
-}, Open  ]],
+}, Closed]]
+}, Closed]],
 
 Cell[CellGroupData[{
 
-Cell["Expectation values", "Subsection",
- CellChangeTimes->{{3.449949358815351*^9, 3.44994936257061*^9}}],
+
+         RowBox[{
+         "1", "\[LessEqual]", "siteL", "<", "siteR", "<=", "numSites"}], 
+         ")",
 
 Cell[CellGroupData[{
 
-Cell["One qubit operators", "Subsubsection",
- CellChangeTimes->{{3.44994936726726*^9, 3.449949373019763*^9}, {
-  3.4502675401460447`*^9, 3.45026754194738*^9}, {3.450758995974264*^9, 
-  3.4507589963047743`*^9}}],
+}], ",", 
+       RowBox[{
+        RowBox[{
+        "Print", "[", 
+         "\"\<TEBDExpectation2OList called with wrong site parameter.\>\"", 
+         "]"}], ";", 
+        RowBox[{"Abort", "[", "]"}]}]}], "]"},
 
 Cell[BoxData[{
  RowBox[{
@@ -7415,7 +7694,7 @@ eliySsmAndhh1KNRcs450fcqgw0p3sHda5RkThfzlndW5l0fU5IwflMAv8vC
 W2CbddsAWY27HSpGXzvgvLhwEAb79S9Cv9gMQ+4J92vB2gFlNud+iIsSgTHr
 AKZ/fIjS/ihZ0mkT4T/7AQXs
   "]]
-}, Open  ]],
+}, Closed]],
 
 Cell[CellGroupData[{
 
@@ -7426,166 +7705,197 @@ Cell["Two qubit expectation values return a correlation List.", \
   3.451653766163197*^9}, {3.464955721022832*^9, 3.464955739464076*^9}, {
   3.464955796279434*^9, 3.464955804486486*^9}}],
 
-Cell[BoxData[{
+Cell[BoxData[
  RowBox[{
   RowBox[{"SetAttributes", "[", 
-   RowBox[{"TEBDExpectationList", ",", "HoldFirst"}], "]"}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"SetAttributes", "[", 
-   RowBox[{"TEBDExpectation", ",", "HoldAll"}], "]"}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"TEBDExpectation", "[", 
-   RowBox[{
-   "TEBD_", ",", "siteL_", ",", "siteR_", ",", "OperatorL_", ",", 
-    "OperatorR_"}], "]"}], ":=", 
+   RowBox[{"TEBDExpectationList", ",", "HoldAll"}], "]"}], ";", 
   RowBox[{
-   RowBox[{"Last", "[", 
-    RowBox[{"TEBDExpectation2OList", "[", 
-     RowBox[{
-     "TEBD", ",", "siteL", ",", "siteR", ",", "OperatorL", ",", "OperatorR"}],
-      "]"}], "]"}], "[", 
-   RowBox[{"[", "2", "]"}], "]"}]}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"TEBDExpectationList", "[", 
-   RowBox[{
-   "TEBD_", ",", "site1_", ",", "site2_", ",", "OperatorL_", ",", 
-    "OperatorR_"}], "]"}], ":=", 
-  RowBox[{"Module", "[", 
-   RowBox[{
-    RowBox[{"{", 
-     RowBox[{
-     "numSites", ",", "M", ",", "temp", ",", "spin", ",", "\[Lambda]L", ",", 
-      "siteL", ",", "siteR"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"TEBDExpectationList", "[", 
     RowBox[{
-     RowBox[{"numSites", "=", 
-      RowBox[{"Length", "[", "TEBD", "]"}]}], ";", "\[IndentingNewLine]", 
+    "TEBD_", ",", "site1_", ",", "site2_", ",", "OperatorL_", ",", 
+     "OperatorR_"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "numSites", ",", "M", ",", "temp", ",", "spin", ",", "\[Lambda]L", ",", 
+       "siteL", ",", "siteR"}], "}"}], ",", "\[IndentingNewLine]", 
      RowBox[{
-      RowBox[{"{", 
-       RowBox[{"siteL", ",", "siteR"}], "}"}], "=", 
-      RowBox[{"Sort", "[", 
-       RowBox[{"{", 
-        RowBox[{"site1", ",", "site2"}], "}"}], "]"}]}], ";", 
-     "\[IndentingNewLine]", 
-     RowBox[{"If", "[", 
-      RowBox[{
-       RowBox[{
-        RowBox[{"(", 
-         RowBox[{
-         "1", "\[LessEqual]", "siteL", "<", "siteR", "<=", "numSites"}], 
-         ")"}], "\[NotEqual]", "True"}], ",", 
-       RowBox[{
-        RowBox[{
-        "Print", "[", 
-         "\"\<TEBDExpectation2OList called with wrong site parameter.\>\"", 
-         "]"}], ";", 
-        RowBox[{"Abort", "[", "]"}]}]}], "]"}], ";", "\[IndentingNewLine]", 
-     RowBox[{"spin", "=", 
-      RowBox[{"Length", "[", 
-       RowBox[{"TEBD", "[", 
-        RowBox[{"[", 
-         RowBox[{"siteL", ",", "1"}], "]"}], "]"}], "]"}]}], ";", 
-     "\[IndentingNewLine]", 
-     RowBox[{"If", "[", 
-      RowBox[{
-       RowBox[{
-        RowBox[{
-         RowBox[{"Dimensions", "[", "OperatorL", "]"}], "\[NotEqual]", 
-         RowBox[{"{", 
-          RowBox[{"spin", ",", "spin"}], "}"}]}], "||", 
-        RowBox[{
-         RowBox[{"Dimensions", "[", "OperatorR", "]"}], "\[NotEqual]", 
-         RowBox[{"{", 
-          RowBox[{"spin", ",", "spin"}], "}"}]}]}], ",", 
-       RowBox[{
-        RowBox[{
-        "Print", "[", 
-         "\"\<TEBDExpectation1O called with wrong operator dimensions.\>\"", 
-         "]"}], ";", 
-        RowBox[{"Abort", "[", "]"}]}]}], "]"}], ";", "\[IndentingNewLine]", 
-     RowBox[{"If", "[", 
-      RowBox[{
-       RowBox[{"siteL", "\[Equal]", "1"}], ",", "\[IndentingNewLine]", 
-       RowBox[{
-        RowBox[{"\[Lambda]L", "=", 
-         RowBox[{"SparseArray", "[", 
-          RowBox[{"DiagonalMatrix", "[", 
-           RowBox[{"TEBD", "[", 
-            RowBox[{"[", 
-             RowBox[{"numSites", ",", "2"}], "]"}], "]"}], "]"}], "]"}]}], 
-        ";"}], ",", "\[IndentingNewLine]", 
-       RowBox[{
-        RowBox[{"\[Lambda]L", "=", 
-         RowBox[{"SparseArray", "[", 
-          RowBox[{"DiagonalMatrix", "[", 
-           RowBox[{"TEBD", "[", 
-            RowBox[{"[", 
-             RowBox[{
-              RowBox[{"siteL", "-", "1"}], ",", "2"}], "]"}], "]"}], "]"}], 
-          "]"}]}], ";"}]}], "\[IndentingNewLine]", "]"}], ";", 
-     "\[IndentingNewLine]", 
-     RowBox[{"(*", " ", 
-      RowBox[{
-      "This", " ", "will", " ", "do", " ", "a", " ", "loop", " ", "over", " ",
-        "the", " ", "different", " ", "tensors", " ", "in", " ", "the", " ", 
-       "TEBD"}], " ", "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-     RowBox[{"(*", " ", 
-      RowBox[{
-      "First", " ", "prepare", " ", "the", " ", "initial", " ", "matrix", " ",
-        "with", " ", "the", " ", "action", " ", "of", " ", "the", " ", 
-       "Operator1", " ", "on", " ", "the", " ", "starting", " ", "tensor"}], 
-      " ", "*)"}], "\[IndentingNewLine]", 
-     RowBox[{"M", "=", 
-      RowBox[{
-       RowBox[{"SparseArray", "[", 
-        RowBox[{"DiagonalMatrix", "[", 
-         RowBox[{"TEBD", "[", 
-          RowBox[{"[", 
-           RowBox[{"siteL", ",", "2"}], "]"}], "]"}], "]"}], "]"}], ".", 
-       RowBox[{"Sum", "[", 
-        RowBox[{
-         RowBox[{
-          RowBox[{"ConjugateTranspose", "[", 
-           RowBox[{"TEBD", "[", 
-            RowBox[{"[", 
-             RowBox[{"siteL", ",", "1", ",", "i"}], "]"}], "]"}], "]"}], ".", 
-          
-          RowBox[{"(", 
-           RowBox[{"\[Lambda]L", "^", "2"}], ")"}], ".", 
-          RowBox[{"(", 
-           RowBox[{
-            RowBox[{"(", 
-             RowBox[{"OperatorL", ".", 
-              RowBox[{"TEBD", "[", 
-               RowBox[{"[", 
-                RowBox[{"siteL", ",", "1"}], "]"}], "]"}]}], ")"}], "[", 
-            RowBox[{"[", "i", "]"}], "]"}], ")"}]}], ",", 
-         RowBox[{"{", 
-          RowBox[{"i", ",", "1", ",", "spin"}], "}"}]}], "]"}], ".", 
-       RowBox[{"SparseArray", "[", 
-        RowBox[{"DiagonalMatrix", "[", 
-         RowBox[{"TEBD", "[", 
-          RowBox[{"[", 
-           RowBox[{"siteL", ",", "2"}], "]"}], "]"}], "]"}], "]"}]}]}], ";", 
-     "\[IndentingNewLine]", 
-     RowBox[{"(*", " ", 
-      RowBox[{
-      "The", " ", "expectation", " ", "value", " ", "is", " ", "added", " ", 
-       "a", " ", "table", " ", "as", " ", "a", " ", "function", " ", "of", 
-       " ", "distance"}], " ", "*)"}], "\[IndentingNewLine]", 
-     RowBox[{"Table", "[", 
+      RowBox[{"numSites", "=", 
+       RowBox[{"Length", "[", "TEBD", "]"}]}], ";", "\[IndentingNewLine]", 
       RowBox[{
        RowBox[{"{", 
-        RowBox[{"dist", ",", "\[IndentingNewLine]", 
-         RowBox[{"(*", " ", 
+        RowBox[{"siteL", ",", "siteR"}], "}"}], "=", 
+       RowBox[{"Sort", "[", 
+        RowBox[{"{", 
+         RowBox[{"site1", ",", "site2"}], "}"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
           RowBox[{
-          "First", " ", "we", " ", "calculate", " ", "the", " ", 
-           "expectation", " ", "value", " ", "using", " ", "Operator2"}], " ",
-           "*)"}], "\[IndentingNewLine]", 
+          "1", "\[LessEqual]", "siteL", "<", "siteR", "<=", "numSites"}], 
+          ")"}], "\[NotEqual]", "True"}], ",", 
+        RowBox[{
          RowBox[{
-          RowBox[{"temp", "=", 
-           RowBox[{"Tr", "[", 
+         "Print", "[", 
+          "\"\<TEBDExpectation2OList called with wrong site parameter.\>\"", 
+          "]"}], ";", 
+         RowBox[{"Abort", "[", "]"}]}]}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"spin", "=", 
+       RowBox[{"Length", "[", 
+        RowBox[{"TEBD", "[", 
+         RowBox[{"[", 
+          RowBox[{"siteL", ",", "1"}], "]"}], "]"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"Dimensions", "[", "OperatorL", "]"}], "\[NotEqual]", 
+          RowBox[{"{", 
+           RowBox[{"spin", ",", "spin"}], "}"}]}], "||", 
+         RowBox[{
+          RowBox[{"Dimensions", "[", "OperatorR", "]"}], "\[NotEqual]", 
+          RowBox[{"{", 
+           RowBox[{"spin", ",", "spin"}], "}"}]}]}], ",", 
+        RowBox[{
+         RowBox[{
+         "Print", "[", 
+          "\"\<TEBDExpectation1O called with wrong operator dimensions.\>\"", 
+          "]"}], ";", 
+         RowBox[{"Abort", "[", "]"}]}]}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"siteL", "\[Equal]", "1"}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"\[Lambda]L", "=", 
+          RowBox[{"SparseArray", "[", 
+           RowBox[{"DiagonalMatrix", "[", 
+            RowBox[{"TEBD", "[", 
+             RowBox[{"[", 
+              RowBox[{"numSites", ",", "2"}], "]"}], "]"}], "]"}], "]"}]}], 
+         ";"}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"\[Lambda]L", "=", 
+          RowBox[{"SparseArray", "[", 
+           RowBox[{"DiagonalMatrix", "[", 
+            RowBox[{"TEBD", "[", 
+             RowBox[{"[", 
+              RowBox[{
+               RowBox[{"siteL", "-", "1"}], ",", "2"}], "]"}], "]"}], "]"}], 
+           "]"}]}], ";"}]}], "\[IndentingNewLine]", "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"(*", " ", 
+       RowBox[{
+       "This", " ", "will", " ", "do", " ", "a", " ", "loop", " ", "over", 
+        " ", "the", " ", "different", " ", "tensors", " ", "in", " ", "the", 
+        " ", "TEBD"}], " ", "*)"}], "\[IndentingNewLine]", 
+      "\[IndentingNewLine]", 
+      RowBox[{"(*", " ", 
+       RowBox[{
+       "First", " ", "prepare", " ", "the", " ", "initial", " ", "matrix", 
+        " ", "with", " ", "the", " ", "action", " ", "of", " ", "the", " ", 
+        "Operator1", " ", "on", " ", "the", " ", "starting", " ", "tensor"}], 
+       " ", "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"M", "=", 
+       RowBox[{
+        RowBox[{"SparseArray", "[", 
+         RowBox[{"DiagonalMatrix", "[", 
+          RowBox[{"TEBD", "[", 
+           RowBox[{"[", 
+            RowBox[{"siteL", ",", "2"}], "]"}], "]"}], "]"}], "]"}], ".", 
+        RowBox[{"Sum", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"ConjugateTranspose", "[", 
+            RowBox[{"TEBD", "[", 
+             RowBox[{"[", 
+              RowBox[{"siteL", ",", "1", ",", "i"}], "]"}], "]"}], "]"}], ".", 
+           RowBox[{"(", 
+            RowBox[{"\[Lambda]L", "^", "2"}], ")"}], ".", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"OperatorL", ".", 
+               RowBox[{"TEBD", "[", 
+                RowBox[{"[", 
+                 RowBox[{"siteL", ",", "1"}], "]"}], "]"}]}], ")"}], "[", 
+             RowBox[{"[", "i", "]"}], "]"}], ")"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "1", ",", "spin"}], "}"}]}], "]"}], ".", 
+        RowBox[{"SparseArray", "[", 
+         RowBox[{"DiagonalMatrix", "[", 
+          RowBox[{"TEBD", "[", 
+           RowBox[{"[", 
+            RowBox[{"siteL", ",", "2"}], "]"}], "]"}], "]"}], "]"}]}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"(*", " ", 
+       RowBox[{
+       "The", " ", "expectation", " ", "value", " ", "is", " ", "added", " ", 
+        "a", " ", "table", " ", "as", " ", "a", " ", "function", " ", "of", 
+        " ", "distance"}], " ", "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"dist", ",", "\[IndentingNewLine]", 
+          RowBox[{"(*", " ", 
+           RowBox[{
+           "First", " ", "we", " ", "calculate", " ", "the", " ", 
+            "expectation", " ", "value", " ", "using", " ", "Operator2"}], 
+           " ", "*)"}], "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"temp", "=", 
+            RowBox[{"Tr", "[", 
+             RowBox[{
+              RowBox[{"SparseArray", "[", 
+               RowBox[{"DiagonalMatrix", "[", 
+                RowBox[{"TEBD", "[", 
+                 RowBox[{"[", 
+                  RowBox[{
+                   RowBox[{"siteL", "+", "dist"}], ",", "2"}], "]"}], "]"}], 
+                "]"}], "]"}], ".", 
+              RowBox[{"Sum", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"ConjugateTranspose", "[", 
+                  RowBox[{"TEBD", "[", 
+                   RowBox[{"[", 
+                    RowBox[{
+                    RowBox[{"siteL", "+", "dist"}], ",", "1", ",", "i"}], 
+                    "]"}], "]"}], "]"}], ".", "M", ".", 
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"OperatorR", ".", 
+                    RowBox[{"TEBD", "[", 
+                    RowBox[{"[", 
+                    RowBox[{
+                    RowBox[{"siteL", "+", "dist"}], ",", "1"}], "]"}], 
+                    "]"}]}], ")"}], "[", 
+                   RowBox[{"[", "i", "]"}], "]"}], ")"}]}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"i", ",", "1", ",", "spin"}], "}"}]}], "]"}], ".", 
+              RowBox[{"SparseArray", "[", 
+               RowBox[{"DiagonalMatrix", "[", 
+                RowBox[{"TEBD", "[", 
+                 RowBox[{"[", 
+                  RowBox[{
+                   RowBox[{"siteL", "+", "dist"}], ",", "2"}], "]"}], "]"}], 
+                "]"}], "]"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"(*", " ", 
+            RowBox[{
+             RowBox[{
+             "Now", " ", "almost", " ", "the", " ", "same", " ", 
+              "computation", " ", "but", " ", "for", " ", "the", " ", 
+              "following", " ", "iteration"}], ",", " ", 
+             RowBox[{
+              RowBox[{"without", " ", "the", " ", 
+               RowBox[{"Operator2", ".", " ", "The"}], " ", "last", " ", 
+               "computation", " ", "is", " ", "useless"}], "..."}]}], " ", 
+            "*)"}], "\[IndentingNewLine]", 
+           RowBox[{"M", "=", 
             RowBox[{
              RowBox[{"SparseArray", "[", 
               RowBox[{"DiagonalMatrix", "[", 
@@ -7603,16 +7913,11 @@ Cell[BoxData[{
                    RowBox[{
                     RowBox[{"siteL", "+", "dist"}], ",", "1", ",", "i"}], 
                    "]"}], "]"}], "]"}], ".", "M", ".", 
-                RowBox[{"(", 
-                 RowBox[{
-                  RowBox[{"(", 
-                   RowBox[{"OperatorR", ".", 
-                    RowBox[{"TEBD", "[", 
-                    RowBox[{"[", 
-                    RowBox[{
-                    RowBox[{"siteL", "+", "dist"}], ",", "1"}], "]"}], 
-                    "]"}]}], ")"}], "[", 
-                  RowBox[{"[", "i", "]"}], "]"}], ")"}]}], ",", 
+                RowBox[{"TEBD", "[", 
+                 RowBox[{"[", 
+                  RowBox[{
+                   RowBox[{"siteL", "+", "dist"}], ",", "1", ",", "i"}], 
+                  "]"}], "]"}]}], ",", 
                RowBox[{"{", 
                 RowBox[{"i", ",", "1", ",", "spin"}], "}"}]}], "]"}], ".", 
              RowBox[{"SparseArray", "[", 
@@ -7621,56 +7926,34 @@ Cell[BoxData[{
                 RowBox[{"[", 
                  RowBox[{
                   RowBox[{"siteL", "+", "dist"}], ",", "2"}], "]"}], "]"}], 
-               "]"}], "]"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
-          RowBox[{"(*", " ", 
-           RowBox[{
-            RowBox[{
-            "Now", " ", "almost", " ", "the", " ", "same", " ", "computation",
-              " ", "but", " ", "for", " ", "the", " ", "following", " ", 
-             "iteration"}], ",", " ", 
-            RowBox[{
-             RowBox[{"without", " ", "the", " ", 
-              RowBox[{"Operator2", ".", " ", "The"}], " ", "last", " ", 
-              "computation", " ", "is", " ", "useless"}], "..."}]}], " ", 
-           "*)"}], "\[IndentingNewLine]", 
-          RowBox[{"M", "=", 
-           RowBox[{
-            RowBox[{"SparseArray", "[", 
-             RowBox[{"DiagonalMatrix", "[", 
-              RowBox[{"TEBD", "[", 
-               RowBox[{"[", 
-                RowBox[{
-                 RowBox[{"siteL", "+", "dist"}], ",", "2"}], "]"}], "]"}], 
-              "]"}], "]"}], ".", 
-            RowBox[{"Sum", "[", 
-             RowBox[{
-              RowBox[{
-               RowBox[{"ConjugateTranspose", "[", 
-                RowBox[{"TEBD", "[", 
-                 RowBox[{"[", 
-                  RowBox[{
-                   RowBox[{"siteL", "+", "dist"}], ",", "1", ",", "i"}], 
-                  "]"}], "]"}], "]"}], ".", "M", ".", 
-               RowBox[{"TEBD", "[", 
-                RowBox[{"[", 
-                 RowBox[{
-                  RowBox[{"siteL", "+", "dist"}], ",", "1", ",", "i"}], "]"}],
-                 "]"}]}], ",", 
-              RowBox[{"{", 
-               RowBox[{"i", ",", "1", ",", "spin"}], "}"}]}], "]"}], ".", 
-            RowBox[{"SparseArray", "[", 
-             RowBox[{"DiagonalMatrix", "[", 
-              RowBox[{"TEBD", "[", 
-               RowBox[{"[", 
-                RowBox[{
-                 RowBox[{"siteL", "+", "dist"}], ",", "2"}], "]"}], "]"}], 
-              "]"}], "]"}]}]}], ";", "\[IndentingNewLine]", 
-          RowBox[{"Chop", "[", "temp", "]"}]}]}], "\[IndentingNewLine]", 
-        "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{"dist", ",", "1", ",", 
-         RowBox[{"siteR", "-", "siteL"}]}], "}"}]}], "]"}]}]}], 
-   "\[IndentingNewLine]", "]"}]}]}], "Input",
+               "]"}], "]"}]}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"Chop", "[", "temp", "]"}]}]}], "\[IndentingNewLine]", 
+         "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"dist", ",", "1", ",", 
+          RowBox[{"siteR", "-", "siteL"}]}], "}"}]}], "]"}]}]}], 
+    "\[IndentingNewLine]", "]"}]}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{
+  3.489297324263692*^9, {3.489297363704648*^9, 3.489297365481489*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetAttributes", "[", 
+   RowBox[{"TEBDExpectation", ",", "HoldFirst"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"TEBDExpectation", "[", 
+   RowBox[{
+   "TEBD_", ",", "siteL_", ",", "siteR_", ",", "OperatorL_", ",", 
+    "OperatorR_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"Last", "[", 
+    RowBox[{"TEBDExpectationList", "[", 
+     RowBox[{
+     "TEBD", ",", "siteL", ",", "siteR", ",", "OperatorL", ",", "OperatorR"}],
+      "]"}], "]"}], "[", 
+   RowBox[{"[", "2", "]"}], "]"}]}]}], "Input",
  InitializationCell->True,
  CellChangeTimes->{{3.45050873136408*^9, 3.4505087972512503`*^9}, {
    3.450508831075302*^9, 3.450508853306519*^9}, {3.450509151084873*^9, 
@@ -7705,8 +7988,9 @@ Cell[BoxData[{
    3.4650217981091633`*^9, 3.4650218004306793`*^9}, {3.465099341907205*^9, 
    3.465099349419525*^9}, {3.465151524150386*^9, 3.465151526680869*^9}, {
    3.465564032129361*^9, 3.465564048944642*^9}, {3.465576010923204*^9, 
-   3.465576013610662*^9}, {3.489233224593123*^9, 3.489233233407682*^9}}]
-}, Open  ]],
+   3.465576013610662*^9}, {3.489233224593123*^9, 3.489233233407682*^9}, {
+   3.4892972820515223`*^9, 3.489297321148403*^9}, 3.489297371812711*^9}]
+}, Closed]],
 
 Cell[CellGroupData[{
 
@@ -8232,18 +8516,22 @@ dimensions.\>\"", "]"}], ";",
    3.4655639128877077`*^9}, {3.465563958747155*^9, 3.465563983549556*^9}, {
    3.465576020479024*^9, 3.465576033419207*^9}, {3.489233238679781*^9, 
    3.489233238829254*^9}}]
-}, Open  ]]
 }, Closed]],
+
+Cell["Overlap", "Subsubsection",
+ CellChangeTimes->{{3.489301012166276*^9, 3.4893010137965727`*^9}}]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell["Entropy calculation", "Subsection",
- CellChangeTimes->{{3.465551530944466*^9, 3.465551545994298*^9}}],
+",", "1", ",", "i"}], "]"}], 
+               "]"}], "]"}], ".", "M", ".", 
+             RowBox[{"TEBD", "[",
 
 Cell[BoxData[{
  RowBox[{
   RowBox[{
-   RowBox[{"TEBDentropy", "[", "\[Lambda]_", "]"}], ":=", 
+   RowBox[{"TEBDEntropy", "[", "\[Lambda]_", "]"}], ":=", 
    RowBox[{"-", 
     RowBox[{"Sum", "[", 
      RowBox[{
@@ -8267,12 +8555,12 @@ Cell[BoxData[{
         RowBox[{"Length", "[", "\[Lambda]", "]"}]}], "}"}]}], "]"}]}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"TEBDentropyList", "[", "TEBD_", "]"}], ":=", 
+  RowBox[{"TEBDEntropyList", "[", "TEBD_", "]"}], ":=", 
   RowBox[{"Table", "[", 
    RowBox[{
     RowBox[{"{", 
      RowBox[{"n", ",", 
-      RowBox[{"TEBDentropy", "[", 
+      RowBox[{"TEBDEntropy", "[", 
        RowBox[{"TEBD", "[", 
         RowBox[{"[", 
          RowBox[{"n", ",", "2"}], "]"}], "]"}], "]"}]}], "}"}], ",", 
@@ -8286,13 +8574,14 @@ Cell[BoxData[{
   3.4652245502549553`*^9, 3.465224729787477*^9}, {3.465224865508807*^9, 
   3.46522487840442*^9}, {3.465552220126238*^9, 3.465552228073814*^9}, {
   3.465552263568542*^9, 3.465552264288406*^9}, {3.4655538602400513`*^9, 
-  3.4655538655738773`*^9}}]
-}, Closed]],
+  3.4655538655738773`*^9}, {3.489301692626824*^9, 3.4893016969454117`*^9}}]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell["Hamiltonians for TEBDs", "Subsection",
- CellChangeTimes->{{3.487498395551654*^9, 3.487498401453321*^9}}],
+Cell["Hamiltonians and evolution operator for TEBDs", "Subsection",
+ CellChangeTimes->{{3.487498395551654*^9, 3.487498401453321*^9}, {
+  3.4892959899146137`*^9, 3.489295993072933*^9}}],
 
 Cell[BoxData[{
  RowBox[{
@@ -8364,7 +8653,7 @@ Cell[BoxData[
 
 Cell[BoxData[
  RowBox[{
-  RowBox[{"TEBDEvolutionOperator", "[", 
+  RowBox[{"TEBDEvolutionFromHamiltonian", "[", 
    RowBox[{"Ham_", ",", "time_"}], "]"}], ":=", 
   RowBox[{"Table", "[", 
    RowBox[{
@@ -8386,195 +8675,68 @@ Cell[BoxData[
      RowBox[{"n", ",", "1", ",", 
       RowBox[{"Length", "[", "Ham", "]"}]}], "}"}]}], "]"}]}]], "Input",
  InitializationCell->True,
- CellChangeTimes->{{3.487498585484786*^9, 3.48749865769564*^9}}]
+ CellChangeTimes->{{3.487498585484786*^9, 3.48749865769564*^9}, {
+  3.489296112458693*^9, 3.4892961167029047`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetAttributes", "[", 
+   RowBox[{"TEBDInitEvolution", ",", "HoldFirst"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"TEBDInitEvolution", "[", "]"}], ":=", 
+  RowBox[{"(", 
+   RowBox[{"{", "}"}], ")"}]}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.487504963291223*^9, 3.487504983583084*^9}, 
+   3.489236563009506*^9, {3.489296004828991*^9, 3.489296016269425*^9}, {
+   3.4892964823661127`*^9, 3.489296482499692*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetAttributes", "[", 
+   RowBox[{"TEBDEvolutionAddGate", ",", "HoldFirst"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"TEBDEvolutionAddGate", "[", 
+   RowBox[{"U_", ",", "operator_", ",", "site1_", ",", "site2_"}], "]"}], ":=", 
+  RowBox[{"(", 
+   RowBox[{"U", "=", 
+    RowBox[{"(", 
+     RowBox[{"U", "~", "Join", "~", 
+      RowBox[{"{", 
+       RowBox[{"{", 
+        RowBox[{"operator", ",", "site1", ",", "site2"}], "}"}], "}"}]}], 
+     ")"}]}], ")"}]}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.487498409725955*^9, 3.487498520916314*^9}, {
+  3.487498551262932*^9, 3.4874985758748426`*^9}, {3.4874986667194357`*^9, 
+  3.4874986722635403`*^9}, {3.489296026915558*^9, 3.489296051446478*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TEBDEvolutionAddGate", "[", 
+   RowBox[{"U_", ",", "operator_", ",", "site_"}], "]"}], ":=", 
+  RowBox[{"(", 
+   RowBox[{"U", "=", 
+    RowBox[{"(", 
+     RowBox[{"U", "~", "Join", "~", 
+      RowBox[{"{", 
+       RowBox[{"{", 
+        RowBox[{"operator", ",", "site", ",", "site"}], "}"}], "}"}]}], 
+     ")"}]}], ")"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.4874990993614807`*^9, 3.487499106344589*^9}, {
+  3.489296048179153*^9, 3.489296060610488*^9}}]
 }, Closed]]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell["Unfinished", "Section",
- CellChangeTimes->{{3.4650996859094257`*^9, 3.465099687423975*^9}}],
+  RowBox[{"numTensors", "+", "1"}]}], "]"}], "~", "Join", "~", 
+         RowBox[{"{", "1", "}"}]},
 
-Cell[BoxData[{
- RowBox[{
-  RowBox[{"SetAttributes", "[", 
-   RowBox[{"TEBDOverlap", ",", "HoldAll"}], "]"}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"TEBDOverlap", "[", 
-   RowBox[{"TEBD1_", ",", "TEBD2_"}], "]"}], ":=", 
-  RowBox[{"Module", "[", 
-   RowBox[{
-    RowBox[{"{", 
-     RowBox[{"numTensors", ",", "\[Rho]"}], "}"}], ",", "\[IndentingNewLine]", 
-    RowBox[{
-     RowBox[{"numTensors", "=", 
-      RowBox[{"Length", "[", "TEBD1", "]"}]}], ";", "\[IndentingNewLine]", 
-     RowBox[{"If", "[", 
-      RowBox[{
-       RowBox[{"numTensors", "\[NotEqual]", 
-        RowBox[{"Length", "[", "TEBD2", "]"}]}], ",", 
-       RowBox[{
-        RowBox[{
-        "Print", "[", 
-         "\"\<TEBDOverlap called with tensors of different length.\>\"", 
-         "]"}], ";", 
-        RowBox[{"Abort", "[", "]"}]}]}], "]"}], ";", "\[IndentingNewLine]", 
-     RowBox[{"\[Rho]", "=", 
-      RowBox[{"{", 
-       RowBox[{"{", "1", "}"}], "}"}]}], ";", "\[IndentingNewLine]", 
-     RowBox[{"Do", "[", 
-      RowBox[{
-       RowBox[{
-        RowBox[{"\[Rho]", "=", 
-         RowBox[{
-          RowBox[{"SparseArray", "[", 
-           RowBox[{"DiagonalMatrix", "[", 
-            RowBox[{"TEBD", "[", 
-             RowBox[{"[", 
-              RowBox[{
-               RowBox[{"siteL", "+", "dist"}], ",", "2"}], "]"}], "]"}], 
-            "]"}], "]"}], ".", 
-          RowBox[{"Sum", "[", 
-           RowBox[{
-            RowBox[{
-             RowBox[{"ConjugateTranspose", "[", 
-              RowBox[{"TEBD", "[", 
-               RowBox[{"[", 
-                RowBox[{
-                 RowBox[{"siteL", "+", "dist"}], ",", "1", ",", "i"}], "]"}], 
-               "]"}], "]"}], ".", "M", ".", 
-             RowBox[{"TEBD", "[", 
-              RowBox[{"[", 
-               RowBox[{
-                RowBox[{"siteL", "+", "dist"}], ",", "1", ",", "i"}], "]"}], 
-              "]"}]}], ",", 
-            RowBox[{"{", 
-             RowBox[{"i", ",", "1", ",", "spin"}], "}"}]}], "]"}], ".", 
-          RowBox[{"SparseArray", "[", 
-           RowBox[{"DiagonalMatrix", "[", 
-            RowBox[{"TEBD", "[", 
-             RowBox[{"[", 
-              RowBox[{
-               RowBox[{"siteL", "+", "dist"}], ",", "2"}], "]"}], "]"}], 
-            "]"}], "]"}]}]}], ";"}], ",", 
-       RowBox[{"{", 
-        RowBox[{"dist", ",", "1", ",", 
-         RowBox[{"siteC", "-", "1", "-", "siteL"}]}], "}"}]}], "]"}], ";", 
-     "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-     "\[IndentingNewLine]", "\[IndentingNewLine]", 
-     RowBox[{"GL", "=", 
-      RowBox[{"SparseArray", "[", 
-       RowBox[{"DiagonalMatrix", "[", 
-        RowBox[{"iMPS1", "[", 
-         RowBox[{"[", 
-          RowBox[{"numTensors", ",", "2"}], "]"}], "]"}], "]"}], "]"}]}], ";",
-      "\[IndentingNewLine]", 
-     RowBox[{"GL", "=", 
-      RowBox[{"Flatten", "[", 
-       RowBox[{
-        RowBox[{"Fold", "[", 
-         RowBox[{
-          RowBox[{
-           RowBox[{"#1", ".", 
-            RowBox[{"Transpose", "[", 
-             RowBox[{
-              RowBox[{"iMPS1", "[", 
-               RowBox[{"[", 
-                RowBox[{"#2", ",", "1"}], "]"}], "]"}], ",", 
-              RowBox[{"{", 
-               RowBox[{"2", ",", "1", ",", "3"}], "}"}]}], "]"}], ".", 
-            RowBox[{"SparseArray", "[", 
-             RowBox[{"DiagonalMatrix", "[", 
-              RowBox[{"iMPS1", "[", 
-               RowBox[{"[", 
-                RowBox[{"#2", ",", "2"}], "]"}], "]"}], "]"}], "]"}]}], "&"}],
-           ",", "GL", ",", 
-          RowBox[{"Range", "[", 
-           RowBox[{"1", ",", "numTensors"}], "]"}]}], "]"}], ",", 
-        RowBox[{"Append", "[", 
-         RowBox[{
-          RowBox[{
-           RowBox[{
-            RowBox[{"{", "#", "}"}], "&"}], "/@", 
-           RowBox[{"Range", "[", 
-            RowBox[{"2", ",", 
-             RowBox[{"numTensors", "+", "1"}]}], "]"}]}], ",", 
-          RowBox[{"{", 
-           RowBox[{"1", ",", 
-            RowBox[{"numTensors", "+", "2"}]}], "}"}]}], "]"}]}], "]"}]}], 
-     ";", "\[IndentingNewLine]", 
-     RowBox[{"GR", "=", 
-      RowBox[{"Transpose", "[", 
-       RowBox[{"GL", ",", 
-        RowBox[{
-         RowBox[{"Range", "[", 
-          RowBox[{"2", ",", 
-           RowBox[{"numTensors", "+", "1"}]}], "]"}], "~", "Join", "~", 
-         RowBox[{"{", "1", "}"}]}]}], "]"}]}], ";", "\[IndentingNewLine]", 
-     RowBox[{"\[Rho]1", "=", 
-      RowBox[{"Flatten", "[", 
-       RowBox[{
-        RowBox[{"GL", ".", "GR"}], ",", 
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"Range", "[", 
-           RowBox[{"1", ",", "numTensors"}], "]"}], ",", 
-          RowBox[{"Range", "[", 
-           RowBox[{
-            RowBox[{"numTensors", "+", "1"}], ",", 
-            RowBox[{"2", " ", "numTensors"}]}], "]"}]}], "}"}]}], "]"}]}], 
-     ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-     RowBox[{"GL", "=", 
-      RowBox[{"SparseArray", "[", 
-       RowBox[{"DiagonalMatrix", "[", 
-        RowBox[{"iMPS2", "[", 
-         RowBox[{"[", 
-          RowBox[{"numTensors", ",", "2"}], "]"}], "]"}], "]"}], "]"}]}], ";",
-      "\[IndentingNewLine]", 
-     RowBox[{"GL", "=", 
-      RowBox[{"Flatten", "[", 
-       RowBox[{
-        RowBox[{"Fold", "[", 
-         RowBox[{
-          RowBox[{
-           RowBox[{"#1", ".", 
-            RowBox[{"Conjugate", "[", 
-             RowBox[{"Transpose", "[", 
-              RowBox[{
-               RowBox[{"iMPS2", "[", 
-                RowBox[{"[", 
-                 RowBox[{"#2", ",", "1"}], "]"}], "]"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"2", ",", "1", ",", "3"}], "}"}]}], "]"}], "]"}], ".", 
-            RowBox[{"SparseArray", "[", 
-             RowBox[{"DiagonalMatrix", "[", 
-              RowBox[{"iMPS2", "[", 
-               RowBox[{"[", 
-                RowBox[{"#2", ",", "2"}], "]"}], "]"}], "]"}], "]"}]}], "&"}],
-           ",", "GL", ",", 
-          RowBox[{"Range", "[", 
-           RowBox[{"1", ",", "numTensors"}], "]"}]}], "]"}], ",", 
-        RowBox[{"Append", "[", 
-         RowBox[{
-          RowBox[{
-           RowBox[{
-            RowBox[{"{", "#", "}"}], "&"}], "/@", 
-           RowBox[{"Range", "[", 
-            RowBox[{"2", ",", 
-             RowBox[{"numTensors", "+", "1"}]}], "]"}]}], ",", 
-          RowBox[{"{", 
-           RowBox[{"1", ",", 
-            RowBox[{"numTensors", "+", "2"}]}], "}"}]}], "]"}]}], "]"}]}], 
-     ";", "\[IndentingNewLine]", 
-     RowBox[{"GR", "=", 
-      RowBox[{"Transpose", "[", 
-       RowBox[{"GL", ",", 
-        RowBox[{
-         RowBox[{"Range", "[", 
-          RowBox[{"2", ",", 
-           RowBox[{"numTensors", "+", "1"}]}], "]"}], "~", "Join", "~", 
-         RowBox[{"{", "1", "}"}]}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+, "]"}]}], ";", "\[IndentingNewLine]", 
      RowBox[{"\[Rho]2", "=", 
       RowBox[{"Flatten", "[", 
        RowBox[{
@@ -8841,129 +9003,434 @@ Cell[179204, 4050, 951, 25, 43, "Input",
  InitializationCell->True],
 Cell[180158, 4077, 2992, 75, 163, "Input",
  InitializationCell->True],
-Cell[183153, 4154, 3292, 89, 193, "Input",
- InitializationCell->True]
-}, Closed]]
+Cell[183153, 4154, 3292, 89, 193, "Inp
+}, Closed]],
+
+Cell[CellGroupData[{
+
+osed]]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[186494, 4249, 100, 1, 67, "Section"],
 Cell[CellGroupData[{
-Cell[186619, 4254, 97, 1, 34, "Subsection"],
-Cell[186719, 4257, 548, 14, 27, "Input",
+Cell[1,
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"End", "[", " ", "]"}], "\n"}], "\n", 
+ RowBox[{"EndPackage", "[", " ", "]"}]}], "Input",
+ InitializationCell->True],
+
+Cell[BoxData["\<\"MathMPS`Private`\"\>"], "Output",
+ CellChangeTimes->{3.489295377961136*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+AutoGeneratedPackage->Automatic,
+WindowSize->{1276, 756},
+WindowMargins->{{-14, Automatic}, {Automatic, 36}},
+ShowSelection->True,
+FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (February 18, 2009)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Info3479019047-6062902"->{
+  Cell[187109, 4220, 225, 4, 42, "Print",
+   CellTags->"Info3479019047-6062902"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Info3479019047-6062902", 372316, 8929}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 389, 5, 76, "Title"],
+Cell[CellGroupData[{
+Cell[981, 31, 170, 3, 27, "Input"],
+Cell[1154, 36, 295, 4, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1486, 45, 173, 3, 27, "Input",
+ InitializationCell->True],
+Cell[1662, 50, 85, 1, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1784, 56, 1069, 16, 598, "Input",
+ InitializationCell->True],
+Cell[2856, 74, 895, 14, 561, "Print"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3788, 93, 579, 10, 103, "Input",
+ InitializationCell->True],
+Cell[4370, 105, 750, 10, 103, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5157, 120, 320, 6, 27, "Input",
+ InitializationCell->True],
+Cell[5480, 128, 784, 12, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6301, 145, 280, 6, 27, "Input",
+ InitializationCell->True],
+Cell[6584, 153, 748, 11, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7369, 169, 319, 6, 58, "Input",
+ InitializationCell->True],
+Cell[7691, 177, 791, 12, 58, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8519, 194, 356, 7, 58, "Input",
+ InitializationCell->True],
+Cell[8878, 203, 840, 12, 43, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9755, 220, 308, 7, 43, "Input",
+ InitializationCell->True],
+Cell[10066, 229, 754, 11, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10857, 245, 294, 6, 27, "Input",
+ InitializationCell->True],
+Cell[11154, 253, 769, 11, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11960, 269, 966, 17, 103, "Input",
+ InitializationCell->True],
+Cell[12929, 288, 315, 4, 103, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13281, 297, 871, 14, 58, "Input",
+ InitializationCell->True],
+Cell[14155, 313, 242, 3, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14434, 321, 821, 13, 178, "Input",
+ InitializationCell->True],
+Cell[15258, 336, 714, 9, 163, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16009, 350, 526, 9, 27, "Input",
+ InitializationCell->True],
+Cell[16538, 361, 184, 2, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16759, 368, 1116, 18, 133, "Input",
+ InitializationCell->True],
+Cell[17878, 388, 541, 7, 118, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18456, 400, 807, 13, 163, "Input",
+ InitializationCell->True],
+Cell[19266, 415, 698, 9, 163, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20001, 429, 676, 12, 133, "Input",
+ InitializationCell->True],
+Cell[20680, 443, 598, 9, 118, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21315, 457, 410, 8, 58, "Input",
+ InitializationCell->True],
+Cell[21728, 467, 249, 3, 43, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22014, 475, 361, 8, 43, "Input",
+ InitializationCell->True],
+Cell[22378, 485, 164, 2, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22579, 492, 562, 10, 73, "Input",
+ InitializationCell->True],
+Cell[23144, 504, 317, 4, 73, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23498, 513, 429, 9, 88, "Input",
+ InitializationCell->True],
+Cell[23930, 524, 408, 5, 103, "Output"]
+}, Open  ]],
+Cell[24353, 532, 477, 9, 73, "Input",
+ InitializationCell->True],
+Cell[CellGroupData[{
+Cell[24855, 545, 405, 8, 43, "Input",
+ InitializationCell->True],
+Cell[25263, 555, 186, 2, 43, "Output"]
+}, Open  ]],
+Cell[25464, 560, 284, 6, 43, "Input",
+ InitializationCell->True],
+Cell[CellGroupData[{
+Cell[25773, 570, 792, 13, 103, "Input",
+ InitializationCell->True],
+Cell[26568, 585, 456, 6, 133, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[27061, 596, 770, 13, 133, "Input",
+ InitializationCell->True],
+Cell[27834, 611, 456, 6, 133, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[28327, 622, 774, 13, 103, "Input",
+ InitializationCell->True],
+Cell[29104, 637, 520, 6, 73, "Output"]
+}, Open  ]],
+Cell[29639, 646, 288, 6, 27, "Input",
+ InitializationCell->True],
+Cell[CellGroupData[{
+Cell[29952, 656, 101, 2, 27, "Input",
+ InitializationCell->True],
+Cell[30056, 660, 93, 1, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[30186, 666, 101, 1, 46, "Subtitle"],
+Cell[CellGroupData[{
+Cell[30312, 671, 99, 1, 67, "Section"],
+Cell[CellGroupData[{
+Cell[30436, 676, 105, 1, 34, "Subsection"],
+Cell[30544, 679, 154, 2, 26, "Text"],
+Cell[30701, 683, 3263, 56, 133, "Input",
  InitializationCell->True]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[187304, 4276, 124, 1, 26, "Subsection"],
+Cell[34001, 744, 109, 1, 26, "Subsection"],
+Cell[34113, 747, 2048, 62, 88, "Input",
+ InitializationCell->True],
+Cell[36164, 811, 1497, 50, 73, "Input",
+ InitializationCell->True]
+}, Closed]],
 Cell[CellGroupData[{
-Cell[187453, 4281, 173, 2, 24, "Subsubsection"],
-Cell[187629, 4285, 5922, 149, 298, "Input",
+Cell[37698, 866, 105, 1, 26, "Subsection"],
+Cell[37806, 869, 11191, 236, 253, "Input",
+ InitializationCell->True]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[49034, 1110, 117, 1, 26, "Subsection"],
+Cell[49154, 1113, 3436, 85, 178, "Input",
+ InitializationCell->True]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[52627, 1203, 216, 3, 26, "Subsection"],
+Cell[52846, 1208, 3243, 85, 163, "Input",
  InitializationCell->True],
-Cell[193554, 4436, 2712, 66, 208, "Input",
+Cell[56092, 1295, 1228, 34, 118, "Input",
  InitializationCell->True],
-Cell[196269, 4504, 3160, 73, 193, "Input",
+Cell[57323, 1331, 8145, 199, 433, "Input",
+ InitializationCell->True],
+Cell[65471, 1532, 5589, 112, 268, "Input",
+ InitializationCell->True],
+Cell[71063, 1646, 4749, 109, 373, "Input",
+ InitializationCell->True]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[75849, 1760, 121, 1, 26, "Subsection"],
+Cell[75973, 1763, 968, 27, 58, "Input",
+ InitializationCell->True],
+Cell[76944, 1792, 2811, 69, 163, "Input",
+ InitializationCell->True],
+Cell[79758, 1863, 591, 17, 58, "Input",
+ InitializationCell->True],
+Cell[80352, 1882, 666, 19, 73, "Input",
+ InitializationCell->True],
+Cell[81021, 1903, 5952, 151, 388, "Input",
+ InitializationCell->True]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[87010, 2059, 129, 1, 26, "Subsection"],
+Cell[87142, 2062, 21311, 409, 898, "Input",
+ InitializationCell->True]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[108490, 2476, 134, 2, 26, "Subsection"],
+Cell[108627, 2480, 3035, 68, 223, "Input",
+ InitializationCell->True],
+Cell[111665, 2550, 5607, 115, 313, "Input",
+ InitializationCell->True]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[117309, 2670, 124, 1, 26, "Subsection"],
+Cell[CellGroupData[{
+Cell[117458, 2675, 182, 4, 24, "Subsubsection"],
+Cell[117643, 2681, 46797, 1006, 1753, "Input",
  InitializationCell->True]
 }, Open  ]]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[199478, 4583, 105, 1, 26, "Subsection"],
-Cell[199586, 4586, 461, 14, 27, "Input",
+Cell[164489, 3693, 257, 3, 26, "Subsection"],
+Cell[164749, 3698, 280, 5, 26, "Text"],
+Cell[165032, 3705, 1433, 40, 88, "Input",
+ InitializationCell->True],
+Cell[166468, 3747, 9707, 232, 433, "Input",
+ InitializationCell->True],
+Cell[176178, 3981, 2630, 67, 148, "Input",
+ InitializationCell->True],
+Cell[178811, 4050, 4717, 72, 88, "Input",
+ InitializationCell->True],
+Cell[183531, 4124, 1898, 47, 163, "Input",
+ InitializationCell->True],
+Cell[185432, 4173, 1144, 27, 118, "Input",
  InitializationCell->True],
 Cell[CellGroupData[{
-Cell[200072, 4604, 106, 1, 24, "Subsubsection"],
-Cell[200181, 4607, 17530, 382, 523, "Input",
- InitializationCell->True],
-Cell[217714, 4991, 4667, 112, 388, "Input",
- InitializationCell->True]
+Cell[186601, 4204, 128, 2, 27, "Input"],
+Cell[186732, 4208, 212, 3, 27, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[222418, 5108, 180, 2, 24, "Subsubsection"],
-Cell[222601, 5112, 18784, 469, 868, "Input",
- InitializationCell->True]
+Cell[186981, 4216, 125, 2, 27, "Input"],
+Cell[187109, 4220, 225, 4, 42, "Print",
+ CellTags->"Info3479019047-6062902"]
 }, Open  ]],
-Cell[CellGroupData[{
-Cell[241422, 5586, 228, 3, 24, "Subsubsection"],
-Cell[241653, 5591, 25578, 637, 1108, "Input",
- InitializationCell->True]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[267268, 6233, 110, 1, 24, "Subsubsection"],
-Cell[267381, 6236, 2218, 59, 148, "Input",
- InitializationCell->True]
-}, Open  ]]
+Cell[187349, 4227, 396, 9, 27, "Input"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[269648, 6301, 106, 1, 26, "Subsection"],
-Cell[CellGroupData[{
-Cell[269779, 6306, 119, 1, 24, "Subsubsection"],
-Cell[269901, 6309, 1990, 50, 223, "Input",
- InitializationCell->True]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[271928, 6364, 109, 1, 24, "Subsubsection"],
-Cell[272040, 6367, 8305, 208, 493, "Input",
+Cell[187782, 4241, 160, 2, 26, "Subsection"],
+Cell[187945, 4245, 951, 25, 43, "Input",
  InitializationCell->True],
-Cell[280348, 6577, 8660, 224, 463, "Input",
+Cell[188899, 4272, 2992, 75, 163, "Input",
  InitializationCell->True],
-Cell[289011, 6803, 4239, 118, 238, "Input",
- InitializationCell->True],
-Cell[293253, 6923, 4245, 115, 208, "Input",
- InitializationCell->True]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[297535, 7043, 103, 1, 24, "Subsubsection"],
-Cell[297641, 7046, 5737, 150, 403, "Input",
- InitializationCell->True],
-Cell[303381, 7198, 3224, 87, 223, "Input",
- InitializationCell->True]
-}, Open  ]]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[306654, 7291, 105, 1, 26, "Subsection"],
-Cell[CellGroupData[{
-Cell[306784, 7296, 210, 3, 24, "Subsubsection"],
-Cell[306997, 7301, 4452, 115, 253, "Input",
- InitializationCell->True]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[311486, 7421, 347, 5, 24, "Subsubsection"],
-Cell[311836, 7428, 12176, 279, 463, "Input",
- InitializationCell->True]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[324049, 7712, 120, 1, 24, "Subsubsection"],
-Cell[324172, 7715, 21733, 518, 763, "Input",
- InitializationCell->True]
-}, Open  ]]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[345954, 8239, 107, 1, 26, "Subsection"],
-Cell[346064, 8242, 1621, 46, 43, "Input",
- InitializationCell->True]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[347722, 8293, 110, 1, 26, "Subsection"],
-Cell[347835, 8296, 400, 11, 43, "Input",
- InitializationCell->True],
-Cell[348238, 8309, 726, 19, 43, "Input",
- InitializationCell->True],
-Cell[348967, 8330, 608, 17, 27, "Input",
- InitializationCell->True],
-Cell[349578, 8349, 467, 13, 27, "Input",
- InitializationCell->True],
-Cell[350048, 8364, 822, 24, 27, "Input",
+Cell[191894, 4349, 3292, 89, 193, "Input",
  InitializationCell->True]
 }, Closed]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[350919, 8394, 97, 1, 67, "Section"],
-Cell[351019, 8397, 8242, 220, 463, "Input",
+Cell[195235, 4444, 100, 1, 67, "Section"],
+Cell[CellGroupData[{
+Cell[195360, 4449, 97, 1, 34, "Subsection"],
+Cell[195460, 4452, 548, 14, 27, "Input",
+ InitializationCell->True]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[196045, 4471, 124, 1, 34, "Subsection"],
+Cell[CellGroupData[{
+Cell[196194, 4476, 173, 2, 24, "Subsubsection"],
+Cell[196370, 4480, 5922, 149, 298, "Input",
+ InitializationCell->True],
+Cell[202295, 4631, 2712, 66, 208, "Input",
+ InitializationCell->True],
+Cell[205010, 4699, 3160, 73, 193, "Input",
+ InitializationCell->True]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[208219, 4778, 105, 1, 26, "Subsection"],
+Cell[208327, 4781, 461, 14, 27, "Input",
+ InitializationCell->True],
+Cell[CellGroupData[{
+Cell[208813, 4799, 106, 1, 24, "Subsubsection"],
+Cell[208922, 4802, 17530, 382, 523, "Input",
+ InitializationCell->True],
+Cell[226455, 5186, 4762, 113, 388, "Input",
+ InitializationCell->True]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[231254, 5304, 180, 2, 24, "Subsubsection"],
+Cell[231437, 5308, 18784, 469, 868, "Input",
+ InitializationCell->True]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[250258, 5782, 228, 3, 24, "Subsubsection"],
+Cell[250489, 5787, 25578, 637, 1108, "Input",
+ InitializationCell->True]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[276104, 6429, 110, 1, 24, "Subsubsection"],
+Cell[276217, 6432, 2218, 59, 148, "Input",
+ InitializationCell->True]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[278484, 6497, 106, 1, 26, "Subsection"],
+Cell[CellGroupData[{
+Cell[278615, 6502, 119, 1, 24, "Subsubsection"],
+Cell[278737, 6505, 2937, 70, 238, "Input",
+ InitializationCell->True]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[281711, 6580, 109, 1, 18, "Subsubsection"],
+Cell[281823, 6583, 8305, 208, 493, "Input",
+ InitializationCell->True],
+Cell[290131, 6793, 8660, 224, 463, "Input",
+ InitializationCell->True],
+Cell[298794, 7019, 4239, 118, 238, "Input",
+ InitializationCell->True],
+Cell[303036, 7139, 4245, 115, 208, "Input",
+ InitializationCell->True]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[307318, 7259, 103, 1, 18, "Subsubsection"],
+Cell[307424, 7262, 5737, 150, 403, "Input",
+ InitializationCell->True],
+Cell[313164, 7414, 3224, 87, 223, "Input",
+ InitializationCell->True]
+}, Closed]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[316437, 7507, 105, 1, 26, "Subsection"],
+Cell[CellGroupData[{
+Cell[316567, 7512, 210, 3, 24, "Subsubsection"],
+Cell[316780, 7517, 4452, 115, 253, "Input",
+ InitializationCell->True]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[321269, 7637, 347, 5, 18, "Subsubsection"],
+Cell[321619, 7644, 9393, 230, 433, "Input",
+ InitializationCell->True],
+Cell[331015, 7876, 3160, 52, 43, "Input",
+ InitializationCell->True]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[334212, 7933, 120, 1, 18, "Subsubsection"],
+Cell[334335, 7936, 21733, 518, 763, "Input",
+ InitializationCell->True]
+}, Closed]],
+Cell[356083, 8457, 100, 1, 18, "Subsubsection"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[356220, 8463, 107, 1, 34, "Subsection"],
+Cell[356330, 8466, 1669, 46, 43, "Input",
+ InitializationCell->True]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[358036, 8517, 184, 2, 34, "Subsection"],
+Cell[358223, 8521, 400, 11, 43, "Input",
+ InitializationCell->True],
+Cell[358626, 8534, 726, 19, 43, "Input",
+ InitializationCell->True],
+Cell[359355, 8555, 608, 17, 27, "Input",
+ InitializationCell->True],
+Cell[359966, 8574, 467, 13, 27, "Input",
+ InitializationCell->True],
+Cell[360436, 8589, 880, 25, 27, "Input",
+ InitializationCell->True],
+Cell[361319, 8616, 486, 12, 43, "Input",
+ InitializationCell->True],
+Cell[361808, 8630, 770, 19, 43, "Input",
+ InitializationCell->True],
+Cell[362581, 8651, 512, 14, 27, "Input",
+ InitializationCell->True]
+}, Closed]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[363142, 8671, 97, 1, 67, "Section"],
+Cell[363242, 8674, 8242, 220, 463, "Input",
  Evaluatable->False,
  InitializationCell->True]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[359298, 8622, 111, 1, 37, "Section"],
-Cell[359412, 8625, 151, 4, 58, "Input",
- InitializationCell->True]
+Cell[371521, 8899, 111, 1, 37, "Section"],
+Cell[CellGroupData[{
+Cell[371657, 8904, 151, 4, 58, "Input",
+ InitializationCell->True],
+Cell[371811, 8910, 93, 1, 27, "Output"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
@@ -8971,4 +9438,3 @@ Cell[359412, 8625, 151, 4, 58, "Input",
 ]
 *)
 
-(* End of internal cache information *)
