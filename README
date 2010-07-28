@@ -1,5 +1,46 @@
-This is the readme file. 
+#   Copyright 2010 Fernando M. Cucchietti
+#
+#    This file is part of MathMPS
+#
+#    MathMPS is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    MathMPS is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with MathMPS.  If not, see <http://www.gnu.org/licenses/>.
 
-The structure that I am aiming for is having a MathMPS.m file that is 
-loaded into a Mathematica Notebook, and the arpackformps executable
-that is loaded as long as the file is in the same directory.
+Installation:
+
+You should have a copy of all files in the version repository. 
+If you only want to install the MathMPS library to some particular folder issue
+
+make install INSTALLDIR=/your/path/to/the/folder/you/want
+
+This will install the MPS.m file in the directory and an Example.nb worksheet that explains (somewhat) how to use it.
+
+Mathematica has, however, a problem with the routine that finds eigenvectors of 
+large sparse matrix. Therefore, the standard installation will typically be very 
+slow and use too much RAM (because it uses the internal Mathematica functions). 
+This can be solved by installing an external function that solves the eigenvalue problem.
+For this, you must have ARPACK installed in your system (look it up in Google). 
+With ARPACK installed and compiled, you will have a library file typically called 
+libarpack.a. Remember the name between lib and .a, for instance libMyArpack_x64.a 
+will become MyArpack_x64. 
+To compile the program you need a Fortran 95 compiler. Gfortran should do fine,
+but I have tested it only with Inter Fortran Compiler (ifort). If you use gfortran
+or other, you need to edit the ARmake.inc file, and probably the options passed
+to the linker stage.
+You also need to locate the MLink libraries that allow C programs to communicate 
+with the Mathematica Kernel (if you have Mathematica, they will be in a default 
+location). Finally, to compile the fast version of MPS.m you need to issue (all 
+in one line)
+
+make fast MLINKDIR=/dir/to/Mlink MLIBSDIR=/dir/to/Mlink/Libs ARPACKDIR=/dir/to/arpacklibrary ARPACKLIB=MyArpack_x64 
+
+and then issue make install as before.

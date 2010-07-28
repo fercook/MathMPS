@@ -17,11 +17,11 @@ ifeq ($(ARCH),Darwin)
 VERSION=6.0
 MLINKDIR = /Applications/Mathematica.app/SystemFiles/Links/MathLink/DeveloperKit
 SYS = MacOSX-x86-64
-CADDSDIR = ${MLINKDIR}/CompilerAdditions
+MLIBSDIR = ${MLINKDIR}/CompilerAdditions
 EXTRA_CFLAGS = -m32 #-arch i386  #-Wno-long-double 
-INCDIR = ${CADDSDIR}
-LIBDIR = ${CADDSDIR}
-MPREP = ${CADDSDIR}/mprep
+INCDIR = ${MLIBSDIR}
+LIBDIR = ${MLIBSDIR}
+MPREP = ${MLIBSDIR}/mprep
 ARPACKDIR=$(HOME)/ARPACK
 ARPACKlibb=arpack_MAC
 RM=rm
@@ -33,16 +33,17 @@ endif
 
 ifeq ($(ARCH),Linux)
 VERSION=6.0
-MLINKDIR =  #/usr/local/Wolfram/Mathematica/${VERSION}/SystemFiles/Links/MathLink/DeveloperKit
+MLINKDIR = /usr/local/Wolfram/Mathematica/${VERSION}/SystemFiles/Links/MathLink/DeveloperKit
 FFLAGS = -O3 -m64
 SYS = Linux-x86-64
-CADDSDIR = /ICFO/home/fcucchietti/MathematicaLibs#${MLINKDIR}/${SYS}/CompilerAdditions
+MLIBSDIR = ${MLINKDIR}/${SYS}/CompilerAdditions
+#/ICFO/home/fcucchietti/MathematicaLibs
 EXTRA_CFLAGS = -m64 #-arch i386  #-Wno-long-double
-INCDIR = ${CADDSDIR}
-LIBDIR = ${CADDSDIR}
-MPREP = ${CADDSDIR}/mprep
+INCDIR = ${MLIBSDIR}
+LIBDIR = ${MLIBSDIR}
+MPREP = ${MLIBSDIR}/mprep
 ARPACKDIR=$(HOME)/ARPACK
-ARPACKlibb=arpack_X86
+ARPACKLIB=arpack_X86
 RM=rm
 MLINKLIB=ML64i3
 CC=g++
@@ -51,9 +52,9 @@ LINKFLAGS=-nofor-main -lm -lpthread -lrt -lstdc++
 endif
 
 BINARIES=arpackformps_$(SYS)
-DIR=~/numerics/SpinDipolarChain/MPS
+INSTALLDIR=.
 
-all: arpackformps
+fast: arpackformps
 obj: object
 mlink: mathlink
 exec: executable
@@ -69,7 +70,7 @@ mathlink: mathematicatemplate.tm
 	${MPREP} $? -o $@
 
 arpackformps: mathematicatemplatetm.o arpackformps.o FortranArpackDriver.o
-	${LINKER} ${EXTRA_CFLAGS} -I${INCDIR} mathematicatemplatetm.o arpackformps.o FortranArpackDriver.o ${LINKFLAGS} -L${LIBDIR}  -L${ARPACKDIR} -l${ARPACKlibb} -l${MLINKLIB} -o $@_$(SYS)
+	${LINKER} ${EXTRA_CFLAGS} -I${INCDIR} mathematicatemplatetm.o arpackformps.o FortranArpackDriver.o ${LINKFLAGS} -L${LIBDIR}  -L${ARPACKDIR} -l${ARPACKLIB} -l${MLINKLIB} -o $@_$(SYS)
 
 mathematicatemplatetm.c: mathematicatemplate.tm 
 	${MPREP} $? -o $@
@@ -86,7 +87,7 @@ mathematicatemplatetm.o : mathematicatemplatetm.c
 install:
 	cp arpackformps_$(SYS) $(DIR)
 	cp MPS.m $(DIR)
-	cp Loop.m $(DIR)
+	cp Example.nb $(DIR)
 
 clean :
 	@ ${RM} -rf *.o *tm.c $(BINARIES)
