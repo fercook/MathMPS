@@ -539,7 +539,14 @@ interactionsL[n_]:=interactionsL[n]=Table[LProduct[mps[[n]],mps[[n]],interaction
 ];
 (* Start from the left, so prepare all right matrices *)
 
-debugMSG[text_,s_,Am_,energ_]:={{text<>", Site:"<>ToString[s],"\nMPS:",Am[[1]],Am[[2]],"\nInt: ",interactionsL[s-1][[3]],interactionsR[s+1][[3]],"\nh: ",fieldL[s-1][[3]],fieldR[s+1][[3]],"\nOps: ",operatorsL[s-1][[3]],operatorsR[s+1][[3]],"\nelsH: ",HMatrix[[All,Max[1,s-IntRange];;s,Max[1,s-IntRange];;Min[numTensors,s+IntRange]]][[3]],"\nHeff: ",Sort[Diagonal[MPSEffectiveHam[interactionsL[s-1],interactionsR[s+1],fieldL[s-1],fieldR[s+1],operatorsL[s-1],operatorsR[s+1],HMatrix[[All,Max[1,s-IntRange];;s,Max[1,s-IntRange];;Min[numTensors,s+IntRange]]]]]],"\nEnergy: ",energ}};
+debugMSG[text_,s_,Am_,energ_]:={{text<>", Site:"<>ToString[s] ,
+"\nMPS:",Am[[1]],Am[[2]],
+"\nInt: ",interactionsL[s-1][[3]],interactionsR[s+1][[3]],
+"\nh: ",fieldL[s-1][[1]],fieldR[s+1][[1]],
+"\nOps: ",operatorsL[s-1][[3]],operatorsR[s+1][[3]],
+"\nelsH: ",HMatrix[[All,Max[1,s-IntRange];;s,Max[1,s-IntRange];;Min[numTensors,s+IntRange]]][[3]],
+"\nHeff: ",Sort[ Normal[Diagonal[MPSEffectiveHam[interactionsL[s-1],interactionsR[s+1],fieldL[s-1],fieldR[s+1],operatorsL[s-1],operatorsR[s+1],HMatrix[[All,Max[1,s-IntRange];;s,Max[1,s-IntRange];;Min[numTensors,s+IntRange]]]] ] ]] ,
+"\nEnergy: ",energ  }};
 
 defineRight[1];
 While[sweep<sweeps&&stillconverging,
@@ -548,7 +555,7 @@ defineLeft[1];
 canon={{1.}};
 Do[
 If[verbose,NotebookDelete[message];message=PrintTemporary["Right sweep:"<>ToString[sweep]<>", site:"<>ToString[site]<>", Energy:"<>ToString[energy]]];
-If[debug,debuglist=debuglist~Join~debugMSG["Before (Right)",site,canon.#&/@mps[[site]],energy]];
+If[debug,debuglist=debuglist~Join~debugMSG["Before (Right)",site,canon.#&/@ mps[[site]],energy]]; (* *)
 success=False;
 While[!success,
 {energy,new,info}=FindGroundMPSSite[canon.#&/@mps[[site]],interactionsL[site-1],interactionsR[site+1],fieldL[site-1],fieldR[site+1],operatorsL[site-1],operatorsR[site+1],HMatrix[[All,Max[1,site-IntRange];;site,Max[1,site-IntRange];;Min[numTensors,site+IntRange]]]];
@@ -560,7 +567,7 @@ If[!success,Print["Fallen link..."];ClearLink[link];EstablishLink[link];Print["A
 ];
 mps[[site]]=MPSCanonizeSite[new,canon,Direction->"Left",UseMatrix->False]; (* This routine changes canon *)
 If[monitorenergy,energyList=energyList~Join~{{energy/(Conjugate[Flatten[new]].Flatten[new]),info}}];
-If[debug,debuglist=debuglist~Join~debugMSG["After (Right)",site,mps[[site]],energy/(Conjugate[Flatten[new]].Flatten[new])]];
+If[debug,debuglist=debuglist~Join~debugMSG["After (Right)",site,mps[[site]].canon,energy/(Conjugate[Flatten[new]].Flatten[new])]];
 ,{site,1,numTensors}];
 sweep+=0.5;
 (* Sweep to the left clears all right matrices and defines them one by one *)
@@ -568,7 +575,7 @@ defineRight[1];
 canon={{1.}};
 Do[
 If[verbose,NotebookDelete[message];message=PrintTemporary["Left sweep:"<>ToString[sweep]<>", site:"<>ToString[site]<>", Energy:"<>ToString[energy]]];
-If[debug,debuglist=debuglist~Join~debugMSG["Before (Left)",site,mps[[site]].canon,energy]];
+If[debug,debuglist=debuglist~Join~debugMSG["Before (Left)",site,mps[[site]].canon  ,energy]]; (* *)
 success=False;
 While[!success,
 {energy,new,info}=FindGroundMPSSite[mps[[site]].canon,interactionsL[site-1],interactionsR[site+1],fieldL[site-1],fieldR[site+1],operatorsL[site-1],operatorsR[site+1],HMatrix[[All,Max[1,site-IntRange];;site,Max[1,site-IntRange];;Min[numTensors,site+IntRange]]]];
@@ -580,7 +587,7 @@ If[!success,Print["Fallen link..."];ClearLink[link];EstablishLink[link];Print["A
 ];
 mps[[site]]=MPSCanonizeSite[new,canon,UseMatrix->False];
 If[monitorenergy,energyList=energyList~Join~{{energy/(Conjugate[Flatten[new]].Flatten[new]),info}}];
-If[debug,debuglist=debuglist~Join~debugMSG["After (Left)",site,mps[[site]].canon,energy/(Conjugate[Flatten[new]].Flatten[new])]];
+If[debug,debuglist=debuglist~Join~debugMSG["After (Left)",site,canon.#&/@mps[[site]],energy/(Conjugate[Flatten[new]].Flatten[new])]]; (* .canon  *)
 ,{site,numTensors,1,-1}];
 sweep+=0.5;
 If[Abs[(energy-prevEnergy)/energy]<tol,stillconverging=False,prevEnergy=energy];
