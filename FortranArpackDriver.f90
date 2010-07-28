@@ -302,12 +302,12 @@ module ArpackDriver
       !Now add up terms that DO have an operator at the site
 	!Define Pauli matrices
 	sigma=0.0d0
-	sigma(1,2,1)=1.0d0
-	sigma(2,1,1)=1.0d0
-	sigma(1,2,2)=-II
-	sigma(2,1,2)=II
-	sigma(1,1,3)=1.0d0
-	sigma(2,2,3)=-1.0d0
+	sigma(1,2,1)=0.5d0
+	sigma(2,1,1)=0.5d0
+	sigma(1,2,2)=-0.5d0*II
+	sigma(2,1,2)=0.5d0*II
+	sigma(1,1,3)=0.5d0
+	sigma(2,2,3)=-0.5d0
 	do axis=1,3
          ! Multiply matrix by operator
 		Aop=0.0d0
@@ -468,12 +468,12 @@ end module ArpackDriver
 !       !Now add up terms that DO have an operator at the site
 ! 	!Define Pauli matrices
 ! 	sigma=0.0d0
-! 	sigma(1,2,1)=1.0d0
-! 	sigma(2,1,1)=1.0d0
-! 	sigma(1,2,2)=-II
-! 	sigma(2,1,2)=II
-! 	sigma(1,1,3)=1.0d0----------
-! 	sigma(2,2,3)=-1.0d0
+! 	sigma(1,2,1)=0.5d0
+! 	sigma(2,1,1)=0.5d0
+! 	sigma(1,2,2)=-0.5d0*II
+! 	sigma(2,1,2)=0.5d0*II
+! 	sigma(1,1,3)=0.5d0----------
+! 	sigma(2,2,3)=-0.5d0d0
 ! 	do axis=1,3
 !          ! Multiply matrix by operator
 ! 	 Aop=0.0d0
