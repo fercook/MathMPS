@@ -194,7 +194,7 @@ NOTICE this function is still being optimized. As of now, it only creates the li
 TEBDEntropyList::usage="TEBDEntropyList[tebd]   Gives a list of all possible bipartite entropies of the TEBD state"
 
 
-(* ::Section::Closed:: *)
+(* ::Section:: *)
 (*MPS Algorithms*)
 
 
@@ -212,7 +212,7 @@ MPSMaxBond=100;
 ForceUseInternalRoutine=True;
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Auxiliary Functions*)
 
 
@@ -229,7 +229,7 @@ sigma[2]=SparseArray[{{0.0,-I 0.5},{I 0.5,0.0}}];
 sigma[3]=SparseArray[{{0.5,0.0},{0.0,-0.5}}];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Creation and basic manipulation*)
 
 
@@ -356,7 +356,7 @@ Chop[norm]==0
 ];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Expectation values*)
 
 
@@ -388,20 +388,12 @@ Last[MPSCorrelation[mps,operator1,site1,operator2,site2]]
 ];
 
 
-MPSCorrelation[mps_,operator1_,site1_Integer,operator2_,site2_Integer]:=Module[{L,R,Lo,numTensors,siteL,siteR,opL,opR,NormalOrder,corr},
+MPSCorrelation[mps_,operator1_,site1_Integer,operator2_,site2_Integer]:=Module[{L,R,Ro,Lo,numTensors,siteL,siteR,opL,opR,NormalOrder,corr},
 numTensors=Length[mps];
 Which[
 0<site1<site2<numTensors+1,
 {siteL,siteR}={site1,site2};
 {opL,opR}={operator1,operator2};
-NormalOrder=True;
-,0<site2<site1<numTensors+1,
-{siteL,siteR}={site2,site1};
-{opL,opR}={operator2,operator1};
-NormalOrder=False;
-,True,
-Print["MPSCorrelation called with wrong sites"];Abort[];
-];
 R[numTensors+1]={{1}};
 R[n_]:=R[n]=RProduct[mps[[n]],mps[[n]],R[n+1]];
 L[0]={{1}};
@@ -411,7 +403,23 @@ Lo[n_]:=Lo[n]=LProduct[mps[[n]],mps[[n]],Lo[n-1]];
 corr=Table[
 Chop[Flatten[Lo[site-1]].MPSSiteOperator[mps[[site]],opR].Flatten[ R[site+1]]]
 ,{site,siteL+1,siteR}];
-If[NormalOrder,corr,Reverse[corr]]
+,0<site2<site1<numTensors+1,
+{siteL,siteR}={site2,site1};
+{opL,opR}={operator2,operator1};
+R[numTensors+1]={{1}};
+R[n_]:=R[n]=RProduct[mps[[n]],mps[[n]],R[n+1]];
+Ro[siteR]=RProduct[opR.mps[[siteR]],mps[[siteR]],R[siteR+1]];
+Ro[n_]:=Ro[n]=RProduct[mps[[n]],mps[[n]],Ro[n+1]];
+L[0]={{1}};
+L[n_]:=L[n]=LProduct[mps[[n]],mps[[n]],L[n-1]];
+corr=Table[
+Chop[Flatten[L[site-1]].MPSSiteOperator[mps[[site]],opR].Flatten[ Ro[site+1]]]
+,{site,siteL,siteR-1}];
+corr=Reverse[corr];
+,True,
+Print["MPSCorrelation called with wrong sites"];Abort[];
+];
+corr
 ];
 
 
@@ -456,11 +464,11 @@ MPS
 ];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Algorithms*)
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*Approximation*)
 
 
@@ -519,7 +527,7 @@ newmps
 ];
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*Energy minimization*)
 
 
